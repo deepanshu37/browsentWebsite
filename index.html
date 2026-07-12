@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browsent — Design-First Engineering Consultancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scroll-driven frame background -->
+  <div class="frame-bg" id="frameBg" aria-hidden="true">
+    <div class="frame-overlay"></div>
+  </div>
+
+  <!-- Loading screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-mark"></span>
+      <span class="loader-text">Browsent</span>
+      <span class="loader-bar"><i></i></span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand" aria-label="Browsent home">
+        <span class="brand-mark">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
+            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+            <defs>
+              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#5b54e3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Browsent</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#work" class="nav-link"><span class="nav-label">Deployments</span><span class="nav-ind"></span></a>
+        <a href="#problem" class="nav-link"><span class="nav-label">Problem</span><span class="nav-ind"></span></a>
+        <a href="#philosophy" class="nav-link"><span class="nav-label">Philosophy</span><span class="nav-ind"></span></a>
+        <a href="#failures" class="nav-link"><span class="nav-label">Why Systems Fail</span><span class="nav-ind"></span></a>
+        <a href="#contact" class="nav-link"><span class="nav-label">Contact</span><span class="nav-ind"></span></a>
+      </nav>
+      <a href="#contact" class="btn btn-primary nav-cta">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SECTION 1: HERO -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-main">
+          <span class="hero-eyebrow" data-reveal="fade">Design-First Engineering</span>
+          <h1 class="hero-title" data-reveal="up">
+            Understand Business.<br>
+            Design the Flow.<br>
+            <span class="hero-title-accent">Build Systems.</span>
+          </h1>
+          <p class="hero-sub" data-reveal="up" data-delay="200">
+            We are a design-first engineering consultancy. From cognitive mapping to technical execution, we architect systems where business strategy meets structural integrity. Every layer — engineered for growth.
+          </p>
+          <div class="hero-actions" data-reveal="up" data-delay="400">
+            <a href="#contact" class="btn btn-primary">Book a strategy call</a>
+            <a href="#work" class="btn btn-ghost">
+              See deployments
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <aside class="hero-metrics" data-reveal="fade" data-delay="600">
+          <div class="metric">
+            <span class="metric-value" data-count="120" data-suffix="+">0</span>
+            <span class="metric-label">Systems shipped</span>
+          </div>
+          <div class="metric-div"></div>
+          <div class="metric">
+            <span class="metric-value" data-count="99.98" data-suffix="%">0</span>
+            <span class="metric-label">Uptime maintained</span>
+          </div>
+          <div class="metric-div"></div>
+          <div class="metric">
+            <span class="metric-value" data-count="14" data-suffix="">0</span>
+            <span class="metric-label">Industries served</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <!-- <div class="hero-visual" aria-hidden="true">
+      <div class="hero-orb">
+        <div class="hero-orb-ring hero-orb-ring-1"></div>
+        <div class="hero-orb-ring hero-orb-ring-2"></div>
+        <div class="hero-orb-ring hero-orb-ring-3"></div>
+        <div class="hero-orb-core"></div>
+        <div class="hero-node hn-1"></div>
+        <div class="hero-node hn-2"></div>
+        <div class="hero-node hn-3"></div>
+        <div class="hero-node hn-4"></div>
+        <div class="hero-node hn-5"></div>
+      </div>
+      <div class="hero-lines">
+        <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="none">
+          <path class="hl-1" d="M0,100 Q50,20 100,100 T200,100" stroke="rgba(108,99,255,0.12)" stroke-width="0.5" fill="none"/>
+          <path class="hl-2" d="M0,120 Q50,40 100,120 T200,120" stroke="rgba(108,99,255,0.08)" stroke-width="0.5" fill="none"/>
+          <path class="hl-3" d="M0,80 Q50,160 100,80 T200,80" stroke="rgba(108,99,255,0.08)" stroke-width="0.5" fill="none"/>
+        </svg>
+      </div>
+    </div> -->
+    <!-- <div class="hero-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Precision Engineering</span><span class="m-dot">◆</span>
+        <span>Systems Architecture</span><span class="m-dot">◆</span>
+        <span>Zero-Downtime Deploy</span><span class="m-dot">◆</span>
+        <span>Enterprise Reliability</span><span class="m-dot">◆</span>
+        <span>Platform Engineering</span><span class="m-dot">◆</span>
+        <span>Observability</span><span class="m-dot">◆</span>
+        <span>Precision Engineering</span><span class="m-dot">◆</span>
+        <span>Systems Architecture</span><span class="m-dot">◆</span>
+        <span>Zero-Downtime Deploy</span><span class="m-dot">◆</span>
+        <span>Enterprise Reliability</span><span class="m-dot">◆</span>
+        <span>Platform Engineering</span><span class="m-dot">◆</span>
+        <span>Observability</span><span class="m-dot">◆</span>
+      </div>
+    </div> -->
+  </section>
+  <section class="hero-marquee-section">
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Design-First Engineering</span><span class="m-dot">◆</span>
+      <span>Cognitive Mapping</span><span class="m-dot">◆</span>
+      <span>Technical Synergy</span><span class="m-dot">◆</span>
+      <span>Systems Architecture</span><span class="m-dot">◆</span>
+      <span>UX Engineering</span><span class="m-dot">◆</span>
+      <span>Business-Driven Development</span><span class="m-dot">◆</span>
+      <span>Design-First Engineering</span><span class="m-dot">◆</span>
+      <span>Cognitive Mapping</span><span class="m-dot">◆</span>
+      <span>Technical Synergy</span><span class="m-dot">◆</span>
+      <span>Systems Architecture</span><span class="m-dot">◆</span>
+      <span>UX Engineering</span><span class="m-dot">◆</span>
+      <span>Business-Driven Development</span><span class="m-dot">◆</span>
+    </div>
+  </div>
+  </section>
+  <!-- SECTION 2: SELECTED DEPLOYMENTS -->
+  <section class="work" id="work">
+    <div class="container">
+      <header class="section-head" data-reveal="fade">
+        <span class="eyebrow">Selected Deployments</span>
+        <h2>Real systems. Real impact. Real growth.</h2>
+        <p class="section-desc">Case studies where design-first engineering delivered measurable business outcomes.</p>
+      </header>
+
+      <div class="work-grid" id="workGrid">
+        <article class="work-card" data-reveal="up" data-delay="0">
+          <div class="work-card-visual" style="--accent:#6c63ff">
+            <div class="work-card-art">
+              <div class="wca-grid"></div>
+              <div class="wca-dots"></div>
+              <span class="wca-arrow">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="rgba(108,99,255,0.3)" stroke-width="1"/><path d="M10 22L22 10M22 10H14M22 10v8" stroke="#6c63ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <span class="work-card-tag">Fintech</span>
+          </div>
+          <div class="work-card-body">
+            <h3>Neobank Consumer Ecosystem</h3>
+            <p>End-to-end digital banking experience architected from user journey mapping through backend systems. 40% increase in retention across 200K active users.</p>
+            <div class="work-card-meta">
+              <span class="meta-stack">Go · Kafka · React</span>
+              <span class="meta-perf">40% increase in retention</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card" data-reveal="up" data-delay="150">
+          <div class="work-card-visual" style="--accent:#5b54e3">
+            <div class="work-card-art">
+              <div class="wca-grid"></div>
+              <div class="wca-lines">
+                <svg width="100%" height="100%" viewBox="0 0 200 120"><path d="M20 60 L80 20 L120 60 L180 30" stroke="#6c63ff" stroke-width="1.5" opacity="0.5" fill="none"/><path d="M20 80 L80 100 L120 80 L180 90" stroke="#6c63ff" stroke-width="1" opacity="0.3" fill="none"/><circle cx="20" cy="60" r="4" fill="#6c63ff" opacity="0.6"/><circle cx="80" cy="20" r="4" fill="#6c63ff" opacity="0.6"/><circle cx="120" cy="60" r="4" fill="#6c63ff" opacity="0.6"/><circle cx="180" cy="30" r="4" fill="#6c63ff" opacity="0.6"/></svg>
+              </div>
+            </div>
+            <span class="work-card-tag">Industrial</span>
+          </div>
+          <div class="work-card-body">
+            <h3>IoT Predictive Analytics</h3>
+            <p>Real-time sensor data platform processing 2M events/second with millisecond-level precision for predictive maintenance across 12 manufacturing facilities.</p>
+            <div class="work-card-meta">
+              <span class="meta-stack">Rust · gRPC · InfluxDB</span>
+              <span class="meta-perf">Millisecond-level precision</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card" data-reveal="up" data-delay="300">
+          <div class="work-card-visual" style="--accent:#8b83ff">
+            <div class="work-card-art">
+              <div class="wca-grid"></div>
+              <div class="wca-nodes">
+                <svg width="100%" height="100%" viewBox="0 0 200 120"><circle cx="40" cy="60" r="24" stroke="rgba(108,99,255,0.2)" stroke-width="1" fill="none"/><circle cx="40" cy="60" r="10" fill="#6c63ff" opacity="0.5"/><circle cx="120" cy="40" r="24" stroke="rgba(108,99,255,0.2)" stroke-width="1" fill="none"/><circle cx="120" cy="40" r="10" fill="#6c63ff" opacity="0.4"/><circle cx="160" cy="80" r="24" stroke="rgba(108,99,255,0.2)" stroke-width="1" fill="none"/><circle cx="160" cy="80" r="10" fill="#6c63ff" opacity="0.4"/><line x1="64" y1="60" x2="96" y2="40" stroke="#6c63ff" stroke-width="1" opacity="0.4"/><line x1="140" y1="40" x2="140" y2="80" stroke="#6c63ff" stroke-width="1" opacity="0.4"/></svg>
+              </div>
+            </div>
+            <span class="work-card-tag">Retail</span>
+          </div>
+          <div class="work-card-body">
+            <h3>Enterprise Commerce Platform</h3>
+            <p>Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy across 50+ microservices driving 3x conversion uplift.</p>
+            <div class="work-card-meta">
+              <span class="meta-stack">Node · GraphQL · K8s</span>
+              <span class="meta-perf">3x conversion uplift</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card" data-reveal="up" data-delay="450">
+          <div class="work-card-visual" style="--accent:#7c75ff">
+            <div class="work-card-art">
+              <div class="wca-grid"></div>
+              <div class="wca-code">
+                <svg width="100%" height="100%" viewBox="0 0 200 120"><rect x="30" y="20" rx="2" width="140" height="5" fill="rgba(108,99,255,0.12)"/><rect x="30" y="32" rx="2" width="100" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="44" rx="2" width="120" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="64" rx="2" width="140" height="5" fill="rgba(108,99,255,0.12)"/><rect x="30" y="76" rx="2" width="80" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="88" rx="2" width="110" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="108" rx="2" width="130" height="5" fill="rgba(108,99,255,0.12)"/></svg>
+              </div>
+            </div>
+            <span class="work-card-tag">Logistics</span>
+          </div>
+          <div class="work-card-body">
+            <h3>Supply Chain Intelligence</h3>
+            <p>Integrated logistics platform unifying 200+ partner APIs with real-time inventory intelligence and predictive routing, reducing operational costs by 25%.</p>
+            <div class="work-card-meta">
+              <span class="meta-stack">TypeScript · Terraform · AWS</span>
+              <span class="meta-perf">25% cost reduction</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: THE PROBLEM -->
+  <section class="problem" id="problem">
+    <div class="container">
+      <header class="section-head section-head-left" data-reveal="fade">
+        <span class="eyebrow">The Problem</span>
+        <h2>Most agencies design for aesthetics. Rarely do they engineer for <em>business outcomes</em>.</h2>
+      </header>
+
+      <figure class="section-figure" aria-hidden="true">
+        <svg viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+          <g class="sf-network" stroke="rgba(108,99,255,0.25)" stroke-width="0.8">
+            <line x1="30" y1="30" x2="80" y2="20"/>
+            <line x1="80" y1="20" x2="110" y2="50"/>
+            <line x1="30" y1="30" x2="60" y2="60"/>
+            <line x1="60" y1="60" x2="110" y2="50"/>
+            <line x1="80" y1="20" x2="100" y2="80"/>
+            <line x1="110" y1="50" x2="155" y2="45"/>
+            <line x1="155" y1="45" x2="200" y2="30"/>
+          </g>
+          <g class="sf-nodes-main" fill="rgba(108,99,255,0.4)">
+            <circle cx="30" cy="30" r="3" class="sf-node"/>
+            <circle cx="80" cy="20" r="3" class="sf-node"/>
+            <circle cx="110" cy="50" r="3" class="sf-node"/>
+            <circle cx="60" cy="60" r="3" class="sf-node"/>
+          </g>
+          <path class="sf-crack" d="M100 80 L120 95 L115 110 L135 125" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          <g class="sf-crack-ghost" stroke="var(--accent)" stroke-width="0.8" stroke-dasharray="4 4">
+            <line x1="100" y1="80" x2="120" y2="95"/>
+            <line x1="120" y1="95" x2="115" y2="110"/>
+            <line x1="115" y1="110" x2="135" y2="125"/>
+          </g>
+          <g fill="var(--accent)">
+            <circle cx="155" cy="45" r="3" class="sf-node-d sf-d-1"/>
+            <circle cx="200" cy="30" r="3" class="sf-node-d sf-d-2"/>
+          </g>
+          <g class="sf-network-dead" stroke="rgba(255,255,255,0.15)" stroke-width="0.8">
+            <line x1="155" y1="45" x2="180" y2="55"/>
+            <line x1="180" y1="55" x2="210" y2="50"/>
+            <line x1="180" y1="55" x2="175" y2="80"/>
+            <line x1="200" y1="30" x2="220" y2="20"/>
+          </g>
+          <g class="sf-nodes-dead" fill="rgba(255,255,255,0.2)">
+            <circle cx="180" cy="55" r="3" class="sf-node"/>
+            <circle cx="210" cy="50" r="3" class="sf-node"/>
+            <circle cx="175" cy="80" r="3" class="sf-node"/>
+            <circle cx="220" cy="20" r="3" class="sf-node"/>
+          </g>
+        </svg>
+      </figure>
+
+      <div class="problem-layout">
+        <div class="problem-copy" data-reveal="slide-left">
+          <p>The digital marketplace is crowded with beautiful interfaces backed by brittle systems. Poor user journeys fragment experiences. Slow performance kills engagement. Weak backend systems fail under pressure. And without a conversion strategy, traffic never becomes revenue.</p>
+          <p>We bridge the gap between <strong>design that delights</strong> and <strong>engineering that endures</strong>. Every engagement starts with understanding your business — then architecting the complete experience from user flow to system core.</p>
+        </div>
+
+        <div class="problem-steps" data-reveal="slide-right">
+          <div class="p-step">
+            <span class="p-step-num">01</span>
+            <div>
+              <h4>Understand the Business</h4>
+              <p>Map user journeys, revenue flows, and system dependencies before writing a single line of code.</p>
+            </div>
+          </div>
+          <div class="p-step">
+            <span class="p-step-num">02</span>
+            <div>
+              <h4>Design the Flow</h4>
+              <p>Apply cognitive mapping and technical synergy to create a strategic blueprint for the complete experience.</p>
+            </div>
+          </div>
+          <div class="p-step">
+            <span class="p-step-num">03</span>
+            <div>
+              <h4>Build the System</h4>
+              <p>Engineer with structural integrity — systems that scale, recover, and perform under any condition.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="problem-diagram" data-reveal="scale">
+        <div class="diagram">
+          <div class="diagram-layer d-layer-1">
+            <span class="diagram-label">Business Logic</span>
+            <div class="diagram-bars">
+              <span class="d-bar"><i style="--w:88%"></i></span>
+              <span class="d-bar"><i style="--w:64%"></i></span>
+              <span class="d-bar"><i style="--w:76%"></i></span>
+              <span class="d-bar"><i style="--w:92%"></i></span>
+            </div>
+          </div>
+          <div class="diagram-connector">
+            <svg width="100%" height="20" viewBox="0 0 200 20"><line x1="10" y1="10" x2="190" y2="10" stroke="rgba(108,99,255,0.06)" stroke-width="1"/><circle cx="20" cy="10" r="2" fill="#6c63ff" opacity="0.4"/><circle cx="80" cy="10" r="2" fill="#6c63ff" opacity="0.4"/><circle cx="140" cy="10" r="2" fill="#6c63ff" opacity="0.4"/></svg>
+          </div>
+          <div class="diagram-layer d-layer-2">
+            <span class="diagram-label">System Layer</span>
+            <div class="diagram-pipes">
+              <span class="d-pipe"></span>
+              <span class="d-pipe"></span>
+              <span class="d-pipe"></span>
+              <span class="d-pipe"></span>
+            </div>
+          </div>
+          <div class="diagram-connector">
+            <svg width="100%" height="20" viewBox="0 0 200 20"><line x1="10" y1="10" x2="190" y2="10" stroke="rgba(108,99,255,0.06)" stroke-width="1"/><circle cx="50" cy="10" r="2" fill="#6c63ff" opacity="0.4"/><circle cx="100" cy="10" r="2" fill="#6c63ff" opacity="0.4"/><circle cx="150" cy="10" r="2" fill="#6c63ff" opacity="0.4"/></svg>
+          </div>
+          <div class="diagram-layer d-layer-3">
+            <span class="diagram-label">Reliability Core</span>
+            <div class="diagram-core"></div>
+          </div>
+          <div class="diagram-fault" aria-hidden="true">
+            <svg width="100%" height="100%" viewBox="0 0 300 200">
+              <path class="fault-line" d="M0,100 L80,100 L120,40 L160,160 L200,80 L240,120 L300,100" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+              <circle class="fault-dot" cx="120" cy="40" r="3" fill="#ef4444"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: ENGINEERING PHILOSOPHY -->
+  <section class="philosophy" id="philosophy">
+    <div class="container">
+      <header class="section-head" data-reveal="fade">
+        <span class="eyebrow">Architecture of the User Experience</span>
+        <h2>Design as a strategic blueprint.</h2>
+        <p class="section-desc">We frame every interaction as architecture — not aesthetics. Every touchpoint engineered for clarity, purpose, and business impact.</p>
+      </header>
+
+      <div class="phil-timeline">
+        <div class="phil-item" data-reveal="up" data-delay="0">
+          <div class="phil-num">
+            <span>01</span>
+            <div class="phil-line-v"></div>
+          </div>
+          <div class="phil-content">
+            <div class="phil-head">
+              <span class="phil-tag">Cognitive Mapping</span>
+              <h3>Understanding every decision path</h3>
+            </div>
+            <p>We map every user touchpoint, decision path, and business outcome before architecture begins. The experience is the product. Code is just the execution.</p>
+          </div>
+        </div>
+
+        <div class="phil-item" data-reveal="up" data-delay="150">
+          <div class="phil-num">
+            <span>02</span>
+            <div class="phil-line-v"></div>
+          </div>
+          <div class="phil-content">
+            <div class="phil-head">
+              <span class="phil-tag">Technical Synergy</span>
+              <h3>Where design meets engineering</h3>
+            </div>
+            <p>Design philosophy and engineering rigor converge to create seamless system integration. Form and function, perfectly aligned for performance and scale.</p>
+          </div>
+        </div>
+
+        <div class="phil-item" data-reveal="up" data-delay="300">
+          <div class="phil-num">
+            <span>03</span>
+            <div class="phil-line-v"></div>
+          </div>
+          <div class="phil-content">
+            <div class="phil-head">
+              <span class="phil-tag">Experience Architecture</span>
+              <h3>Structuring information flow</h3>
+            </div>
+            <p>Information architecture that guides users intuitively toward their goals. Every interaction has intent. Every screen has purpose. Every flow drives conversion.</p>
+          </div>
+        </div>
+
+        <div class="phil-item" data-reveal="up" data-delay="450">
+          <div class="phil-num">
+            <span>04</span>
+            <div class="phil-line-v"></div>
+          </div>
+          <div class="phil-content">
+            <div class="phil-head">
+              <span class="phil-tag">Strategic Blueprint</span>
+              <h3>Designing for what's next</h3>
+            </div>
+            <p>Systems architected to bend instead of break under pressure. Scalable by construction, resilient by design, and engineered for the next order of magnitude growth.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phil-arch" data-reveal="scale">
+        <div class="arch">
+          <div class="arch-layer arch-l1">
+            <span class="arch-label">Presentation</span>
+            <div class="arch-blocks">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="arch-arrow">
+            <svg width="20" height="16" viewBox="0 0 20 16"><path d="M10 0v12M4 6l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="arch-layer arch-l2">
+            <span class="arch-label">Application</span>
+            <div class="arch-blocks">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="arch-arrow">
+            <svg width="20" height="16" viewBox="0 0 20 16"><path d="M10 0v12M4 6l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="arch-layer arch-l3">
+            <span class="arch-label">Data</span>
+            <div class="arch-blocks">
+              <span></span><span></span>
+            </div>
+          </div>
+          <div class="arch-arrow">
+            <svg width="20" height="16" viewBox="0 0 20 16"><path d="M10 0v12M4 6l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="arch-layer arch-l4">
+            <span class="arch-label">Infrastructure</span>
+            <div class="arch-blocks">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: WHY SYSTEMS FAIL -->
+  <section class="failures" id="failures">
+    <div class="container">
+      <header class="section-head" data-reveal="fade">
+        <span class="eyebrow">Why Systems Fail?</span>
+        <h2>Four foundational risks we eliminate.</h2>
+        <p class="section-desc">Industry pain points that undermine even the most well-funded digital products — and how we solve them.</p>
+      </header>
+
+      <div class="fail-grid">
+        <article class="fail-card" data-reveal="scale" data-delay="0">
+          <div class="fail-card-head">
+            <span class="fail-num">01</span>
+            <span class="fail-pct" style="--pct-clr:#ef4444">68%</span>
+          </div>
+          <h3>Poor User Journeys</h3>
+          <p>Fragmented experiences that confuse users, increase bounce rates, and erode brand trust before the first conversion happens.</p>
+          <div class="fail-bar"><i style="--w:68%"></i></div>
+          <span class="fail-bar-label">Of engagements show this pattern</span>
+        </article>
+
+        <article class="fail-card" data-reveal="scale" data-delay="150">
+          <div class="fail-card-head">
+            <span class="fail-num">02</span>
+            <span class="fail-pct" style="--pct-clr:#f59e0b">74%</span>
+          </div>
+          <h3>Slow Performance</h3>
+          <p>Latency that kills engagement, drops revenue, and frustrates users at every interaction point. Every millisecond lost is a customer that leaves.</p>
+          <div class="fail-bar"><i style="--w:74%"></i></div>
+          <span class="fail-bar-label">Of engagements show this pattern</span>
+        </article>
+
+        <article class="fail-card" data-reveal="scale" data-delay="300">
+          <div class="fail-card-head">
+            <span class="fail-num">03</span>
+            <span class="fail-pct" style="--pct-clr:#f59e0b">71%</span>
+          </div>
+          <h3>Weak Backend Systems</h3>
+          <p>Brittle infrastructure that crumbles under load, creating outages when your business needs reliability most. Revenue stops when the stack stops.</p>
+          <div class="fail-bar"><i style="--w:71%"></i></div>
+          <span class="fail-bar-label">Of engagements show this pattern</span>
+        </article>
+
+        <article class="fail-card" data-reveal="scale" data-delay="450">
+          <div class="fail-card-head">
+            <span class="fail-num">04</span>
+            <span class="fail-pct" style="--pct-clr:#22c55e">63%</span>
+          </div>
+          <h3>No Conversion Strategy</h3>
+          <p>Beautiful interfaces that drive traffic but lack the psychological and technical architecture to turn visitors into paying customers.</p>
+          <div class="fail-bar"><i style="--w:63%"></i></div>
+          <span class="fail-bar-label">Of engagements show this pattern</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <header class="section-head" data-reveal="fade">
+        <span class="eyebrow">Trusted by Leaders</span>
+        <h2>What our partners say.</h2>
+      </header>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card" data-reveal="up" data-delay="0">
+          <p>"Browsent's systematic approach transformed how we think about our product. They don't just build software — they architect business growth from the ground up."</p>
+          <footer>
+            <strong>Michael Chen</strong>
+            <span>CTO, Finova Capital</span>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial-card" data-reveal="up" data-delay="150">
+          <p>"We needed software that never fails. Browsent delivered a system that hasn't had a single incident in 18 months of production — and our team actually understands how it works."</p>
+          <footer>
+            <strong>Sarah Mitchell</strong>
+            <span>Founder & CEO, Relay Health</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-layout">
+      <div class="contact-copy" data-reveal="slide-left">
+        <span class="eyebrow">Engineered for Growth</span>
+        <h2>Design-first engineering. Systems that never fail.</h2>
+        <p>Tell us what you're building. We'll come back with a strategic blueprint, a systems architecture, and a growth plan engineered from the user experience inward.</p>
+        <div class="contact-channels">
+          <a href="mailto:hello@browsent.com" class="contact-channel">
+            <span class="cc-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="3" width="15" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 5L9 10.5L16.5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </span>
+            <span class="cc-text">
+              <span class="cc-label">Email</span>
+              <span class="cc-value">hello@browsent.com</span>
+            </span>
+          </a>
+          <a href="tel:+10000000000" class="contact-channel">
+            <span class="cc-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M15.5 12.5l-3-1.5-2 2-4-4 2-2-1.5-3-3 1.5C2 8 4 12 6 14s6 4 7.5 1.5l2-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="cc-text">
+              <span class="cc-label">Call</span>
+              <span class="cc-value">+1 (000) 000-0000</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate data-reveal="slide-right">
+        <div class="cf-header">
+          <span class="cf-indicator"></span>
+          <span class="cf-title">Send a message</span>
+        </div>
+        <div class="cf-field">
+          <label for="name">Name <span class="cf-req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Jane Doe" required autocomplete="name">
+          <span class="cf-focus"></span>
+        </div>
+        <div class="cf-field">
+          <label for="email">Email <span class="cf-req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email">
+          <span class="cf-focus"></span>
+        </div>
+        <div class="cf-field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company Inc." autocomplete="organization">
+          <span class="cf-focus"></span>
+        </div>
+        <div class="cf-field cf-field-textarea">
+          <label for="message">What are you building?</label>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about the system, scale, and timeline." required></textarea>
+          <span class="cf-focus"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <p class="cf-note" id="formNote" hidden>Thanks — we'll reply within one business day.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- SECTION 7: FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main" data-reveal="fade">
+        <div class="footer-brand">
+          <a href="#hero" class="brand" aria-label="Browsent home">
+            <span class="brand-mark">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
+                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+                <defs>
+                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
+                    <stop stop-color="#6c63ff"/>
+                    <stop offset="1" stop-color="#5b54e3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-name">Browsent</span>
+          </a>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+        </div>
+        <div class="footer-closing">
+          <span class="footer-statement">Engineered for Growth.</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#work">Deployments</a>
+          <a href="#problem">Problem</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#failures">Why systems fail</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@browsent.com">hello@browsent.com</a>
+          <a href="tel:+10000000000">+1 (000) 000-0000</a>
+        </div>
+        <div class="footer-col">
+          <h5>Elsewhere</h5>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#">X</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© <span id="year"></span> Browsent. All rights reserved.</span>
+        <span class="footer-badge">Precision engineered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
