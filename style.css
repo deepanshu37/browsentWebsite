@@ -13,7 +13,7 @@
   --accent: #6c63ff;
   --dark: #ffffff;
   --dark-secondary: #c8c8d0;
-  --dark-muted: #8888a0;
+  --dark-muted: #c1c1df;
   --light: #0a0a10;
   --light-mid: #14141e;
   --white: #ffffff;
@@ -1348,23 +1348,24 @@ section{
   transition:all 0.3s var(--ease-out);
 }
 
-.arch-l1 .arch-blocks span:nth-child(1){width:40px}
-.arch-l1 .arch-blocks span:nth-child(2){width:50px}
-.arch-l1 .arch-blocks span:nth-child(3){width:35px}
+.arch-l1 .arch-blocks{justify-content:flex-start}
+.arch-l1 .arch-blocks span:nth-child(1){flex:4;max-width:50px}
+.arch-l1 .arch-blocks span:nth-child(2){flex:5;max-width:60px}
+.arch-l1 .arch-blocks span:nth-child(3){flex:3.5;max-width:45px}
 
-.arch-l2 .arch-blocks span:nth-child(1){width:45px}
-.arch-l2 .arch-blocks span:nth-child(2){width:55px}
-.arch-l2 .arch-blocks span:nth-child(3){width:40px}
-.arch-l2 .arch-blocks span:nth-child(4){width:30px}
+.arch-l2 .arch-blocks span:nth-child(1){flex:4.5;max-width:55px}
+.arch-l2 .arch-blocks span:nth-child(2){flex:5.5;max-width:65px}
+.arch-l2 .arch-blocks span:nth-child(3){flex:4;max-width:50px}
+.arch-l2 .arch-blocks span:nth-child(4){flex:3;max-width:40px}
 
-.arch-l3 .arch-blocks span:nth-child(1){width:60px}
-.arch-l3 .arch-blocks span:nth-child(2){width:40px}
+.arch-l3 .arch-blocks span:nth-child(1){flex:6;max-width:70px}
+.arch-l3 .arch-blocks span:nth-child(2){flex:4;max-width:50px}
 
-.arch-l4 .arch-blocks span:nth-child(1){width:35px}
-.arch-l4 .arch-blocks span:nth-child(2){width:50px}
-.arch-l4 .arch-blocks span:nth-child(3){width:45px}
-.arch-l4 .arch-blocks span:nth-child(4){width:30px}
-.arch-l4 .arch-blocks span:nth-child(5){width:40px}
+.arch-l4 .arch-blocks span:nth-child(1){flex:3.5;max-width:45px}
+.arch-l4 .arch-blocks span:nth-child(2){flex:5;max-width:60px}
+.arch-l4 .arch-blocks span:nth-child(3){flex:4.5;max-width:55px}
+.arch-l4 .arch-blocks span:nth-child(4){flex:3;max-width:40px}
+.arch-l4 .arch-blocks span:nth-child(5){flex:4;max-width:50px}
 
 .arch-layer:hover .arch-blocks span{
   opacity:0.5;
@@ -1673,15 +1674,15 @@ section{
   -webkit-backdrop-filter:blur(24px) saturate(1.2);
   border-top:var(--glass-border);
   box-shadow:0 -8px 32px rgba(108,99,255,0.04);
-  padding-top:64px;
+  padding-top:40px;
 }
 
 .footer-main{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
-  gap:48px;
-  padding-bottom:48px;
+  gap:32px;
+  padding-bottom:32px;
   border-bottom:1px solid rgba(108,99,255,0.06);
 }
 
@@ -1690,7 +1691,7 @@ section{
 }
 
 .footer-brand .brand{
-  margin-bottom:12px;
+  margin-bottom:8px;
 }
 
 .footer-brand > p{
@@ -1716,14 +1717,14 @@ section{
 .footer-nav{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:40px;
-  padding:48px 0;
+  gap:32px;
+  padding:32px 0;
 }
 
 .footer-col{
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:8px;
 }
 
 .footer-col a{
@@ -1740,7 +1741,7 @@ section{
 
 .footer-bar{
   border-top:1px solid rgba(108,99,255,0.06);
-  padding:20px 0;
+  padding:14px 0;
 }
 
 .footer-bar-inner{
@@ -1846,9 +1847,88 @@ section{
 }
 
 /* ============================================= */
-/*  RESPONSIVE                                   */
+/*  RESPONSIVE — Deeply Adaptive                 */
+/*  Breakpoints: 1400 · 1100 · 900 · 700 · 500 · 360 */
 /* ============================================= */
 
+/* --- Large Desktops (1400px+) --- */
+@media(min-width:1400px){
+  .container{
+    max-width:1280px;
+  }
+
+  .hero-title{
+    font-size:clamp(36px,4.2vw,78px);
+  }
+
+  .hero-layout{
+    grid-template-columns:1fr 320px;
+    gap:64px;
+  }
+
+  .hero-metrics{
+    padding:36px 32px;
+  }
+
+  .metric-value{
+    font-size:40px;
+  }
+
+  .hero-sub{
+    max-width:580px;
+  }
+
+  .work-grid,.fail-grid{
+    gap:24px;
+  }
+
+  .work-card-visual{
+    height:160px;
+  }
+
+  .section-head{
+    margin-bottom:64px;
+  }
+
+  .testimonial-grid{
+    max-width:1000px;
+    gap:32px;
+  }
+
+  .footer-nav{
+    gap:60px;
+  }
+}
+
+/* --- Extra Large (1600px+) --- */
+@media(min-width:1600px){
+  .container{
+    max-width:1400px;
+  }
+
+  .hero-title{
+    font-size:clamp(36px,3.8vw,86px);
+  }
+
+  .hero-layout{
+    grid-template-columns:1fr 360px;
+    gap:80px;
+  }
+
+  .hero-metrics{
+    padding:44px 36px;
+  }
+
+  .metric-value{
+    font-size:44px;
+  }
+
+  .work-grid,.fail-grid{
+    gap:28px;
+  }
+}
+
+/* --- Desktop / Tablet Landscape (max 1100px) --- */
 @media(max-width:1100px){
   .work-grid{
     grid-template-columns:repeat(2,1fr);
@@ -1869,14 +1949,28 @@ section{
     right:-10%;
     opacity:0.5;
   }
+
+  .hero-title{
+    font-size:clamp(30px,4.8vw,56px);
+  }
+
+  h2{
+    font-size:clamp(24px,3.2vw,40px);
+  }
+
+  .testimonial-grid{
+    max-width:100%;
+  }
 }
 
+/* --- Tablet (max 900px) --- */
 @media(max-width:900px){
   .nav-links{
     position:fixed;
     top:0;
     right:-100%;
     width:320px;
+    max-width:85vw;
     height:100vh;
     flex-direction:column;
     align-items:stretch;
@@ -1899,6 +1993,9 @@ section{
   .nav-link{
     padding:14px 16px;
     font-size:16px;
+    min-height:48px;
+    display:flex;
+    align-items:center;
   }
 
   .nav-toggle{
@@ -1915,14 +2012,13 @@ section{
   }
 
   .hero-metrics{
-    flex-direction:row;
+    flex-direction:column;
     padding:20px;
-    order:-1;
   }
 
   .metric-div{
-    width:1px;
-    height:40px;
+    width:100%;
+    height:1px;
   }
 
   .hero-visual{
@@ -1960,20 +2056,39 @@ section{
   .phil-arch{
     max-width:100%;
   }
+
+  .diagram-label{
+    width:100px;
+    font-size:12px;
+  }
+
+  .arch-label{
+    width:85px;
+    font-size:12px;
+  }
 }
 
+/* --- Small Tablet / Large Phone (max 700px) --- */
 @media(max-width:700px){
   section{
     padding:64px 0;
   }
 
   .hero-title{
-    font-size:32px;
+    font-size:clamp(28px,5.5vw,34px);
     letter-spacing:-1px;
   }
 
   h2{
-    font-size:26px;
+    font-size:clamp(22px,4.5vw,28px);
+  }
+
+  h3{
+    font-size:clamp(16px,3vw,20px);
+  }
+
+  .section-desc{
+    font-size:16px;
   }
 
   .work-grid{
@@ -2022,7 +2137,7 @@ section{
 
   .footer-nav{
     grid-template-columns:1fr;
-    gap:28px;
+    gap:24px;
   }
 
   .footer-bar-inner{
@@ -2030,23 +2145,91 @@ section{
     gap:8px;
     text-align:center;
   }
+
+  .diagram-label{
+    width:85px;
+    font-size:11px;
+  }
+
+  .arch-blocks span{
+    height:12px;
+  }
+
+  .diagram{
+    padding:24px 20px;
+  }
+
+  .phil-content > p{
+    font-size:14px;
+  }
+
+  .problem-copy p{
+    font-size:16px;
+  }
+
+  .hero-sub{
+    font-size:clamp(15px,2.5vw,17px);
+  }
+
+  .btn{
+    padding:12px 22px;
+    font-size:14px;
+  }
+
+  .fail-card{
+    padding:24px 20px;
+  }
+
+  .fail-pct{
+    font-size:26px;
+  }
+
+  .section-figure svg{
+    max-width:200px;
+  }
+
+  .marquee-track{
+    font-size:12px;
+    gap:24px;
+  }
 }
 
-@media(max-width:480px){
+/* --- Compact Phone (max 500px) --- */
+@media(max-width:500px){
   .container{
     padding:0 16px;
+  }
+
+  section{
+    padding:48px 0;
   }
 
   .nav.scrolled{
     padding:8px 0;
   }
 
+  .nav-links{
+    width:100%;
+    max-width:100%;
+    right:-100%;
+    border-left:none;
+  }
+
+  .nav-links.active{
+    right:0;
+  }
+
+  .nav-link{
+    padding:14px 20px;
+    font-size:15px;
+  }
+
   .brand-name{
-    font-size:17px;
+    font-size:16px;
   }
 
   .hero{
-    padding:100px 0 60px;
+    padding:90px 0 48px;
   }
 
   .hero-eyebrow{
@@ -2054,50 +2237,191 @@ section{
     padding:6px 12px;
   }
 
+  .hero-title{
+    font-size:clamp(24px,6vw,30px);
+    letter-spacing:-0.5px;
+  }
+
   .hero-sub{
-    font-size:15px;
+    font-size:14px;
+    margin-bottom:28px;
+  }
+
+  .hero-metrics{
+    padding:16px;
+    gap:16px;
   }
 
   .metric-value{
     font-size:24px;
   }
 
+  .metric-label{
+    font-size:12px;
+  }
+
+  .metric{
+    padding:4px 0;
+  }
+
+  .section-head{
+    margin-bottom:36px;
+  }
+
+  .section-head-left{
+    margin-bottom:32px;
+  }
+
+  .section-desc{
+    font-size:15px;
+  }
+
+  .work-card-visual{
+    height:110px;
+  }
+
   .work-card-body{
-    padding:16px 18px 20px;
+    padding:16px 16px 20px;
   }
 
-  .fail-card{
-    padding:20px 18px;
+  .work-card-body p{
+    font-size:13px;
   }
 
-  .p-step{
-    flex-direction:column;
-    gap:12px;
-    padding:16px 18px;
-  }
-
-  .phil-item{
-    gap:16px;
-  }
-
-  .phil-num > span{
-    width:40px;
-    height:40px;
-    font-size:14px;
-  }
-
-  .phil-head{
+  .work-card-meta{
     flex-direction:column;
     align-items:flex-start;
     gap:8px;
   }
 
-  .contact-channel{
+  .fail-card{
+    padding:18px 16px;
+  }
+
+  .fail-card-head{
+    margin-bottom:12px;
+  }
+
+  .fail-pct{
+    font-size:24px;
+  }
+
+  .fail-card h3{
+    font-size:16px;
+  }
+
+  .fail-card > p{
+    font-size:13px;
+  }
+
+  .p-step{
+    flex-direction:column;
+    gap:10px;
     padding:14px 16px;
   }
 
-  .cc-value{
+  .p-step h4{
+    font-size:16px;
+  }
+
+  .p-step p{
+    font-size:13px;
+  }
+
+  .diagram-label{
+    width:70px;
+    font-size:10px;
+  }
+
+  .diagram-layer{
+    gap:8px;
+    padding:8px 0;
+  }
+
+  .diagram{
+    padding:20px 16px;
+  }
+
+  .d-bar{
+    height:8px;
+  }
+
+  .phil-item{
+    gap:14px;
+  }
+
+  .phil-item + .phil-item{
+    margin-top:28px;
+  }
+
+  .phil-num > span{
+    width:36px;
+    height:36px;
+    font-size:13px;
+  }
+
+  .phil-head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+  }
+
+  .phil-head h3{
+    font-size:17px;
+  }
+
+  .phil-content > p{
     font-size:14px;
+  }
+
+  .arch-label{
+    width:65px;
+    font-size:11px;
+  }
+
+  .arch-blocks span{
+    height:10px;
+  }
+
+  .arch-layer{
+    padding:8px 12px;
+    gap:8px;
+  }
+
+  .arch{
+    padding:20px 16px;
+    gap:4px;
+  }
+
+  .contact-form{
+    padding:20px 16px;
+  }
+
+  .cf-header{
+    margin-bottom:20px;
+  }
+
+  .cf-field input,.cf-field textarea{
+    padding:12px 14px;
+    font-size:14px;
+  }
+
+  .contact-channel{
+    padding:12px 14px;
+  }
+
+  .cc-icon{
+    width:38px;
+    height:38px;
+  }
+
+  .cc-value{
+    font-size:13px;
+  }
+
+  .contact-copy > p{
+    font-size:15px;
+    margin-bottom:24px;
   }
 
   .testimonial-card{
@@ -2105,6 +2429,347 @@ section{
   }
 
   .testimonial-card p{
+    font-size:14px;
+    margin-bottom:18px;
+  }
+
+  .footer{
+    padding-top:40px;
+  }
+
+  .footer-main{
+    padding-bottom:32px;
+    gap:16px;
+  }
+
+  .footer-nav{
+    padding:32px 0;
+    gap:24px;
+  }
+
+  .footer-col{
+    gap:8px;
+  }
+
+  .eyebrow{
+    font-size:11px;
+    padding:5px 12px;
+    margin-bottom:12px;
+  }
+
+  .problem-copy p{
     font-size:15px;
+  }
+
+  .problem-steps{
+    gap:20px;
+  }
+
+  .section-figure svg{
+    max-width:180px;
+  }
+
+  .marquee-track{
+    font-size:11px;
+    gap:20px;
+    animation-duration:30s;
+  }
+
+  .btn{
+    padding:12px 20px;
+    font-size:14px;
+  }
+
+  .cf-title{
+    font-size:16px;
+  }
+}
+
+/* --- Very Small Phone (max 360px) --- */
+@media(max-width:360px){
+  .container{
+    padding:0 12px;
+  }
+
+  section{
+    padding:40px 0;
+  }
+
+  .hero{
+    padding:80px 0 40px;
+  }
+
+  .hero-title{
+    font-size:22px;
+  }
+
+  .hero-sub{
+    font-size:13px;
+  }
+
+  .brand-name{
+    font-size:14px;
+  }
+
+  .nav-link{
+    padding:12px 16px;
+    font-size:14px;
+    min-height:44px;
+  }
+
+  .nav-links{
+    padding:90px 16px 32px;
+  }
+
+  .metric-value{
+    font-size:22px;
+  }
+
+  h2{
+    font-size:20px;
+  }
+
+  h3{
+    font-size:clamp(14px,4vw,17px);
+  }
+
+  .section-desc{
+    font-size:14px;
+  }
+
+  .work-card-visual{
+    height:90px;
+  }
+
+  .work-card-tag{
+    font-size:10px;
+    padding:3px 10px;
+    top:8px;
+    left:8px;
+  }
+
+  .work-card-body{
+    padding:14px 12px 16px;
+  }
+
+  .work-card-body h3{
+    font-size:15px;
+  }
+
+  .meta-stack,.meta-perf{
+    font-size:11px;
+  }
+
+  .fail-card{
+    padding:16px 14px;
+  }
+
+  .fail-pct{
+    font-size:22px;
+  }
+
+  .fail-card h3{
+    font-size:15px;
+  }
+
+  .fail-num{
+    font-size:12px;
+  }
+
+  .p-step{
+    padding:12px 14px;
+  }
+
+  .p-step-num{
+    font-size:12px;
+  }
+
+  .diagram-label{
+    width:55px;
+    font-size:9px;
+  }
+
+  .diagram{
+    padding:16px 12px;
+  }
+
+  .diagram-core{
+    height:18px;
+  }
+
+  .phil-num > span{
+    width:32px;
+    height:32px;
+    font-size:12px;
+  }
+
+  .phil-head h3{
+    font-size:15px;
+  }
+
+  .phil-tag{
+    font-size:10px;
+    padding:3px 10px;
+  }
+
+  .arch-label{
+    width:55px;
+    font-size:10px;
+  }
+
+  .arch-blocks span{
+    height:8px;
+  }
+
+  .arch-layer{
+    padding:6px 10px;
+    gap:6px;
+  }
+
+  .contact-form{
+    padding:16px 12px;
+  }
+
+  .cf-title{
+    font-size:15px;
+  }
+
+  .cf-field{
+    margin-bottom:14px;
+  }
+
+  .cf-field label{
+    font-size:12px;
+    margin-bottom:6px;
+  }
+
+  .cf-field input,.cf-field textarea{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .contact-channel{
+    padding:10px 12px;
+    gap:12px;
+  }
+
+  .cc-icon{
+    width:32px;
+    height:32px;
+  }
+
+  .cc-icon svg{
+    width:15px;
+    height:15px;
+  }
+
+  .cc-value{
+    font-size:12px;
+  }
+
+  .cc-label{
+    font-size:11px;
+  }
+
+  .testimonial-card{
+    padding:16px 14px;
+  }
+
+  .testimonial-card p{
+    font-size:13px;
+  }
+
+  .testimonial-card footer strong{
+    font-size:14px;
+  }
+
+  .testimonial-card footer span{
+    font-size:12px;
+  }
+
+  .footer-statement{
+    font-size:18px;
+  }
+
+  .footer-nav{
+    gap:20px;
+  }
+
+  .footer-col a{
+    font-size:12px;
+  }
+
+  .btn{
+    padding:10px 16px;
+    font-size:13px;
+  }
+
+  .hero-eyebrow{
+    font-size:10px;
+    padding:5px 10px;
+  }
+
+  .section-figure svg{
+    max-width:150px;
+  }
+
+  .marquee-track{
+    font-size:10px;
+    gap:16px;
+    animation-duration:25s;
+  }
+
+  .error-message{
+    font-size:13px;
+  }
+}
+
+/* --- Landscape Phone (max 800px, orientation) --- */
+@media(max-height:500px) and (orientation:landscape){
+  .hero{
+    min-height:auto;
+    padding:90px 0 60px;
+  }
+
+  .hero-title{
+    font-size:clamp(20px,4vw,32px);
+  }
+
+  .hero-metrics{
+    flex-direction:row;
+    padding:14px 18px;
+  }
+
+  .metric-div{
+    width:1px;
+    height:40px;
+  }
+
+
+  .metric-value{
+    font-size:22px;
+  }
+
+  .metric{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .metric-label{
+    font-size:12px;
+  }
+
+  .nav-links{
+    padding:80px 20px 24px;
+    overflow-y:auto;
+  }
+
+  .work-card-visual{
+    height:100px;
+  }
+
+  section{
+    padding:48px 0;
   }
 }
