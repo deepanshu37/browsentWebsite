@@ -213,17 +213,17 @@
 
   // ========================================
   //  FRAME BACKGROUND — SCROLL-DRIVEN CANVAS
-  //  Frames: ezgif-frame-002 .. ezgif-frame-300
+  //  Frames: frame_002 .. frame_236
   //  Scroll extent: 10× viewport height
   //  Preloads in batches · Keyboard step 2%
   // ========================================
 
   (function() {
-    var TOTAL = 299, fb = document.getElementById('frameBg');
+    var TOTAL = 235, fb = document.getElementById('frameBg');
     if (!fb) return;
 
     function path(i) {
-      return 'frame/ezgif-frame-' + String(i + 2).padStart(3, '0') + '.jpg';
+      return 'frame/frame_' + String(i + 2).padStart(3, '0') + '.jpg';
     }
 
     var cv = document.createElement('canvas');
