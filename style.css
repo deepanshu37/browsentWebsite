@@ -303,6 +303,75 @@ ul,ol{list-style:none}
   transform:translateY(-7px) rotate(-45deg);
 }
 
+/* --- Nav Dropdown --- */
+.nav-dropdown{
+  position:relative;
+}
+
+.dropdown-toggle{
+  cursor:pointer;
+}
+
+.dropdown-toggle .nav-label::after{
+  content:'';
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin-left:6px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:rotate(45deg);
+  transition:transform 0.3s var(--ease-out);
+  vertical-align:middle;
+  margin-bottom:2px;
+}
+
+.nav-dropdown:hover .dropdown-toggle .nav-label::after{
+  transform:rotate(-135deg);
+}
+
+.dropdown-menu{
+  position:absolute;
+  top:calc(100% + 4px);
+  left:50%;
+  transform:translateX(-50%) translateY(8px);
+  min-width:210px;
+  background:var(--glass-bg-strong);
+  backdrop-filter:blur(24px) saturate(1.2);
+  -webkit-backdrop-filter:blur(24px) saturate(1.2);
+  border:var(--glass-border);
+  border-radius:var(--radius-md, 12px);
+  box-shadow:var(--shadow-glass-lg);
+  padding:8px;
+  opacity:0;
+  visibility:hidden;
+  transition:all 0.3s var(--ease-glass);
+  z-index:10;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(4px);
+}
+
+.dropdown-item{
+  display:block;
+  padding:10px 16px;
+  font-size:14px;
+  font-weight:500;
+  color:var(--dark-secondary);
+  border-radius:var(--radius-sm);
+  transition:all 0.2s var(--ease-out);
+  white-space:nowrap;
+}
+
+.dropdown-item:hover{
+  color:var(--primary);
+  background:var(--primary-subtle);
+}
+
 /* ============================================= */
 /*  TYPOGRAPHY                                   */
 /* ============================================= */
@@ -2004,6 +2073,40 @@ section{
 
   .nav-cta{
     display:none;
+  }
+
+  .nav-dropdown{
+    width:100%;
+  }
+
+  .dropdown-menu{
+    position:static;
+    transform:none;
+    opacity:1;
+    visibility:visible;
+    display:none;
+    background:transparent;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    border:none;
+    box-shadow:none;
+    padding:0 0 4px 20px;
+    transition:none;
+  }
+
+  .dropdown-menu.active{
+    display:block;
+  }
+
+  .nav-dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:none;
+  }
+
+  .dropdown-item{
+    padding:10px 16px;
+    font-size:15px;
   }
 
   .hero-layout{

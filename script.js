@@ -65,7 +65,8 @@
   const nav = document.getElementById('nav');
   const toggle = document.getElementById('navToggle');
   const navLinks = document.querySelector('.nav-links');
-  const navLinksArr = navLinks ? Array.from(navLinks.querySelectorAll('a')) : [];
+  const navLinksArr = navLinks ? Array.from(navLinks.querySelectorAll('a:not(.dropdown-toggle)')) : [];
+  const dropdownToggles = navLinks ? Array.from(navLinks.querySelectorAll('.dropdown-toggle')) : [];
 
   const onScroll = () => {
     const y = window.scrollY;
@@ -82,16 +83,29 @@
     });
 
     navLinksArr.forEach(a => {
-      a.addEventListener('click', () => {
+      a.addEventListener('click', (e) => {
+        if (a.getAttribute('href') === '#') e.preventDefault();
         toggle.setAttribute('aria-expanded', 'false');
         navLinks.classList.remove('active');
         document.body.style.overflow = '';
       });
     });
+
+    dropdownToggles.forEach(tgl => {
+      tgl.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.innerWidth <= 900) {
+          const menu = tgl.nextElementSibling;
+          if (menu && menu.classList.contains('dropdown-menu')) {
+            menu.classList.toggle('active');
+          }
+        }
+      });
+    });
   }
 
   // ---- 4. Active nav link tracking ----
-  const sections = ['hero', 'work', 'problem', 'philosophy', 'failures', 'contact']
+  const sections = ['contact']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
