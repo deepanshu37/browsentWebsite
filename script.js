@@ -12,13 +12,53 @@
 
   // ---- 2. Loader ----
   const loader = document.getElementById('loader');
+  const loaderBar = loader?.querySelector('.loader-bar i');
+  let frameImagesTotal = 0, frameImagesLoaded = 0;
+  let framesAllLoaded = false, windowLoaded = false, fontsLoaded = false;
+
+  function setLoaderProgress(pct) {
+    if (loaderBar) {
+      loaderBar.style.width = Math.min(pct, 100) + '%';
+      loaderBar.style.animation = 'none';
+    }
+  }
+
+  function updateLoaderFromFrameProgress() {
+    if (frameImagesTotal > 0) {
+      var framePct = frameImagesLoaded / frameImagesTotal;
+      var totalPct = framePct * 50 + (windowLoaded ? 25 : 0) + (fontsLoaded ? 25 : 0);
+      setLoaderProgress(totalPct);
+    }
+  }
+
+  function checkLoaderDone() {
+    if (framesAllLoaded && windowLoaded && fontsLoaded) {
+      setTimeout(() => loader.classList.add('hidden'), 500);
+    }
+  }
+
   if (loader) {
     window.addEventListener('load', () => {
-      setTimeout(() => loader.classList.add('hidden'), 500);
+      windowLoaded = true;
+      updateLoaderFromFrameProgress();
+      checkLoaderDone();
     });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        fontsLoaded = true;
+        updateLoaderFromFrameProgress();
+        checkLoaderDone();
+      });
+    } else {
+      fontsLoaded = true;
+    }
+
     setTimeout(() => {
-      if (!loader.classList.contains('hidden')) loader.classList.add('hidden');
-    }, 3000);
+      if (!loader.classList.contains('hidden')) {
+        loader.classList.add('hidden');
+      }
+    }, 10000);
   }
 
   // ---- 3. Navigation ----
@@ -252,13 +292,23 @@
       cx.drawImage(im, sx, sy, sw, sh, 0, 0, w, h);
     }
 
+    frameImagesTotal = TOTAL;
+
     function preload() {
       var pos = 0;
       function next() {
         var end = Math.min(pos + 10, TOTAL);
         for (var i = pos; i < end; i++) (function(j) {
           var im = new Image();
-          im.onload = function() { cache[j] = im; };
+          im.onload = function() {
+            cache[j] = im;
+            frameImagesLoaded++;
+            updateLoaderFromFrameProgress();
+            if (frameImagesLoaded >= TOTAL) {
+              framesAllLoaded = true;
+              checkLoaderDone();
+            }
+          };
           im.src = path(j);
         })(i);
         pos = end;

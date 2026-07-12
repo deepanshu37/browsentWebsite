@@ -149,6 +149,7 @@ ul,ol{list-style:none}
   background:linear-gradient(90deg,var(--primary),var(--primary-hover));
   border-radius:4px;
   animation:loaderSlide 1.2s var(--ease-out) infinite;
+  transition:width 0.3s var(--ease-out);
 }
 
 @keyframes loaderPulse{
