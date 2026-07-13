@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality Engineering — Browsent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Browsent home">
+        <span class="brand-mark">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
+            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+            <defs>
+              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#5b54e3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Browsent</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="AI_Strategy.html" class="dropdown-item">AI Strategy</a>
+            <a href="AI_Solutions.html" class="dropdown-item">AI Solutions</a>
+            <a href="Custom_AI.html" class="dropdown-item">Custom AI</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Product_Strategy.html" class="dropdown-item">Product Strategy</a>
+            <a href="Product_Design.html" class="dropdown-item">Product Design</a>
+            <a href="Software_Engineering.html" class="dropdown-item">Software Engineering</a>
+            <a href="Architecture.html" class="dropdown-item">Architecture</a>
+            <a href="Quality_Engineering.html" class="dropdown-item">Quality Engineering</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Business_Products.html" class="dropdown-item">Business Products</a>
+            <a href="AI_Products.html" class="dropdown-item">AI Products</a>
+            <a href="Our_Ventures.html" class="dropdown-item">Our Ventures</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          </div>
+        </div>
+        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
+      </nav>
+      <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content" data-reveal="up">
+        <span class="eyebrow">Engineering — Quality Engineering</span>
+        <h1>Quality <em>Engineering</em></h1>
+        <p>Quality isn't a phase — it's a practice. We embed quality engineering throughout the development lifecycle to deliver software that works flawlessly, every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-tabs" id="service-content">
+    <div class="container">
+      <nav class="tabs-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="functional-testing">Functional Testing</button>
+        <button class="tab-btn" role="tab" data-tab="test-automation">Test Automation</button>
+        <button class="tab-btn" role="tab" data-tab="api-testing">API Testing</button>
+        <button class="tab-btn" role="tab" data-tab="performance-testing">Performance Testing</button>
+        <button class="tab-btn" role="tab" data-tab="uat">UAT</button>
+        <button class="tab-btn" role="tab" data-tab="mobile-testing">Mobile App Testing</button>
+        <button class="tab-btn" role="tab" data-tab="security-testing">Security Testing</button>
+      </nav>
+
+      <div class="tab-panel active" id="functional-testing" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Functional Testing</h2>
+            <p>Comprehensive functional testing that validates every feature works exactly as specified. We design test cases that cover happy paths, edge cases, and failure scenarios to ensure complete coverage.</p>
+            <p>Our manual and automated functional testing ensures your software meets requirements before it reaches users.</p>
+            <ul>
+              <li>Test case design and traceability matrix</li>
+              <li>Smoke testing and sanity checks</li>
+              <li>Integration testing across system boundaries</li>
+              <li>Regression testing for every release</li>
+              <li>Exploratory testing for edge cases</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">99%</span>
+                  <span class="viz-stat-label">Test coverage</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">10K+</span>
+                  <span class="viz-stat-label">Test cases executed</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Manual Testing</span>
+                <span class="viz-tag">Integration</span>
+                <span class="viz-tag">Regression</span>
+                <span class="viz-tag">Exploratory</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="test-automation" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Test Automation</h2>
+            <p>Automated testing frameworks that accelerate quality assurance without sacrificing coverage. We build robust, maintainable test suites using industry-leading tools and best practices.</p>
+            <p>Our automation frameworks integrate seamlessly with CI/CD pipelines, providing rapid feedback on every code change.</p>
+            <ul>
+              <li>Selenium, Cypress, and Playwright frameworks</li>
+              <li>Page Object Model and test design patterns</li>
+              <li>CI/CD integration for automated test execution</li>
+              <li>Visual regression testing</li>
+              <li>Test reporting and analytics dashboards</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="4"/>
+                  <path d="M8 2v20M16 2v20M2 8h20M2 16h20"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">90%</span>
+                  <span class="viz-stat-label">Automation coverage</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">10x</span>
+                  <span class="viz-stat-label">Faster test execution</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Selenium</span>
+                <span class="viz-tag">Cypress</span>
+                <span class="viz-tag">Playwright</span>
+                <span class="viz-tag">CI/CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="api-testing" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>API Testing</h2>
+            <p>Rigorous API testing that validates functionality, reliability, and security of your service interfaces. We test REST, GraphQL, and gRPC APIs with comprehensive test suites.</p>
+            <p>Our API testing ensures your services communicate correctly and handle errors gracefully under all conditions.</p>
+            <ul>
+              <li>Contract testing and schema validation</li>
+              <li>Integration testing for API workflows</li>
+              <li>Load testing for API endpoints</li>
+              <li>Security testing: injection, auth, rate limiting</li>
+              <li>Mock server and service virtualization</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">500+</span>
+                  <span class="viz-stat-label">API endpoints tested</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">99.9%</span>
+                  <span class="viz-stat-label">Contract compliance</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Contract Testing</span>
+                <span class="viz-tag">Postman</span>
+                <span class="viz-tag">REST Assured</span>
+                <span class="viz-tag">Mock Servers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="performance-testing" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Performance Testing</h2>
+            <p>Performance testing that ensures your systems handle real-world load with acceptable response times. We design and execute load, stress, and endurance tests that reveal bottlenecks before they impact users.</p>
+            <p>Our performance engineering identifies optimization opportunities and validates that your system meets SLAs under peak load.</p>
+            <ul>
+              <li>Load testing with JMeter, k6, Gatling</li>
+              <li>Stress testing to identify breaking points</li>
+              <li>Endurance testing for long-running stability</li>
+              <li>Database query performance analysis</li>
+              <li>Capacity planning and scaling recommendations</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">1M+</span>
+                  <span class="viz-stat-label">Virtual users simulated</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">40%</span>
+                  <span class="viz-stat-label">Performance improvement</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">JMeter</span>
+                <span class="viz-tag">k6</span>
+                <span class="viz-tag">Load Testing</span>
+                <span class="viz-tag">Capacity Planning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="uat" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>User Acceptance Testing</h2>
+            <p>Structured UAT that validates your product against real user needs and business requirements. We facilitate end-to-end UAT programs that ensure your software is ready for launch.</p>
+            <p>Our UAT process bridges the gap between technical validation and business acceptance, ensuring stakeholder confidence.</p>
+            <ul>
+              <li>Test scenario creation aligned with business workflows</li>
+              <li>User recruitment and session management</li>
+              <li>Defect tracking and resolution coordination</li>
+              <li>Acceptance sign-off and go/no-go recommendations</li>
+              <li>UAT reporting and traceability</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">95%</span>
+                  <span class="viz-stat-label">User satisfaction</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">3x</span>
+                  <span class="viz-stat-label">Launch confidence</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Scenario Design</span>
+                <span class="viz-tag">User Sessions</span>
+                <span class="viz-tag">Defect Tracking</span>
+                <span class="viz-tag">Sign-Off</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="mobile-testing" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Mobile App Testing</h2>
+            <p>Comprehensive mobile testing across iOS and Android platforms. We test on real devices and emulators to ensure your mobile app delivers a flawless experience across screen sizes, OS versions, and network conditions.</p>
+            <p>Our mobile testing covers functionality, performance, usability, and device-specific behaviors.</p>
+            <ul>
+              <li>Real device testing on iOS and Android</li>
+              <li>Cross-OS version compatibility testing</li>
+              <li>UI and gesture interaction testing</li>
+              <li>Network condition simulation and offline testing</li>
+              <li>Battery, memory, and performance profiling</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="3"/>
+                  <line x1="12" y1="18" x2="12" y2="18.01"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">200+</span>
+                  <span class="viz-stat-label">Device configurations</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">100%</span>
+                  <span class="viz-stat-label">OS version coverage</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">iOS</span>
+                <span class="viz-tag">Android</span>
+                <span class="viz-tag">Real Devices</span>
+                <span class="viz-tag">Network Testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="security-testing" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Security Testing</h2>
+            <p>Security testing that identifies vulnerabilities before attackers do. We perform comprehensive security assessments including penetration testing, vulnerability scanning, and security architecture review.</p>
+            <p>Our security testing covers OWASP Top 10, injection attacks, authentication flaws, and business logic vulnerabilities.</p>
+            <ul>
+              <li>Penetration testing and ethical hacking</li>
+              <li>Vulnerability assessment and scanning</li>
+              <li>OWASP Top 10 compliance testing</li>
+              <li>Authentication and authorization testing</li>
+              <li>Security architecture and code review</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2"/>
+                  <path d="M7 11V7a5 5 0 0110 0v4"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">95%</span>
+                  <span class="viz-stat-label">Vulnerability detection</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">100%</span>
+                  <span class="viz-stat-label">OWASP coverage</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Pen Testing</span>
+                <span class="viz-tag">Vulnerability Scan</span>
+                <span class="viz-tag">OWASP</span>
+                <span class="viz-tag">Auth Testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" data-reveal="fade">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">Why Browsent</span>
+        <h2>Quality that ships.</h2>
+        <p class="section-desc">We don't just find bugs — we build quality systems that prevent them from happening in the first place.</p>
+      </header>
+      <div class="features-grid">
+        <div class="feature-card" data-reveal="up" data-delay="0">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>Shift-Left Quality</h3>
+          <p>Testing begins at requirements phase, not after development — catching issues early when they're cheapest to fix.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="100">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 2v20M16 2v20M2 8h20M2 16h20"/></svg>
+          </div>
+          <h3>Automation-First</h3>
+          <p>Automated test suites that run on every commit, providing instant feedback and preventing regressions.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="200">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Risk-Based Approach</h3>
+          <p>Testing efforts focused on highest-risk areas — ensuring critical paths are thoroughly validated without wasting resources.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" data-reveal="fade">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to ensure quality?</h2>
+        <p>Let's build a quality engineering strategy that protects your reputation and delights your users.</p>
+        <div class="cta-actions">
+          <a href="Contact_Us.html" class="btn btn-primary">Get in touch</a>
+          <a href="Software_Engineering.html" class="btn btn-ghost">Explore Software Engineering</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main" data-reveal="fade">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Browsent home">
+            <span class="brand-mark">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
+                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+                <defs>
+                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
+                    <stop stop-color="#6c63ff"/>
+                    <stop offset="1" stop-color="#5b54e3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-name">Browsent</span>
+          </a>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+        </div>
+        <div class="footer-closing">
+          <span class="footer-statement">Engineered for Growth.</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>AI Lab</h5>
+          <a href="AI_Strategy.html">AI Strategy</a>
+          <a href="AI_Solutions.html">AI Solutions</a>
+          <a href="Custom_AI.html">Custom AI</a>
+        </div>
+        <div class="footer-col">
+          <h5>Engineering</h5>
+          <a href="Product_Strategy.html">Product Strategy</a>
+          <a href="Product_Design.html">Product Design</a>
+          <a href="Software_Engineering.html">Software Engineering</a>
+          <a href="Architecture.html">Architecture</a>
+          <a href="Quality_Engineering.html">Quality Engineering</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@browsent.com">hello@browsent.com</a>
+          <a href="Contact_Us.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© <span id="year"></span> Browsent. All rights reserved.</span>
+        <span class="footer-badge">Precision engineered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="page.js"></script>
+</body>
+</html>

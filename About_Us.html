@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Browsent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Browsent home">
+        <span class="brand-mark">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
+            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+            <defs>
+              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#5b54e3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Browsent</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="AI_Strategy.html" class="dropdown-item">AI Strategy</a>
+            <a href="AI_Solutions.html" class="dropdown-item">AI Solutions</a>
+            <a href="Custom_AI.html" class="dropdown-item">Custom AI</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Product_Strategy.html" class="dropdown-item">Product Strategy</a>
+            <a href="Product_Design.html" class="dropdown-item">Product Design</a>
+            <a href="Software_Engineering.html" class="dropdown-item">Software Engineering</a>
+            <a href="Architecture.html" class="dropdown-item">Architecture</a>
+            <a href="Quality_Engineering.html" class="dropdown-item">Quality Engineering</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Business_Products.html" class="dropdown-item">Business Products</a>
+            <a href="AI_Products.html" class="dropdown-item">AI Products</a>
+            <a href="Our_Ventures.html" class="dropdown-item">Our Ventures</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          </div>
+        </div>
+        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
+      </nav>
+      <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content" data-reveal="up">
+        <span class="eyebrow">About Us</span>
+        <h1>Who <em>We Are</em></h1>
+        <p>We are a design-first engineering consultancy that architects systems where business strategy meets structural integrity. Every engagement starts with understanding your business — then building systems that scale, perform, and endure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-tabs" id="service-content">
+    <div class="container">
+      <nav class="tabs-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="who-we-are">Who We Are</button>
+        <button class="tab-btn" role="tab" data-tab="success-stories">Success Stories</button>
+      </nav>
+
+      <div class="tab-panel active" id="who-we-are" role="tabpanel">
+        <div class="about-mission">
+          <div class="about-mission-layout">
+            <div class="about-mission-text">
+              <h2>Design-First Engineering</h2>
+              <p>Browsent was founded on a simple belief: great software doesn't come from writing code — it comes from understanding people, processes, and purpose. We call this approach design-first engineering.</p>
+              <p>Our team of strategists, designers, and engineers work together to map user journeys, design system architectures, and build software that delivers measurable business outcomes. We don't just build features — we engineer growth.</p>
+              <p>With expertise spanning AI, product strategy, software engineering, and quality assurance, we partner with businesses of all sizes to turn ambitious ideas into production-ready systems.</p>
+            </div>
+            <div class="about-values">
+              <div class="value-card">
+                <h4>Design-First</h4>
+                <p>Every system starts with understanding the user, the business, and the desired outcome — code comes after clarity.</p>
+              </div>
+              <div class="value-card">
+                <h4>Engineering Excellence</h4>
+                <p>We build for production from day one — with reliability, scalability, and maintainability built into every layer.</p>
+              </div>
+              <div class="value-card">
+                <h4>Business Outcomes</h4>
+                <p>We measure success by the impact we create — revenue growth, cost reduction, and competitive advantage.</p>
+              </div>
+              <div class="value-card">
+                <h4>Long-Term Partnership</h4>
+                <p>We don't hand off and disappear. We build lasting relationships and continue to evolve systems as businesses grow.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-section" data-reveal="fade">
+          <div class="container">
+            <header class="section-head">
+              <span class="eyebrow">Our Impact</span>
+              <h2>By the numbers.</h2>
+            </header>
+            <div class="features-grid">
+              <div class="feature-card" data-reveal="up" data-delay="0">
+                <div class="feature-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>200+ Systems Shipped</h3>
+                <p>From startups to enterprises, we've delivered production systems that power businesses every day.</p>
+              </div>
+              <div class="feature-card" data-reveal="up" data-delay="100">
+                <div class="feature-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>99.98% Uptime</h3>
+                <p>Our systems are engineered for reliability — measured by the uptime we maintain, not the features we ship.</p>
+              </div>
+              <div class="feature-card" data-reveal="up" data-delay="200">
+                <div class="feature-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h3>14 Industries Served</h3>
+                <p>Fintech, healthcare, logistics, retail, and more — our expertise spans the full spectrum of modern business.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="success-stories" role="tabpanel">
+        <div class="work" style="padding:0">
+          <div class="work-grid">
+            <article class="work-card" data-reveal="up" data-delay="0">
+              <div class="work-card-visual" style="--accent:#6c63ff">
+                <div class="work-card-art">
+                  <div class="wca-grid"></div>
+                  <div class="wca-dots"></div>
+                  <span class="wca-arrow">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="rgba(108,99,255,0.3)" stroke-width="1"/><path d="M10 22L22 10M22 10H14M22 10v8" stroke="#6c63ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+                <span class="work-card-tag">Fintech</span>
+              </div>
+              <div class="work-card-body">
+                <h3>Neobank Consumer Ecosystem</h3>
+                <p>End-to-end digital banking experience architected from user journey mapping through backend systems. 40% increase in retention across 200K active users.</p>
+                <div class="work-card-meta">
+                  <span class="meta-stack">Go · Kafka · React</span>
+                  <span class="meta-perf">40% increase in retention</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card" data-reveal="up" data-delay="150">
+              <div class="work-card-visual" style="--accent:#5b54e3">
+                <div class="work-card-art">
+                  <div class="wca-grid"></div>
+                  <div class="wca-lines">
+                    <svg width="100%" height="100%" viewBox="0 0 200 120"><path d="M20 60 L80 20 L120 60 L180 30" stroke="#6c63ff" stroke-width="1.5" opacity="0.5" fill="none"/><path d="M20 80 L80 100 L120 80 L180 90" stroke="#6c63ff" stroke-width="1" opacity="0.3" fill="none"/><circle cx="20" cy="60" r="4" fill="#6c63ff" opacity="0.6"/><circle cx="80" cy="20" r="4" fill="#6c63ff" opacity="0.6"/><circle cx="120" cy="60" r="4" fill="#6c63ff" opacity="0.6"/><circle cx="180" cy="30" r="4" fill="#6c63ff" opacity="0.6"/></svg>
+                  </div>
+                </div>
+                <span class="work-card-tag">Industrial</span>
+              </div>
+              <div class="work-card-body">
+                <h3>IoT Predictive Analytics</h3>
+                <p>Real-time sensor data platform processing 2M events/second with millisecond-level precision for predictive maintenance across 12 manufacturing facilities.</p>
+                <div class="work-card-meta">
+                  <span class="meta-stack">Rust · gRPC · InfluxDB</span>
+                  <span class="meta-perf">Millisecond-level precision</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card" data-reveal="up" data-delay="300">
+              <div class="work-card-visual" style="--accent:#8b83ff">
+                <div class="work-card-art">
+                  <div class="wca-grid"></div>
+                  <div class="wca-nodes">
+                    <svg width="100%" height="100%" viewBox="0 0 200 120"><circle cx="40" cy="60" r="24" stroke="rgba(108,99,255,0.2)" stroke-width="1" fill="none"/><circle cx="40" cy="60" r="10" fill="#6c63ff" opacity="0.5"/><circle cx="120" cy="40" r="24" stroke="rgba(108,99,255,0.2)" stroke-width="1" fill="none"/><circle cx="120" cy="40" r="10" fill="#6c63ff" opacity="0.4"/><circle cx="160" cy="80" r="24" stroke="rgba(108,99,255,0.2)" stroke-width="1" fill="none"/><circle cx="160" cy="80" r="10" fill="#6c63ff" opacity="0.4"/><line x1="64" y1="60" x2="96" y2="40" stroke="#6c63ff" stroke-width="1" opacity="0.4"/><line x1="140" y1="40" x2="140" y2="80" stroke="#6c63ff" stroke-width="1" opacity="0.4"/></svg>
+                  </div>
+                </div>
+                <span class="work-card-tag">Retail</span>
+              </div>
+              <div class="work-card-body">
+                <h3>Enterprise Commerce Platform</h3>
+                <p>Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy across 50+ microservices driving 3x conversion uplift.</p>
+                <div class="work-card-meta">
+                  <span class="meta-stack">Node · GraphQL · K8s</span>
+                  <span class="meta-perf">3x conversion uplift</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card" data-reveal="up" data-delay="450">
+              <div class="work-card-visual" style="--accent:#7c75ff">
+                <div class="work-card-art">
+                  <div class="wca-grid"></div>
+                  <div class="wca-code">
+                    <svg width="100%" height="100%" viewBox="0 0 200 120"><rect x="30" y="20" rx="2" width="140" height="5" fill="rgba(108,99,255,0.12)"/><rect x="30" y="32" rx="2" width="100" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="44" rx="2" width="120" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="64" rx="2" width="140" height="5" fill="rgba(108,99,255,0.12)"/><rect x="30" y="76" rx="2" width="80" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="88" rx="2" width="110" height="5" fill="rgba(108,99,255,0.08)"/><rect x="30" y="108" rx="2" width="130" height="5" fill="rgba(108,99,255,0.12)"/></svg>
+                  </div>
+                </div>
+                <span class="work-card-tag">Logistics</span>
+              </div>
+              <div class="work-card-body">
+                <h3>Supply Chain Intelligence</h3>
+                <p>Integrated logistics platform unifying 200+ partner APIs with real-time inventory intelligence and predictive routing, reducing operational costs by 25%.</p>
+                <div class="work-card-meta">
+                  <span class="meta-stack">TypeScript · Terraform · AWS</span>
+                  <span class="meta-perf">25% cost reduction</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" data-reveal="fade">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to work with us?</h2>
+        <p>Let's discuss how we can help architect your next system for growth.</p>
+        <div class="cta-actions">
+          <a href="Contact_Us.html" class="btn btn-primary">Start a project</a>
+          <a href="index.html" class="btn btn-ghost">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main" data-reveal="fade">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Browsent home">
+            <span class="brand-mark">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
+                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+                <defs>
+                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
+                    <stop stop-color="#6c63ff"/>
+                    <stop offset="1" stop-color="#5b54e3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-name">Browsent</span>
+          </a>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+        </div>
+        <div class="footer-closing">
+          <span class="footer-statement">Engineered for Growth.</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>AI Lab</h5>
+          <a href="AI_Strategy.html">AI Strategy</a>
+          <a href="AI_Solutions.html">AI Solutions</a>
+          <a href="Custom_AI.html">Custom AI</a>
+        </div>
+        <div class="footer-col">
+          <h5>Engineering</h5>
+          <a href="Product_Strategy.html">Product Strategy</a>
+          <a href="Product_Design.html">Product Design</a>
+          <a href="Software_Engineering.html">Software Engineering</a>
+          <a href="Architecture.html">Architecture</a>
+          <a href="Quality_Engineering.html">Quality Engineering</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@browsent.com">hello@browsent.com</a>
+          <a href="Contact_Us.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© <span id="year"></span> Browsent. All rights reserved.</span>
+        <span class="footer-badge">Precision engineered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="page.js"></script>
+</body>
+</html>

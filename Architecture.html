@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture — Browsent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Browsent home">
+        <span class="brand-mark">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
+            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+            <defs>
+              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#5b54e3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Browsent</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="AI_Strategy.html" class="dropdown-item">AI Strategy</a>
+            <a href="AI_Solutions.html" class="dropdown-item">AI Solutions</a>
+            <a href="Custom_AI.html" class="dropdown-item">Custom AI</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Product_Strategy.html" class="dropdown-item">Product Strategy</a>
+            <a href="Product_Design.html" class="dropdown-item">Product Design</a>
+            <a href="Software_Engineering.html" class="dropdown-item">Software Engineering</a>
+            <a href="Architecture.html" class="dropdown-item">Architecture</a>
+            <a href="Quality_Engineering.html" class="dropdown-item">Quality Engineering</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Business_Products.html" class="dropdown-item">Business Products</a>
+            <a href="AI_Products.html" class="dropdown-item">AI Products</a>
+            <a href="Our_Ventures.html" class="dropdown-item">Our Ventures</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          </div>
+        </div>
+        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
+      </nav>
+      <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content" data-reveal="up">
+        <span class="eyebrow">Engineering — Architecture</span>
+        <h1>Systems <em>Architecture</em></h1>
+        <p>Architecture is the foundation of every great system. We design resilient, scalable architectures that support your business today and evolve with your needs tomorrow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-tabs" id="service-content">
+    <div class="container">
+      <nav class="tabs-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="system-architecture">System Architecture</button>
+        <button class="tab-btn" role="tab" data-tab="api-development">API Development</button>
+        <button class="tab-btn" role="tab" data-tab="backend">Backend Development</button>
+        <button class="tab-btn" role="tab" data-tab="cloud">Cloud Infrastructure</button>
+        <button class="tab-btn" role="tab" data-tab="devops">DevOps</button>
+        <button class="tab-btn" role="tab" data-tab="database">Database Engineering</button>
+      </nav>
+
+      <div class="tab-panel active" id="system-architecture" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>System Architecture</h2>
+            <p>We design distributed systems that are resilient, scalable, and maintainable. From microservices to event-driven architectures, we create technical blueprints that align with your business goals and operational constraints.</p>
+            <p>Our architecture reviews and designs consider every layer — from network topology to application patterns — ensuring your system is built on solid foundations.</p>
+            <ul>
+              <li>Distributed system design and architecture review</li>
+              <li>Microservices decomposition and service boundaries</li>
+              <li>Event-driven and message-based architectures</li>
+              <li>Scalability planning and capacity modeling</li>
+              <li>Resilience patterns: circuit breakers, retries, bulkheads</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <circle cx="20" cy="6" r="2"/>
+                  <circle cx="20" cy="18" r="2"/>
+                  <circle cx="4" cy="12" r="2"/>
+                  <line x1="13" y1="10" x2="18" y2="7"/>
+                  <line x1="13" y1="14" x2="18" y2="17"/>
+                  <line x1="6" y1="12" x2="9" y2="12"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">99.99%</span>
+                  <span class="viz-stat-label">Design reliability</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">10x</span>
+                  <span class="viz-stat-label">Scalability headroom</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Microservices</span>
+                <span class="viz-tag">Event-Driven</span>
+                <span class="viz-tag">Resilience</span>
+                <span class="viz-tag">Scalability</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="api-development" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>API Development</h2>
+            <p>Well-designed APIs are the backbone of modern software. We build RESTful, GraphQL, and gRPC APIs that are consistent, performant, and developer-friendly — with comprehensive documentation and versioning strategies.</p>
+            <p>Our API-first approach ensures that your systems can evolve independently while maintaining integration compatibility.</p>
+            <ul>
+              <li>RESTful API design with OpenAPI/Swagger specs</li>
+              <li>GraphQL schema design and resolvers</li>
+              <li>gRPC service definition and implementation</li>
+              <li>API gateway configuration and rate limiting</li>
+              <li>Authentication, authorization, and API security</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">500+</span>
+                  <span class="viz-stat-label">APIs designed</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">100ms</span>
+                  <span class="viz-stat-label">Average response time</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">REST</span>
+                <span class="viz-tag">GraphQL</span>
+                <span class="viz-tag">gRPC</span>
+                <span class="viz-tag">API Gateway</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="backend" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Backend Development</h2>
+            <p>Server-side applications that power your business logic, handle data processing, and coordinate system interactions. Our backend engineering delivers reliable, observable, and efficient services.</p>
+            <p>We use the right language and framework for each job — from high-throughput Go services to type-safe TypeScript backends.</p>
+            <ul>
+              <li>Backend services in Go, Node.js, Python, Rust</li>
+              <li>Business logic implementation and workflow engines</li>
+              <li>Background job processing and message queues</li>
+              <li>Caching strategies with Redis, Memcached</li>
+              <li>Observability: logging, metrics, distributed tracing</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2"/>
+                  <rect x="2" y="14" width="20" height="8" rx="2"/>
+                  <line x1="6" y1="6" x2="6" y2="6.01"/>
+                  <line x1="6" y1="18" x2="6" y2="18.01"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">100K+</span>
+                  <span class="viz-stat-label">Requests/sec handled</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">99.95%</span>
+                  <span class="viz-stat-label">Service availability</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Go</span>
+                <span class="viz-tag">Node.js</span>
+                <span class="viz-tag">Python</span>
+                <span class="viz-tag">Rust</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="cloud" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Cloud Infrastructure</h2>
+            <p>Infrastructure as code, container orchestration, and serverless architectures deployed on AWS, Azure, and GCP. We build cloud infrastructure that is cost-optimized, secure, and fully automated.</p>
+            <p>Our cloud engineering ensures your infrastructure is reproducible, auditable, and resilient to failures at every level.</p>
+            <ul>
+              <li>Infrastructure as code with Terraform, Pulumi, CDK</li>
+              <li>Kubernetes orchestration and service mesh</li>
+              <li>Serverless architecture with Lambda, Cloud Functions</li>
+              <li>Network design: VPC, subnets, security groups</li>
+              <li>Cost optimization and reserved capacity planning</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">100%</span>
+                  <span class="viz-stat-label">Infrastructure as Code</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">40%</span>
+                  <span class="viz-stat-label">Cost savings achieved</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">AWS</span>
+                <span class="viz-tag">Azure</span>
+                <span class="viz-tag">Kubernetes</span>
+                <span class="viz-tag">Terraform</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="devops" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>DevOps</h2>
+            <p>CI/CD pipelines, GitOps workflows, and platform engineering that accelerate delivery while maintaining reliability. Our DevOps practice eliminates bottlenecks and brings production-grade practices to every team.</p>
+            <p>We build the tools and workflows that enable your team to deploy with confidence, multiple times a day.</p>
+            <ul>
+              <li>CI/CD pipeline design and optimization</li>
+              <li>GitOps with ArgoCD, Flux, and GitHub Actions</li>
+              <li>Containerization with Docker and image optimization</li>
+              <li>Monitoring stack: Prometheus, Grafana, Datadog</li>
+              <li>Incident response and runbook automation</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">50x</span>
+                  <span class="viz-stat-label">Faster deployments</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">99%</span>
+                  <span class="viz-stat-label">Deployment success rate</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">CI/CD</span>
+                <span class="viz-tag">GitOps</span>
+                <span class="viz-tag">Docker</span>
+                <span class="viz-tag">Monitoring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="database" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Database Engineering</h2>
+            <p>Database design, optimization, and management across SQL and NoSQL systems. We engineer data storage solutions that deliver performance, reliability, and scalability — from schema design to query optimization.</p>
+            <p>Our database expertise covers the full spectrum — from relational databases to document stores, time-series databases, and search engines.</p>
+            <ul>
+              <li>Database design: schema, indexing, partitioning</li>
+              <li>PostgreSQL, MySQL, MongoDB, and more</li>
+              <li>Query optimization and performance tuning</li>
+              <li>Data migration and ETL pipeline design</li>
+              <li>Backup, recovery, and disaster recovery planning</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">10x</span>
+                  <span class="viz-stat-label">Query performance gain</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">100TB+</span>
+                  <span class="viz-stat-label">Data managed</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">PostgreSQL</span>
+                <span class="viz-tag">MongoDB</span>
+                <span class="viz-tag">Performance</span>
+                <span class="viz-tag">Migration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" data-reveal="fade">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">Why Browsent</span>
+        <h2>Architecture that endures.</h2>
+        <p class="section-desc">Every architecture we design balances technical excellence with practical business constraints.</p>
+      </header>
+      <div class="features-grid">
+        <div class="feature-card" data-reveal="up" data-delay="0">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Resilient by Design</h3>
+          <p>Architectures that survive failures, handle traffic spikes, and recover automatically from any disruption.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="100">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Cost Optimized</h3>
+          <p>Architecture decisions that balance performance with cost — no over-provisioning, no unnecessary complexity.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="200">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><line x1="12" y1="22" x2="12" y2="16"/></svg>
+          </div>
+          <h3>Future-Proof</h3>
+          <p>Architecture designed to evolve — accommodating new requirements, technologies, and scale without major rewrites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" data-reveal="fade">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to architect your system?</h2>
+        <p>Let's design an architecture that scales with your business and stands the test of time.</p>
+        <div class="cta-actions">
+          <a href="Contact_Us.html" class="btn btn-primary">Book a consultation</a>
+          <a href="Quality_Engineering.html" class="btn btn-ghost">Explore Quality Engineering</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main" data-reveal="fade">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Browsent home">
+            <span class="brand-mark">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
+                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+                <defs>
+                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
+                    <stop stop-color="#6c63ff"/>
+                    <stop offset="1" stop-color="#5b54e3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-name">Browsent</span>
+          </a>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+        </div>
+        <div class="footer-closing">
+          <span class="footer-statement">Engineered for Growth.</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>AI Lab</h5>
+          <a href="AI_Strategy.html">AI Strategy</a>
+          <a href="AI_Solutions.html">AI Solutions</a>
+          <a href="Custom_AI.html">Custom AI</a>
+        </div>
+        <div class="footer-col">
+          <h5>Engineering</h5>
+          <a href="Product_Strategy.html">Product Strategy</a>
+          <a href="Product_Design.html">Product Design</a>
+          <a href="Software_Engineering.html">Software Engineering</a>
+          <a href="Architecture.html">Architecture</a>
+          <a href="Quality_Engineering.html">Quality Engineering</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@browsent.com">hello@browsent.com</a>
+          <a href="Contact_Us.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© <span id="year"></span> Browsent. All rights reserved.</span>
+        <span class="footer-badge">Precision engineered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="page.js"></script>
+</body>
+</html>

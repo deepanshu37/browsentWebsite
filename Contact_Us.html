@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Browsent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Browsent home">
+        <span class="brand-mark">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
+            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+            <defs>
+              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#5b54e3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Browsent</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="AI_Strategy.html" class="dropdown-item">AI Strategy</a>
+            <a href="AI_Solutions.html" class="dropdown-item">AI Solutions</a>
+            <a href="Custom_AI.html" class="dropdown-item">Custom AI</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Product_Strategy.html" class="dropdown-item">Product Strategy</a>
+            <a href="Product_Design.html" class="dropdown-item">Product Design</a>
+            <a href="Software_Engineering.html" class="dropdown-item">Software Engineering</a>
+            <a href="Architecture.html" class="dropdown-item">Architecture</a>
+            <a href="Quality_Engineering.html" class="dropdown-item">Quality Engineering</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Business_Products.html" class="dropdown-item">Business Products</a>
+            <a href="AI_Products.html" class="dropdown-item">AI Products</a>
+            <a href="Our_Ventures.html" class="dropdown-item">Our Ventures</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          </div>
+        </div>
+        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
+      </nav>
+      <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content" data-reveal="up">
+        <span class="eyebrow">Contact Us</span>
+        <h1>Let's build something <em>remarkable</em></h1>
+        <p>Tell us what you're building. We'll come back with a strategic blueprint, a systems architecture, and a growth plan engineered from the user experience inward.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact contact-page" id="contact" style="padding-top:0">
+    <div class="container contact-layout">
+      <div class="contact-copy" data-reveal="slide-left">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Ready to start a project?</h2>
+        <p>Whether you need a full product strategy, AI implementation, or end-to-end software engineering — we're here to help. Reach out and let's discuss how we can engineer growth for your business.</p>
+        <div class="contact-channels">
+          <a href="mailto:hello@browsent.com" class="contact-channel">
+            <span class="cc-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="3" width="15" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 5L9 10.5L16.5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </span>
+            <span class="cc-text">
+              <span class="cc-label">Email</span>
+              <span class="cc-value">hello@browsent.com</span>
+            </span>
+          </a>
+          <a href="tel:+10000000000" class="contact-channel">
+            <span class="cc-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M15.5 12.5l-3-1.5-2 2-4-4 2-2-1.5-3-3 1.5C2 8 4 12 6 14s6 4 7.5 1.5l2-3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="cc-text">
+              <span class="cc-label">Call</span>
+              <span class="cc-value">+1 (000) 000-0000</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="contact-info-grid">
+          <div class="contact-info-card">
+            <div class="cc-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1C6.2 1 4 3.2 4 6c0 3.8 5 11 5 11s5-7.2 5-11c0-2.8-2.2-5-5-5zm0 7.5C7.6 8.5 6.5 7.4 6.5 6S7.6 3.5 9 3.5 11.5 4.6 11.5 6 10.4 8.5 9 8.5z" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h4>Office</h4>
+            <p>San Francisco, CA</p>
+          </div>
+          <div class="contact-info-card">
+            <div class="cc-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/><path d="M9 4.5V9l3 3" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h4>Response Time</h4>
+            <p>Within one business day</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate data-reveal="slide-right">
+        <div class="cf-header">
+          <span class="cf-indicator"></span>
+          <span class="cf-title">Send a message</span>
+        </div>
+        <div class="cf-field">
+          <label for="name">Name <span class="cf-req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Jane Doe" required autocomplete="name">
+          <span class="cf-focus"></span>
+        </div>
+        <div class="cf-field">
+          <label for="email">Email <span class="cf-req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email">
+          <span class="cf-focus"></span>
+        </div>
+        <div class="cf-field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company Inc." autocomplete="organization">
+          <span class="cf-focus"></span>
+        </div>
+        <div class="cf-field">
+          <label for="service">Service Interested In</label>
+          <input type="text" id="service" name="service" placeholder="AI Strategy, Software Engineering, etc.">
+          <span class="cf-focus"></span>
+        </div>
+        <div class="cf-field cf-field-textarea">
+          <label for="message">What are you building?</label>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about the system, scale, and timeline." required></textarea>
+          <span class="cf-focus"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <p class="cf-note" id="formNote" hidden>Thanks — we'll reply within one business day.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="cta-banner" data-reveal="fade">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Explore our services</h2>
+        <p>Learn more about how we can help architect your next system for growth.</p>
+        <div class="cta-actions">
+          <a href="AI_Strategy.html" class="btn btn-primary">Explore AI Strategy</a>
+          <a href="Software_Engineering.html" class="btn btn-ghost">Explore Engineering</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main" data-reveal="fade">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Browsent home">
+            <span class="brand-mark">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
+                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+                <defs>
+                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
+                    <stop stop-color="#6c63ff"/>
+                    <stop offset="1" stop-color="#5b54e3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-name">Browsent</span>
+          </a>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+        </div>
+        <div class="footer-closing">
+          <span class="footer-statement">Engineered for Growth.</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>AI Lab</h5>
+          <a href="AI_Strategy.html">AI Strategy</a>
+          <a href="AI_Solutions.html">AI Solutions</a>
+          <a href="Custom_AI.html">Custom AI</a>
+        </div>
+        <div class="footer-col">
+          <h5>Engineering</h5>
+          <a href="Product_Strategy.html">Product Strategy</a>
+          <a href="Product_Design.html">Product Design</a>
+          <a href="Software_Engineering.html">Software Engineering</a>
+          <a href="Architecture.html">Architecture</a>
+          <a href="Quality_Engineering.html">Quality Engineering</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@browsent.com">hello@browsent.com</a>
+          <a href="Contact_Us.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© <span id="year"></span> Browsent. All rights reserved.</span>
+        <span class="footer-badge">Precision engineered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="page.js"></script>
+</body>
+</html>

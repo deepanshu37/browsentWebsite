@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Solutions — Browsent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Browsent home">
+        <span class="brand-mark">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
+            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+            <defs>
+              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#5b54e3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Browsent</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="AI_Strategy.html" class="dropdown-item">AI Strategy</a>
+            <a href="AI_Solutions.html" class="dropdown-item">AI Solutions</a>
+            <a href="Custom_AI.html" class="dropdown-item">Custom AI</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Product_Strategy.html" class="dropdown-item">Product Strategy</a>
+            <a href="Product_Design.html" class="dropdown-item">Product Design</a>
+            <a href="Software_Engineering.html" class="dropdown-item">Software Engineering</a>
+            <a href="Architecture.html" class="dropdown-item">Architecture</a>
+            <a href="Quality_Engineering.html" class="dropdown-item">Quality Engineering</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Business_Products.html" class="dropdown-item">Business Products</a>
+            <a href="AI_Products.html" class="dropdown-item">AI Products</a>
+            <a href="Our_Ventures.html" class="dropdown-item">Our Ventures</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          </div>
+        </div>
+        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
+      </nav>
+      <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content" data-reveal="up">
+        <span class="eyebrow">AI Lab — Solutions</span>
+        <h1>AI <em>Solutions</em> That Work</h1>
+        <p>From intelligent agents to voice-enabled interfaces, we build production-ready AI solutions that automate, enhance, and transform how your business operates.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-tabs" id="service-content">
+    <div class="container">
+      <nav class="tabs-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="ai-agent">AI Agent</button>
+        <button class="tab-btn" role="tab" data-tab="ai-chatbots">AI Chatbots</button>
+        <button class="tab-btn" role="tab" data-tab="workflow">Workflow</button>
+        <button class="tab-btn" role="tab" data-tab="automation">Automation</button>
+        <button class="tab-btn" role="tab" data-tab="voice-ai">Voice AI</button>
+      </nav>
+
+      <div class="tab-panel active" id="ai-agent" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>AI Agent</h2>
+            <p>Intelligent autonomous agents that perceive their environment, reason about goals, and execute complex tasks independently. Our AI agents are designed for reliability, safety, and measurable business outcomes.</p>
+            <p>From customer-facing service agents to internal process automation, we build agents that augment human capabilities and drive operational efficiency.</p>
+            <ul>
+              <li>Autonomous task execution with reasoning and planning</li>
+              <li>Multi-agent coordination for complex workflows</li>
+              <li>Integration with existing systems and APIs</li>
+              <li>Safety constraints and human-in-the-loop oversight</li>
+              <li>Continuous learning and performance improvement</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="4"/>
+                  <path d="M8 16V8l4 4 4-4v8"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">75%</span>
+                  <span class="viz-stat-label">Task automation rate</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">60%</span>
+                  <span class="viz-stat-label">Cost reduction</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Autonomous</span>
+                <span class="viz-tag">Multi-Agent</span>
+                <span class="viz-tag">Integration</span>
+                <span class="viz-tag">Safety</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="ai-chatbots" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>AI Chatbots</h2>
+            <p>Conversational AI that understands context, remembers history, and delivers human-like interactions. Our chatbots go beyond scripted responses — they learn, adapt, and provide genuine value.</p>
+            <p>Deployed across web, mobile, and messaging platforms, our conversational solutions handle everything from customer support to lead qualification.</p>
+            <ul>
+              <li>Natural language understanding with context awareness</li>
+              <li>Multi-channel deployment: web, mobile, WhatsApp, Slack</li>
+              <li>Knowledge base integration for accurate responses</li>
+              <li>Sentiment analysis and emotion detection</li>
+              <li>Analytics dashboard for conversation insights</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">90%</span>
+                  <span class="viz-stat-label">Query resolution rate</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">24/7</span>
+                  <span class="viz-stat-label">Always-on support</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">NLP</span>
+                <span class="viz-tag">Multi-Channel</span>
+                <span class="viz-tag">Context-Aware</span>
+                <span class="viz-tag">Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="workflow" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Workflow</h2>
+            <p>AI-powered workflow automation that streamlines complex business processes. We analyze your existing workflows, identify bottlenecks, and build intelligent automation that adapts to changing conditions.</p>
+            <p>Our workflow solutions combine business process management with AI-driven decision making for unprecedented efficiency.</p>
+            <ul>
+              <li>Process discovery and bottleneck analysis</li>
+              <li>Intelligent workflow orchestration</li>
+              <li>Dynamic task routing based on context</li>
+              <li>Real-time monitoring and analytics</li>
+              <li>Continuous optimization through ML</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">70%</span>
+                  <span class="viz-stat-label">Process efficiency gain</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">45%</span>
+                  <span class="viz-stat-label">Operational cost reduction</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Process Mining</span>
+                <span class="viz-tag">Orchestration</span>
+                <span class="viz-tag">Monitoring</span>
+                <span class="viz-tag">Optimization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="automation" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Automation</h2>
+            <p>End-to-end business process automation that combines RPA, AI, and API integration. We automate repetitive tasks, reduce errors, and free your team to focus on high-value work.</p>
+            <p>From simple task automation to complex multi-system orchestration, our solutions scale with your business needs.</p>
+            <ul>
+              <li>Robotic process automation for repetitive tasks</li>
+              <li>Intelligent document processing and data extraction</li>
+              <li>Cross-system integration and data synchronization</li>
+              <li>Automated reporting and compliance monitoring</li>
+              <li>Scalable automation framework with governance</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="4"/>
+                  <path d="M8 12h8M12 8v8"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">80%</span>
+                  <span class="viz-stat-label">Manual task reduction</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">99.9%</span>
+                  <span class="viz-stat-label">Accuracy rate</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">RPA</span>
+                <span class="viz-tag">Document AI</span>
+                <span class="viz-tag">Integration</span>
+                <span class="viz-tag">Governance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="voice-ai" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Voice AI</h2>
+            <p>Voice-enabled interfaces that transform how users interact with your systems. From voice assistants to speech analytics, our Voice AI solutions deliver natural, accurate, and real-time voice interactions.</p>
+            <p>Built on cutting-edge speech recognition and natural language understanding, our voice solutions work across languages and accents.</p>
+            <ul>
+              <li>Speech recognition with high accuracy across accents</li>
+              <li>Text-to-speech with natural voice synthesis</li>
+              <li>Voice-based authentication and security</li>
+              <li>Real-time voice analytics and sentiment detection</li>
+              <li>Multi-language support with localization</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" y1="19" x2="12" y2="23"/>
+                  <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">95%</span>
+                  <span class="viz-stat-label">Speech accuracy</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">40+</span>
+                  <span class="viz-stat-label">Languages supported</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Speech Recognition</span>
+                <span class="viz-tag">TTS</span>
+                <span class="viz-tag">Voice Auth</span>
+                <span class="viz-tag">Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" data-reveal="fade">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">Why Browsent</span>
+        <h2>AI solutions engineered for impact.</h2>
+        <p class="section-desc">Every solution is built with production-grade reliability, scalability, and measurable business outcomes.</p>
+      </header>
+      <div class="features-grid">
+        <div class="feature-card" data-reveal="up" data-delay="0">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Production Ready</h3>
+          <p>Built for reliability from day one — monitoring, failover, and performance optimization baked into every solution.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="100">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Scalable Architecture</h3>
+          <p>Solutions designed to scale from prototype to enterprise — handling millions of interactions without breaking a sweat.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="200">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Rapid Deployment</h3>
+          <p>From concept to production in weeks, not months. Our modular approach accelerates time-to-value for every AI initiative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" data-reveal="fade">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to build AI solutions?</h2>
+        <p>Let's discuss how AI can transform your business operations and customer experience.</p>
+        <div class="cta-actions">
+          <a href="Contact_Us.html" class="btn btn-primary">Start a project</a>
+          <a href="AI_Strategy.html" class="btn btn-ghost">View AI Strategy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main" data-reveal="fade">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Browsent home">
+            <span class="brand-mark">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
+                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+                <defs>
+                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
+                    <stop stop-color="#6c63ff"/>
+                    <stop offset="1" stop-color="#5b54e3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-name">Browsent</span>
+          </a>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+        </div>
+        <div class="footer-closing">
+          <span class="footer-statement">Engineered for Growth.</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>AI Lab</h5>
+          <a href="AI_Strategy.html">AI Strategy</a>
+          <a href="AI_Solutions.html">AI Solutions</a>
+          <a href="Custom_AI.html">Custom AI</a>
+        </div>
+        <div class="footer-col">
+          <h5>Engineering</h5>
+          <a href="Product_Strategy.html">Product Strategy</a>
+          <a href="Product_Design.html">Product Design</a>
+          <a href="Software_Engineering.html">Software Engineering</a>
+          <a href="Architecture.html">Architecture</a>
+          <a href="Quality_Engineering.html">Quality Engineering</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@browsent.com">hello@browsent.com</a>
+          <a href="Contact_Us.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© <span id="year"></span> Browsent. All rights reserved.</span>
+        <span class="footer-badge">Precision engineered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="page.js"></script>
+</body>
+</html>

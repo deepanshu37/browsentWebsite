@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Ventures — Browsent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Browsent home">
+        <span class="brand-mark">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
+            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+            <defs>
+              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
+                <stop stop-color="#6c63ff"/>
+                <stop offset="1" stop-color="#5b54e3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Browsent</span>
+      </a>
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="AI_Strategy.html" class="dropdown-item">AI Strategy</a>
+            <a href="AI_Solutions.html" class="dropdown-item">AI Solutions</a>
+            <a href="Custom_AI.html" class="dropdown-item">Custom AI</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Product_Strategy.html" class="dropdown-item">Product Strategy</a>
+            <a href="Product_Design.html" class="dropdown-item">Product Design</a>
+            <a href="Software_Engineering.html" class="dropdown-item">Software Engineering</a>
+            <a href="Architecture.html" class="dropdown-item">Architecture</a>
+            <a href="Quality_Engineering.html" class="dropdown-item">Quality Engineering</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="Business_Products.html" class="dropdown-item">Business Products</a>
+            <a href="AI_Products.html" class="dropdown-item">AI Products</a>
+            <a href="Our_Ventures.html" class="dropdown-item">Our Ventures</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
+          <div class="dropdown-menu">
+            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          </div>
+        </div>
+        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
+      </nav>
+      <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content" data-reveal="up">
+        <span class="eyebrow">Products — Our Ventures</span>
+        <h1>Our <em>Ventures</em></h1>
+        <p>Innovative projects born from our passion for solving real problems. Each venture represents a unique idea brought to life through design-first engineering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-tabs" id="service-content">
+    <div class="container">
+      <nav class="tabs-nav" role="tablist">
+        <button class="tab-btn active" role="tab" data-tab="english-phrases">English Phrases</button>
+        <button class="tab-btn" role="tab" data-tab="mailing-engine">Mailing Engine</button>
+        <button class="tab-btn" role="tab" data-tab="dice-game">Dice Game</button>
+      </nav>
+
+      <div class="tab-panel active" id="english-phrases" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>English Phrases</h2>
+            <p>An intelligent language learning platform that helps non-native speakers master English phrases, idioms, and expressions used in real-world conversations. English Phrases uses spaced repetition and contextual learning to accelerate language acquisition.</p>
+            <p>Whether for business communication or everyday conversation, English Phrases makes learning natural, engaging, and effective.</p>
+            <ul>
+              <li>Contextual phrase learning with real-world examples</li>
+              <li>Spaced repetition for optimal retention</li>
+              <li>Pronunciation guide with audio examples</li>
+              <li>Progress tracking and personalized learning paths</li>
+              <li>Business English and conversational modules</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">10K+</span>
+                  <span class="viz-stat-label">Active learners</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">500+</span>
+                  <span class="viz-stat-label">Phrases covered</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Language Learning</span>
+                <span class="viz-tag">Spaced Repetition</span>
+                <span class="viz-tag">Contextual</span>
+                <span class="viz-tag">Audio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="mailing-engine" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Mailing Engine</h2>
+            <p>A powerful email marketing and communication platform designed for businesses of all sizes. Mailing Engine makes it easy to create, send, and track email campaigns with beautiful templates and advanced analytics.</p>
+            <p>From transactional emails to marketing campaigns, Mailing Engine delivers with high reliability and deliverability rates.</p>
+            <ul>
+              <li>Drag-and-drop email builder with responsive templates</li>
+              <li>Automated email sequences and drip campaigns</li>
+              <li>Advanced segmentation and personalization</li>
+              <li>Real-time analytics with open, click, and conversion tracking</li>
+              <li>SMTP relay and API for transactional emails</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1.5" y="3" width="21" height="18" rx="2"/>
+                  <path d="M1.5 7l10.5 6 10.5-6"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">99%</span>
+                  <span class="viz-stat-label">Deliverability rate</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">1M+</span>
+                  <span class="viz-stat-label">Emails sent monthly</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Email Builder</span>
+                <span class="viz-tag">Automation</span>
+                <span class="viz-tag">Analytics</span>
+                <span class="viz-tag">API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="dice-game" role="tabpanel">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h2>Dice Game</h2>
+            <p>An engaging multiplayer dice game that combines strategy, luck, and real-time interaction. Built with cutting-edge web technologies for smooth gameplay across devices.</p>
+            <p>Perfect for casual gaming sessions with friends or competitive play — Dice Game delivers a polished, fun experience with real-time multiplayer support.</p>
+            <ul>
+              <li>Real-time multiplayer with WebSocket technology</li>
+              <li>Multiple game modes and rule variations</li>
+              <li>Leaderboards and player statistics</li>
+              <li>Cross-platform: web, mobile, and tablet</li>
+              <li>Social features: friends, chat, and invitations</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="tab-visual-grid"></div>
+            <div class="viz-content">
+              <div class="viz-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="4"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <circle cx="15.5" cy="8.5" r="1.5"/>
+                  <circle cx="12" cy="15.5" r="1.5"/>
+                </svg>
+              </div>
+              <div class="viz-stats">
+                <div class="viz-stat">
+                  <span class="viz-stat-value">50K+</span>
+                  <span class="viz-stat-label">Games played</span>
+                </div>
+                <div class="viz-stat">
+                  <span class="viz-stat-value">4.8</span>
+                  <span class="viz-stat-label">Player rating</span>
+                </div>
+              </div>
+              <div class="viz-tags">
+                <span class="viz-tag">Multiplayer</span>
+                <span class="viz-tag">Real-Time</span>
+                <span class="viz-tag">Cross-Platform</span>
+                <span class="viz-tag">Leaderboards</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" data-reveal="fade">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">Why Browsent</span>
+        <h2>Ventures with purpose.</h2>
+        <p class="section-desc">Every venture we build starts with a real problem and a passion for solving it.</p>
+      </header>
+      <div class="features-grid">
+        <div class="feature-card" data-reveal="up" data-delay="0">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Built In-House</h3>
+          <p>Designed, developed, and maintained by our own team — ensuring quality and continuous improvement.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="100">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Constantly Evolving</h3>
+          <p>Regular updates based on user feedback and emerging technologies — our ventures grow with our users.</p>
+        </div>
+        <div class="feature-card" data-reveal="up" data-delay="200">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>User-Focused</h3>
+          <p>Every feature is driven by real user needs and validated through continuous feedback and testing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" data-reveal="fade">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Interested in our ventures?</h2>
+        <p>Want to learn more or collaborate? We'd love to hear from you.</p>
+        <div class="cta-actions">
+          <a href="Contact_Us.html" class="btn btn-primary">Get in touch</a>
+          <a href="About_Us.html" class="btn btn-ghost">About Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main" data-reveal="fade">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Browsent home">
+            <span class="brand-mark">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
+                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
+                <defs>
+                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
+                    <stop stop-color="#6c63ff"/>
+                    <stop offset="1" stop-color="#5b54e3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="brand-name">Browsent</span>
+          </a>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+        </div>
+        <div class="footer-closing">
+          <span class="footer-statement">Engineered for Growth.</span>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h5>AI Lab</h5>
+          <a href="AI_Strategy.html">AI Strategy</a>
+          <a href="AI_Solutions.html">AI Solutions</a>
+          <a href="Custom_AI.html">Custom AI</a>
+        </div>
+        <div class="footer-col">
+          <h5>Engineering</h5>
+          <a href="Product_Strategy.html">Product Strategy</a>
+          <a href="Product_Design.html">Product Design</a>
+          <a href="Software_Engineering.html">Software Engineering</a>
+          <a href="Architecture.html">Architecture</a>
+          <a href="Quality_Engineering.html">Quality Engineering</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@browsent.com">hello@browsent.com</a>
+          <a href="Contact_Us.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© <span id="year"></span> Browsent. All rights reserved.</span>
+        <span class="footer-badge">Precision engineered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="page.js"></script>
+</body>
+</html>
