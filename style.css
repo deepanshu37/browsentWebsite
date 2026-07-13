@@ -279,28 +279,13 @@ ul,ol{list-style:none}
   border:var(--glass-border);
   cursor:pointer;
   transition:all 0.3s var(--ease-out);
+  z-index:100;
 }
 
-.nav-toggle span{
+.nav-toggle svg{
   display:block;
-  width:20px;
-  height:2px;
-  background:var(--dark);
-  border-radius:2px;
-  transition:all 0.3s var(--ease-out);
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(2){
-  opacity:0;
-  transform:scaleX(0);
-}
-
-.nav-toggle[aria-expanded="true"] span:nth-child(3){
-  transform:translateY(-7px) rotate(-45deg);
+  width:24px;
+  height:24px;
 }
 
 /* --- Nav Dropdown --- */

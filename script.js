@@ -102,6 +102,14 @@
         }
       });
     });
+
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !toggle.contains(e.target)) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
   }
 
   // ---- 4. Active nav link tracking ----
