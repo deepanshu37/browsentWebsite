@@ -1,41 +1,40 @@
-/* ==================================================== */
-/*  BROWSENT — Premium Interactions & Frame Background   */
-/*  Purple theme · Glassmorphism · Scroll-Driven Frames  */
-/* ==================================================== */
-
 (() => {
   'use strict';
 
-  // ---- 1. Footer year ----
-  const yearEl = document.getElementById('year');
+  // ---- 1. Helpers ----
+  const $ = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+
+  // ---- 2. Footer year ----
+  const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---- 2. Loader ----
-  const loader = document.getElementById('loader');
+  // ---- 3. Loader ----
+  const loader = $('#loader');
   const loaderBar = loader?.querySelector('.loader-bar i');
   let frameImagesTotal = 0, frameImagesLoaded = 0;
   let framesAllLoaded = false, windowLoaded = false, fontsLoaded = false;
 
-  function setLoaderProgress(pct) {
+  const setLoaderProgress = (pct) => {
     if (loaderBar) {
       loaderBar.style.width = Math.min(pct, 100) + '%';
       loaderBar.style.animation = 'none';
     }
-  }
+  };
 
-  function updateLoaderFromFrameProgress() {
+  const updateLoaderFromFrameProgress = () => {
     if (frameImagesTotal > 0) {
-      var framePct = frameImagesLoaded / frameImagesTotal;
-      var totalPct = framePct * 50 + (windowLoaded ? 25 : 0) + (fontsLoaded ? 25 : 0);
+      const framePct = frameImagesLoaded / frameImagesTotal;
+      const totalPct = framePct * 50 + (windowLoaded ? 25 : 0) + (fontsLoaded ? 25 : 0);
       setLoaderProgress(totalPct);
     }
-  }
+  };
 
-  function checkLoaderDone() {
+  const checkLoaderDone = () => {
     if (framesAllLoaded && windowLoaded && fontsLoaded) {
       setTimeout(() => loader.classList.add('hidden'), 500);
     }
-  }
+  };
 
   if (loader) {
     window.addEventListener('load', () => {
@@ -61,33 +60,38 @@
     }, 10000);
   }
 
-  // ---- 3. Navigation ----
-  const nav = document.getElementById('nav');
-  const toggle = document.getElementById('navToggle');
-  const navLinks = document.querySelector('.nav-links');
-  const navLinksArr = navLinks ? Array.from(navLinks.querySelectorAll('a:not(.dropdown-toggle)')) : [];
-  const dropdownToggles = navLinks ? Array.from(navLinks.querySelectorAll('.dropdown-toggle')) : [];
+  // ---- 4. Navigation ----
+  const nav = $('#nav');
+  const toggle = $('#navToggle');
+  const navLinks = $('.nav-links');
+  const navLinksArr = navLinks ? $$('a:not(.dropdown-toggle)', navLinks) : [];
+  const dropdownToggles = navLinks ? $$('.dropdown-toggle', navLinks) : [];
+
+  const closeNav = () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    navLinks.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const toggleNav = () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('active');
+    document.body.style.overflow = expanded ? '' : 'hidden';
+  };
 
   const onScroll = () => {
-    const y = window.scrollY;
-    nav.classList.toggle('scrolled', y > 40);
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
 
   if (toggle && navLinks) {
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !expanded);
-      navLinks.classList.toggle('active');
-      document.body.style.overflow = expanded ? '' : 'hidden';
-    });
+    toggle.addEventListener('click', toggleNav);
 
     navLinksArr.forEach(a => {
       a.addEventListener('click', (e) => {
         if (a.getAttribute('href') === '#') e.preventDefault();
-        toggle.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
+        closeNav();
       });
     });
 
@@ -105,14 +109,12 @@
 
     document.addEventListener('click', (e) => {
       if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !toggle.contains(e.target)) {
-        toggle.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
+        closeNav();
       }
     });
   }
 
-  // ---- 4. Active nav link tracking ----
+  // ---- 5. Active nav link tracking ----
   const sections = ['contact']
     .map(id => document.getElementById(id))
     .filter(Boolean);
@@ -132,8 +134,8 @@
   };
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
-  // ---- 5. Metrics counter ----
-  const metrics = Array.from(document.querySelectorAll('[data-count]'));
+  // ---- 6. Metrics counter ----
+  const metrics = $$('[data-count]');
   let metricsCounted = false;
 
   const countUp = (el) => {
@@ -165,10 +167,10 @@
       }
     });
   }, { threshold: 0.3 });
-  if (metrics.length) metricObserver.observe(document.getElementById('hero') || document.body);
+  if (metrics.length) metricObserver.observe($('#hero') || document.body);
 
-  // ---- 6. Reveal animations ----
-  const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+  // ---- 7. Reveal animations ----
+  const revealEls = $$('[data-reveal]');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -192,10 +194,10 @@
   });
 
   setTimeout(() => {
-    document.querySelectorAll('[data-reveal]:not(.in)').forEach(el => el.classList.add('in'));
+    $$('[data-reveal]:not(.in)').forEach(el => el.classList.add('in'));
   }, 2000);
 
-  // ---- 7. Smooth anchor scroll ----
+  // ---- 8. Smooth anchor scroll ----
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
@@ -208,12 +210,12 @@
     window.scrollTo({ top, behavior: 'smooth' });
   });
 
-  // ---- 8. Parallax hero elements ----
-  const heroOrb = document.querySelector('.hero-orb');
+  // ---- 9. Parallax hero elements ----
+  const heroOrb = $('.hero-orb');
   if (heroOrb && window.innerWidth > 900) {
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const hero = document.getElementById('hero');
+      const hero = $('#hero');
       if (!hero) return;
       const heroBottom = hero.offsetTop + hero.offsetHeight;
       if (scrollY > heroBottom) return;
@@ -222,9 +224,9 @@
     }, { passive: true });
   }
 
-  // ---- 9. Contact form ----
-  const form = document.getElementById('contactForm');
-  const note = document.getElementById('formNote');
+  // ---- 10. Contact form ----
+  const form = $('#contactForm');
+  const note = $('#formNote');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -239,7 +241,7 @@
     });
   }
 
-  // ---- 10. Button ripple effect ----
+  // ---- 11. Button ripple effect ----
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');
     if (!btn) return;
@@ -273,56 +275,49 @@
   `;
   document.head.appendChild(style);
 
-  // ========================================
-  //  FRAME BACKGROUND — SCROLL-DRIVEN CANVAS
-  //  Frames: frame_002 .. frame_236
-  //  Scroll extent: 10× viewport height
-  //  Preloads in batches · Keyboard step 2%
-  // ========================================
-
+  // ---- 12. Frame background — scroll-driven canvas ----
   (function() {
-    var TOTAL = 235, fb = document.getElementById('frameBg');
+    const TOTAL = 235;
+    const fb = $('#frameBg');
     if (!fb) return;
 
-    function path(i) {
-      return 'frame/frame_' + String(i + 2).padStart(3, '0') + '.jpg';
-    }
+    const path = (i) => 'frame/frame_' + String(i + 2).padStart(3, '0') + '.jpg';
 
-    var cv = document.createElement('canvas');
+    const cv = document.createElement('canvas');
     cv.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none';
     fb.insertBefore(cv, fb.firstChild);
 
-    var cx = cv.getContext('2d'), img = new Image(), idx = -1, dpr = 1, cache = [];
+    const cx = cv.getContext('2d');
+    let img = new Image(), idx = -1, dpr = 1, cache = [];
 
-    function dims() {
-      return { w: cv.clientWidth || window.innerWidth, h: cv.clientHeight || window.innerHeight };
-    }
+    const dims = () => ({ w: cv.clientWidth || window.innerWidth, h: cv.clientHeight || window.innerHeight });
 
-    function resize() {
-      var d = dims();
+    const resize = () => {
+      const d = dims();
       dpr = window.devicePixelRatio || 1;
       cv.width = d.w * dpr; cv.height = d.h * dpr;
       if (img.complete && img.naturalWidth) draw(img, d.w, d.h);
-    }
+    };
 
-    function draw(im, w, h) {
-      var iw = im.naturalWidth, ih = im.naturalHeight, ir = iw / ih, cr = w / h;
-      var sx = 0, sy = 0, sw = iw, sh = ih;
+    const draw = (im, w, h) => {
+      const iw = im.naturalWidth, ih = im.naturalHeight, ir = iw / ih, cr = w / h;
+      let sx = 0, sy = 0, sw = iw, sh = ih;
       if (ir > cr) { sw = ih * cr; sx = (iw - sw) / 2; }
       else if (ir < cr) { sh = iw / cr; sy = (ih - sh) / 2; }
       cx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cx.drawImage(im, sx, sy, sw, sh, 0, 0, w, h);
-    }
+    };
 
     frameImagesTotal = TOTAL;
 
-    function preload() {
-      var pos = 0;
-      function next() {
-        var end = Math.min(pos + 10, TOTAL);
-        for (var i = pos; i < end; i++) (function(j) {
-          var im = new Image();
-          im.onload = function() {
+    const preload = () => {
+      let pos = 0;
+      const next = () => {
+        const end = Math.min(pos + 10, TOTAL);
+        for (let i = pos; i < end; i++) {
+          const j = i;
+          const im = new Image();
+          im.onload = () => {
             cache[j] = im;
             frameImagesLoaded++;
             updateLoaderFromFrameProgress();
@@ -332,66 +327,67 @@
             }
           };
           im.src = path(j);
-        })(i);
+        }
         pos = end;
         if (pos < TOTAL) setTimeout(next, 50);
-      }
+      };
       next();
-    }
+    };
 
-    function show(i) {
+    const show = (i) => {
       if (i === idx) return;
       idx = i;
-      var d = dims(), c = cache[i];
-      if (c && c.complete && c.naturalWidth) { img = c; draw(img, d.w, d.h); return; }
-      var src = path(i);
+      const d = dims();
+      const cached = cache[i];
+      if (cached && cached.complete && cached.naturalWidth) { img = cached; draw(img, d.w, d.h); return; }
+      const src = path(i);
       if (img.src === src && img.complete && img.naturalWidth) { draw(img, d.w, d.h); return; }
-      var ni = new Image();
-      ni.onload = function() {
+      const ni = new Image();
+      ni.onload = () => {
         cache[i] = ni;
-        if (idx === i) { img = ni; var nd = dims(); draw(ni, nd.w, nd.h); }
+        if (idx === i) { img = ni; const nd = dims(); draw(ni, nd.w, nd.h); }
       };
       ni.src = src;
-    }
+    };
 
-    extendScroll();
-
-    var ticking = false;
-
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function() {
-        var st = window.scrollY, sh = document.documentElement.scrollHeight - window.innerHeight;
-        var p = sh > 0 ? Math.min(st / sh, 1) : 0;
-        show(Math.round(p * (TOTAL - 1)));
-        ticking = false;
-      });
-    }
-
-    function onKey(e) {
-      if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown'].includes(e.key)) return;
-      e.preventDefault();
-      var sh = document.documentElement.scrollHeight - window.innerHeight, cp = window.scrollY / sh;
-      var np = (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp')
-        ? Math.max(0, cp - 0.02) : Math.min(1, cp + 0.02);
-      window.scrollTo({ top: np * sh, behavior: 'auto' });
-    }
-
-    function extendScroll() {
-      var target = window.innerHeight * 10;
-      var sp = document.getElementById('sp');
+    const extendScroll = () => {
+      const target = window.innerHeight * 10;
+      let sp = $('#sp');
       if (!sp) {
         sp = document.createElement('div');
         sp.id = 'sp';
         sp.style.cssText = 'pointer-events:none;width:1px';
         document.body.appendChild(sp);
       }
-      var current = document.body.scrollHeight - (parseInt(sp.style.height) || 0);
-      var needed = target - current;
+      const current = document.body.scrollHeight - (parseInt(sp.style.height) || 0);
+      const needed = target - current;
       if (needed > 0) sp.style.height = needed + 'px';
-    }
+    };
 
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const st = window.scrollY;
+        const sh = document.documentElement.scrollHeight - window.innerHeight;
+        const p = sh > 0 ? Math.min(st / sh, 1) : 0;
+        show(Math.round(p * (TOTAL - 1)));
+        ticking = false;
+      });
+    };
+
+    const onKey = (e) => {
+      if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown'].includes(e.key)) return;
+      e.preventDefault();
+      const sh = document.documentElement.scrollHeight - window.innerHeight;
+      const cp = window.scrollY / sh;
+      const np = (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp')
+        ? Math.max(0, cp - 0.02) : Math.min(1, cp + 0.02);
+      window.scrollTo({ top: np * sh, behavior: 'auto' });
+    };
+
+    extendScroll();
     preload();
     resize();
     show(0);
@@ -399,9 +395,10 @@
     window.addEventListener('resize', resize, { passive: true });
     document.addEventListener('keydown', onKey);
 
-    var rc = 0, ri = setInterval(function() {
+    let rc = 0;
+    const ri = setInterval(() => {
       rc++;
-      if (img.complete && img.naturalWidth) { clearInterval(ri); var dd = dims(); draw(img, dd.w, dd.h); }
+      if (img.complete && img.naturalWidth) { clearInterval(ri); const dd = dims(); draw(img, dd.w, dd.h); }
       if (rc > 25) clearInterval(ri);
     }, 200);
   })();

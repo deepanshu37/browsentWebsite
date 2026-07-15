@@ -1,12 +1,21 @@
 (() => {
   'use strict';
 
-  const yearEl = document.getElementById('year');
+  const $ = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+
+  const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  const nav = document.getElementById('nav');
-  const toggle = document.getElementById('navToggle');
-  const navLinks = document.querySelector('.nav-links');
+  const nav = $('#nav');
+  const toggle = $('#navToggle');
+  const navLinks = $('.nav-links');
+
+  const closeNav = () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    navLinks.classList.remove('active');
+    document.body.style.overflow = '';
+  };
 
   const onScroll = () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
@@ -21,15 +30,11 @@
       document.body.style.overflow = expanded ? '' : 'hidden';
     });
 
-    document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(a => {
-      a.addEventListener('click', () => {
-        toggle.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+    $$('.nav-links a:not(.dropdown-toggle)').forEach(a => {
+      a.addEventListener('click', closeNav);
     });
 
-    document.querySelectorAll('.dropdown-toggle').forEach(tgl => {
+    $$('.dropdown-toggle').forEach(tgl => {
       tgl.addEventListener('click', (e) => {
         e.preventDefault();
         if (window.innerWidth <= 900) {
@@ -43,14 +48,12 @@
 
     document.addEventListener('click', (e) => {
       if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !toggle.contains(e.target)) {
-        toggle.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
+        closeNav();
       }
     });
   }
 
-  const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+  const revealEls = $$('[data-reveal]');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -74,7 +77,7 @@
   });
 
   setTimeout(() => {
-    document.querySelectorAll('[data-reveal]:not(.in)').forEach(el => el.classList.add('in'));
+    $$('[data-reveal]:not(.in)').forEach(el => el.classList.add('in'));
   }, 2000);
 
   document.addEventListener('click', (e) => {
@@ -84,32 +87,25 @@
     const target = document.getElementById(id);
     if (!target) return;
     e.preventDefault();
-    const offset = 80;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    const top = target.getBoundingClientRect().top + window.scrollY - 80;
     window.scrollTo({ top, behavior: 'smooth' });
   });
 
-  const tabs = document.querySelector('.tabs-nav');
+  const tabs = $('.tabs-nav');
   if (tabs) {
-    const tabBtns = tabs.querySelectorAll('.tab-btn');
-    const tabPanels = document.querySelectorAll('.tab-panel');
+    const tabBtns = $$('.tab-btn', tabs);
+    const tabPanels = $$('.tab-panel');
 
     function activateTab(id) {
-      tabBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.tab === id);
-      });
-      tabPanels.forEach(panel => {
-        panel.classList.toggle('active', panel.id === id);
-      });
+      tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === id));
+      tabPanels.forEach(panel => panel.classList.toggle('active', panel.id === id));
     }
 
-    const firstTab = document.querySelector('.tab-btn.active') || tabBtns[0];
+    const firstTab = $('.tab-btn.active', tabs) || tabBtns[0];
     if (firstTab) activateTab(firstTab.dataset.tab);
 
     tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        activateTab(btn.dataset.tab);
-      });
+      btn.addEventListener('click', () => activateTab(btn.dataset.tab));
     });
 
     const hash = window.location.hash.slice(1);
@@ -118,16 +114,15 @@
       setTimeout(() => {
         const target = document.getElementById(hash);
         if (target) {
-          const offset = 100;
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          const top = target.getBoundingClientRect().top + window.scrollY - 100;
           window.scrollTo({ top, behavior: 'smooth' });
         }
       }, 100);
     }
   }
 
-  const form = document.getElementById('contactForm');
-  const note = document.getElementById('formNote');
+  const form = $('#contactForm');
+  const note = $('#formNote');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -167,12 +162,11 @@
     setTimeout(() => ripple.remove(), 700);
   });
 
-  const style = document.createElement('style');
-  style.textContent = `
+  const rippleStyle = document.createElement('style');
+  rippleStyle.textContent = `
     @keyframes rippleEffect {
       to { width:300px; height:300px; opacity:0; }
     }
   `;
-  document.head.appendChild(style);
-
+  document.head.appendChild(rippleStyle);
 })();
