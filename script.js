@@ -92,6 +92,18 @@
       a.addEventListener('click', (e) => {
         if (a.getAttribute('href') === '#') e.preventDefault();
         closeNav();
+        const dd = a.closest('.dropdown-menu');
+        if (dd) {
+          dd.style.display = 'none';
+          const parent = a.closest('.nav-dropdown');
+          if (parent) {
+            const reopen = () => {
+              dd.style.display = '';
+              parent.removeEventListener('mouseenter', reopen);
+            };
+            parent.addEventListener('mouseenter', reopen);
+          }
+        }
       });
     });
 
@@ -115,15 +127,12 @@
   }
 
   // ---- 5. Active nav link tracking ----
-  const sections = ['contact']
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-
   const updateActiveNav = () => {
     let current = '';
     const scrollPos = window.scrollY + 120;
-    sections.forEach(sec => {
-      if (sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
+    ['contact'].forEach(id => {
+      const sec = document.getElementById(id);
+      if (sec && sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
         current = sec.id;
       }
     });
@@ -135,7 +144,7 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
   // ---- 6. Metrics counter ----
-  const metrics = $$('[data-count]');
+  let metrics = $$('[data-count]');
   let metricsCounted = false;
 
   const countUp = (el) => {
@@ -202,12 +211,17 @@
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
     const id = link.getAttribute('href').slice(1);
+    if (!id) return;
     const target = document.getElementById(id);
-    if (!target) return;
-    e.preventDefault();
-    const offset = 80;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else if (window.__router) {
+      e.preventDefault();
+      window.__router.navigate('index.html#' + id);
+    }
   });
 
   // ---- 9. Parallax hero elements ----
@@ -225,9 +239,11 @@
   }
 
   // ---- 10. Contact form ----
-  const form = $('#contactForm');
-  const note = $('#formNote');
-  if (form) {
+  function initContactForm() {
+    const form = $('#contactForm');
+    if (!form || form._formInit) return;
+    form._formInit = true;
+    const note = $('#formNote');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = new FormData(form);
@@ -235,11 +251,12 @@
       const email = data.get('email')?.trim();
       const message = data.get('message')?.trim();
       if (!name || !email || !message) return;
-      note.hidden = false;
+      if (note) note.hidden = false;
       form.reset();
-      setTimeout(() => { note.hidden = true; }, 6000);
+      if (note) setTimeout(() => { note.hidden = true; }, 6000);
     });
   }
+  initContactForm();
 
   // ---- 11. Button ripple effect ----
   document.addEventListener('click', (e) => {
@@ -275,7 +292,40 @@
   `;
   document.head.appendChild(style);
 
-  // ---- 12. Frame background — scroll-driven canvas ----
+  // ---- 12. Tabs initialization ----
+  function initTabs() {
+    const tabsNav = $('.tabs-nav');
+    if (!tabsNav) return;
+    const tabBtns = $$('.tab-btn', tabsNav);
+    const tabPanels = $$('.tab-panel');
+    function activateTab(id) {
+      tabBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === id));
+      tabPanels.forEach(panel => panel.classList.toggle('active', panel.id === id));
+    }
+    if (!tabsNav._tabInit) {
+      tabsNav.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tab-btn');
+        if (btn && btn.dataset.tab) activateTab(btn.dataset.tab);
+      });
+      tabsNav._tabInit = true;
+    }
+    const firstTab = $('.tab-btn.active', tabsNav) || tabBtns[0];
+    if (firstTab) activateTab(firstTab.dataset.tab);
+    const hash = window.location.hash.slice(1);
+    if (hash && document.getElementById(hash)) {
+      activateTab(hash);
+      setTimeout(() => {
+        const target = document.getElementById(hash);
+        if (target) {
+          const top = target.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }
+  initTabs();
+
+  // ---- 13. Frame background — scroll-driven canvas ----
   (function() {
     const TOTAL = 235;
     const fb = $('#frameBg');
@@ -388,6 +438,7 @@
     };
 
     extendScroll();
+    window.__extendScroll = extendScroll;
     preload();
     resize();
     show(0);
@@ -404,5 +455,128 @@
   })();
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
+
+  // ---- 15. SPA Router ----
+  (function() {
+    if (!window.history.pushState) return;
+
+    let isLoading = false;
+
+    async function navigateTo(path) {
+      if (isLoading) return;
+      isLoading = true;
+
+      const url = new URL(path, window.location.href);
+
+      if (url.pathname === window.location.pathname) {
+        if (url.hash) {
+          history.pushState({ path: url.pathname }, '', url.pathname + url.hash);
+          initTabs();
+          setTimeout(() => {
+            const target = document.getElementById(url.hash.slice(1));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        }
+        isLoading = false;
+        return;
+      }
+
+      try {
+        const res = await fetch(url.pathname);
+        if (!res.ok) throw new Error('Fetch failed');
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newMain = doc.querySelector('#main-content');
+        const newTitle = doc.title;
+        if (!newMain) throw new Error('No main content');
+
+        const currentMain = document.querySelector('#main-content');
+        if (!currentMain) throw new Error('No current main');
+
+        currentMain.style.opacity = '0';
+        currentMain.style.transition = 'opacity 0.25s ease';
+
+        setTimeout(() => {
+          currentMain.innerHTML = newMain.innerHTML;
+          currentMain.className = newMain.className;
+          currentMain.style.opacity = '';
+          currentMain.style.transition = '';
+
+          if (newTitle) document.title = newTitle;
+
+          const newUrl = url.pathname + (url.hash || '');
+          history.pushState({ path: url.pathname }, '', newUrl);
+
+          reInit();
+
+          if (url.hash) {
+            setTimeout(() => {
+              const target = document.getElementById(url.hash.slice(1));
+              if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+
+          isLoading = false;
+        }, 250);
+      } catch {
+        window.location.href = url.pathname + (url.hash || '');
+      }
+    }
+
+    window.__router = { navigate: navigateTo };
+
+    document.addEventListener('click', (e) => {
+      if (e.defaultPrevented) return;
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      let href = link.getAttribute('href');
+      if (!href) return;
+      if (href.startsWith('#')) return;
+      if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      if (link.hasAttribute('download') || link.target === '_blank') return;
+      try {
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        e.preventDefault();
+        navigateTo(url.pathname + (url.hash || ''));
+      } catch { return; }
+    });
+
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.path) navigateTo(e.state.path);
+    });
+
+    function reInit() {
+      const newRevealEls = $$('[data-reveal]');
+      newRevealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 20 && rect.bottom > 0) {
+          const delay = parseInt(el.getAttribute('data-delay')) || 0;
+          if (delay) setTimeout(() => el.classList.add('in'), delay);
+          else el.classList.add('in');
+        } else {
+          revealObserver.observe(el);
+        }
+      });
+      setTimeout(() => {
+        $$('[data-reveal]:not(.in)').forEach(el => el.classList.add('in'));
+      }, 2000);
+
+      initTabs();
+      initContactForm();
+
+      if (window.__extendScroll) window.__extendScroll();
+
+      metrics = $$('[data-count]');
+      if (metrics.length) {
+        metricsCounted = false;
+        const hero = $('#hero');
+        metricObserver.observe(hero || document.body);
+      }
+    }
+  })();
 
 })();
