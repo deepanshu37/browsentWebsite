@@ -400,19 +400,6 @@
       ni.src = src;
     };
 
-    const extendScroll = () => {
-      const target = window.innerHeight * 10;
-      let sp = $('#sp');
-      if (!sp) {
-        sp = document.createElement('div');
-        sp.id = 'sp';
-        sp.style.cssText = 'pointer-events:none;width:1px';
-        document.body.appendChild(sp);
-      }
-      const current = document.body.scrollHeight - (parseInt(sp.style.height) || 0);
-      const needed = target - current;
-      if (needed > 0) sp.style.height = needed + 'px';
-    };
 
     let ticking = false;
     const onScroll = () => {
@@ -437,8 +424,6 @@
       window.scrollTo({ top: np * sh, behavior: 'auto' });
     };
 
-    extendScroll();
-    window.__extendScroll = extendScroll;
     preload();
     resize();
     show(0);
@@ -567,8 +552,6 @@
 
       initTabs();
       initContactForm();
-
-      if (window.__extendScroll) window.__extendScroll();
 
       metrics = $$('[data-count]');
       if (metrics.length) {

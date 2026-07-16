@@ -66,7 +66,10 @@
   top:16px;
 }
 
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html{
+  background:var(--light);
+  scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale
+}
 
 body{
   font-family:var(--font-sans);
@@ -74,7 +77,6 @@ body{
   color:var(--dark-secondary);
   line-height:1.6;
   overflow-x:hidden;
-  min-height:100vh;
 }
 
 img{max-width:100%;display:block}
