@@ -162,6 +162,66 @@
     setTimeout(() => ripple.remove(), 700);
   });
 
+  /* ============================================= */
+  /*  GLASSMORPHISM CARD ENHANCEMENTS              */
+  /* ============================================= */
+
+  const glassCards = $$('.feature-card');
+  if (glassCards.length) {
+    glassCards.forEach((card, idx) => {
+      /* Reflection sweep layer */
+      const reflection = document.createElement('div');
+      reflection.className = 'feature-card-reflection';
+      card.appendChild(reflection);
+
+      /* Expanding glass blob (bottom-right origin) */
+      const blob = document.createElement('div');
+      blob.className = 'feature-card-blob';
+      card.appendChild(blob);
+
+      /* Circular action button */
+      const btn = document.createElement('button');
+      btn.className = 'feature-card-btn';
+      btn.setAttribute('aria-label', 'Learn more about this service');
+      btn.setAttribute('tabindex', '0');
+      btn.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+      card.appendChild(btn);
+
+      /* Cursor-responsive lighting */
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mouse-x', x);
+        card.style.setProperty('--mouse-y', y);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', '30');
+        card.style.setProperty('--mouse-y', '20');
+      });
+
+      /* Stagger animation delay based on data-delay for reveal */
+      const delay = parseInt(card.getAttribute('data-delay')) || idx * 100;
+      btn.style.transitionDelay = (delay + 160) + 'ms';
+
+      /* Click handler for the action button (links to contact or relevant page) */
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const link = card.closest('a') || card.querySelector('a');
+        if (link) {
+          link.click();
+        } else {
+          const contact = document.querySelector('.contact');
+          if (contact) {
+            contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  }
+
   const rippleStyle = document.createElement('style');
   rippleStyle.textContent = `
     @keyframes rippleEffect {
