@@ -400,7 +400,8 @@ ol {
   padding: var(--space-sm);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.25s var(--ease-glass);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.25s ease;
+  transition-delay: 0.4s, 0.4s, 0s;
   z-index: 10;
   pointer-events: none;
 }
@@ -411,6 +412,7 @@ ol {
   visibility: visible;
   transform: translateX(-50%) translateY(4px);
   pointer-events: auto;
+  transition-delay: 0s, 0s, 0s;
 }
 
 .dropdown-item {
@@ -427,6 +429,64 @@ ol {
 .dropdown-item:hover {
   color: var(--primary);
   background: var(--primary-subtle);
+}
+
+/* --- Sub-dropdown (third level) --- */
+.nav-dropdown-sub {
+  position: relative;
+}
+
+.dropdown-toggle-sub {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sub-ind {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.3s var(--ease-out);
+  flex-shrink: 0;
+}
+
+.nav-dropdown-sub:hover .sub-ind {
+  transform: rotate(45deg);
+}
+
+.dropdown-menu-sub {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateX(6px) translateY(0);
+  min-width: 180px;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  border: var(--glass-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-glass-lg);
+  padding: var(--space-sm);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.25s ease;
+  transition-delay: 0.4s, 0.4s, 0s;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.nav-dropdown-sub:hover .dropdown-menu-sub,
+.nav-dropdown-sub:focus-within .dropdown-menu-sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(6px) translateY(-4px);
+  pointer-events: auto;
+  transition-delay: 0s, 0s, 0s;
 }
 
 /* ============================================= */
@@ -2379,6 +2439,43 @@ section+section {
   .dropdown-item {
     padding: 10px 16px;
     font-size: 15px;
+  }
+
+  .nav-dropdown-sub {
+    width: 100%;
+  }
+
+  .dropdown-menu-sub {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 4px 20px;
+    transition: none;
+  }
+
+  .dropdown-menu-sub.active {
+    display: block;
+  }
+
+  .nav-dropdown-sub:hover .dropdown-menu-sub {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .sub-ind {
+    transform: rotate(45deg);
+  }
+
+  .nav-dropdown-sub.active-dropdown > .dropdown-toggle-sub > .sub-ind {
+    transform: rotate(-135deg);
   }
 
   .hero-layout {

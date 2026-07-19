@@ -64,8 +64,9 @@
   const nav = $('#nav');
   const toggle = $('#navToggle');
   const navLinks = $('.nav-links');
-  const navLinksArr = navLinks ? $$('a:not(.dropdown-toggle)', navLinks) : [];
+  const navLinksArr = navLinks ? $$('a:not(.dropdown-toggle):not(.dropdown-toggle-sub)', navLinks) : [];
   const dropdownToggles = navLinks ? $$('.dropdown-toggle', navLinks) : [];
+  const subDropdownToggles = navLinks ? $$('.dropdown-toggle-sub', navLinks) : [];
 
   const closeNav = () => {
     toggle.setAttribute('aria-expanded', 'false');
@@ -113,6 +114,18 @@
         if (window.innerWidth <= 900) {
           const menu = tgl.nextElementSibling;
           if (menu && menu.classList.contains('dropdown-menu')) {
+            menu.classList.toggle('active');
+          }
+        }
+      });
+    });
+
+    subDropdownToggles.forEach(tgl => {
+      tgl.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.innerWidth <= 900) {
+          const menu = tgl.nextElementSibling;
+          if (menu && menu.classList.contains('dropdown-menu-sub')) {
             menu.classList.toggle('active');
           }
         }

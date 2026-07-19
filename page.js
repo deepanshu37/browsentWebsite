@@ -30,7 +30,7 @@
       document.body.style.overflow = expanded ? '' : 'hidden';
     });
 
-    $$('.nav-links a:not(.dropdown-toggle)').forEach(a => {
+    $$('.nav-links a:not(.dropdown-toggle):not(.dropdown-toggle-sub)').forEach(a => {
       a.addEventListener('click', closeNav);
     });
 
@@ -40,6 +40,18 @@
         if (window.innerWidth <= 900) {
           const menu = tgl.nextElementSibling;
           if (menu && menu.classList.contains('dropdown-menu')) {
+            menu.classList.toggle('active');
+          }
+        }
+      });
+    });
+
+    $$('.dropdown-toggle-sub').forEach(tgl => {
+      tgl.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.innerWidth <= 900) {
+          const menu = tgl.nextElementSibling;
+          if (menu && menu.classList.contains('dropdown-menu-sub')) {
             menu.classList.toggle('active');
           }
         }
