@@ -1214,6 +1214,60 @@ section+section {
 }
 
 /* ============================================= */
+/*  STICKY STACKED SCROLLING CARDS               */
+/*  Applied via JS to .work-grid                 */
+/* ============================================= */
+
+.work-grid.sticky-stack {
+  display: block;
+  position: relative;
+  padding-bottom: 50vh;
+  min-height: 100vh;
+}
+
+.work-grid.sticky-stack .work-card {
+  position: sticky;
+  top: 120px;
+  width: 100%;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  will-change: transform, opacity;
+}
+
+.work-grid.sticky-stack .work-card:last-child {
+  margin-bottom: 0;
+}
+
+.work-grid.sticky-stack .work-card:hover {
+  transform: none !important;
+}
+
+@media(max-width:1100px) {
+  .work-grid.sticky-stack .work-card {
+    max-width: 640px;
+    top: 100px;
+  }
+}
+
+@media(max-width:700px) {
+  .work-grid.sticky-stack {
+    padding-bottom: 35vh;
+  }
+  .work-grid.sticky-stack .work-card {
+    max-width: 100%;
+    top: 80px;
+  }
+}
+
+@media(max-width:500px) {
+  .work-grid.sticky-stack .work-card {
+    top: 70px;
+  }
+}
+
+/* ============================================= */
 /*  PROBLEM SECTION                             */
 /* ============================================= */
 
