@@ -584,29 +584,11 @@ h5 {
   font-weight: 600;
   font-family: var(--font-sans);
   border-radius: var(--radius-sm);
-  transition: all 0.35s var(--ease-out);
   position: relative;
-  overflow: hidden;
   cursor: pointer;
   white-space: nowrap;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.6s var(--ease-out);
-}
-
-.btn:hover::before {
-  left: 125%;
 }
 
 .btn:focus-visible {
@@ -620,33 +602,12 @@ h5 {
   border: none;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.4);
-}
-
-.btn-primary:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 2px 10px rgba(108, 99, 255, 0.3);
-}
-
 .btn-ghost {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: var(--glass-border);
   color: var(--dark);
-}
-
-.btn-ghost:hover {
-  background: var(--glass-bg-strong);
-  border-color: rgba(108, 99, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glass);
-}
-
-.btn-ghost:active {
-  transform: translateY(0) scale(0.98);
 }
 
 .btn-block {
@@ -656,12 +617,7 @@ h5 {
 .btn svg {
   width: 16px;
   height: 16px;
-  transition: transform 0.3s var(--ease-out);
   flex-shrink: 0;
-}
-
-.btn:hover svg {
-  transform: translateX(3px);
 }
 
 /* ============================================= */
