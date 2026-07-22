@@ -2251,9 +2251,6 @@ section+section {
     animation: none;
   }
 
-  .btn::before {
-    display: none;
-  }
 }
 
 /* ============================================= */
