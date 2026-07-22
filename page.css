@@ -659,6 +659,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
   animation: glassReflectionSweep 8s ease-in-out infinite;
+  animation-play-state: paused;
 }
 
 @keyframes glassReflectionSweep {
@@ -682,13 +683,10 @@
     rgba(108, 99, 255, 0.04) 65%,
     transparent 80%
   );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   pointer-events: none;
   z-index: 1;
   transform: scale(0);
   transition: transform 0.8s var(--hover-ease);
-  will-change: transform;
 }
 
 /* --- Layer 5: Content elements z-index --- */
@@ -709,8 +707,6 @@
   justify-content: center;
   border-radius: 16px;
   background: rgba(108, 99, 255, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.06);
   color: var(--primary);
   margin-bottom: 0;
@@ -780,8 +776,6 @@
   align-items: center;
   justify-content: center;
   background: rgba(108, 99, 255, 0.12);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.10);
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
@@ -826,6 +820,7 @@
 .feature-card:hover .feature-card-reflection {
   opacity: 1;
   animation-duration: 4s;
+  animation-play-state: running;
 }
 
 .feature-card:hover .feature-card-blob {
@@ -885,6 +880,7 @@
 
 .feature-card:focus-within .feature-card-reflection {
   opacity: 1;
+  animation-play-state: running;
 }
 
 .feature-card:focus-within .feature-card-blob {
