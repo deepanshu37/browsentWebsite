@@ -271,53 +271,6 @@
   }
   initContactForm();
 
-  // ---- 11. Glassmorphism Card Enhancements ----
-  function initGlassCards() {
-    const glassCards = $$('.feature-card');
-    if (!glassCards.length) return;
-    glassCards.forEach((card, idx) => {
-      if (card._glassInit) return;
-      card._glassInit = true;
-
-      const reflection = document.createElement('div');
-      reflection.className = 'feature-card-reflection';
-      card.appendChild(reflection);
-
-      const blob = document.createElement('div');
-      blob.className = 'feature-card-blob';
-      card.appendChild(blob);
-
-      const btn = document.createElement('button');
-      btn.className = 'feature-card-btn';
-      btn.setAttribute('aria-label', 'Learn more about this service');
-      btn.innerHTML =
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
-      card.appendChild(btn);
-
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mouse-x', x);
-        card.style.setProperty('--mouse-y', y);
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--mouse-x', '30');
-        card.style.setProperty('--mouse-y', '20');
-      });
-
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const link = card.closest('a') || card.querySelector('a');
-        if (link) { link.click(); return; }
-        const contact = document.querySelector('.contact');
-        if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
-  initGlassCards();
-
   // ---- 12. Button ripple effect ----
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn');
@@ -765,7 +718,6 @@
 
       initTabs();
       initContactForm();
-      initGlassCards();
       if (window.__stickyStackReInit) window.__stickyStackReInit();
 
       metrics = $$('[data-count]');
