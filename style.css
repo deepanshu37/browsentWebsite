@@ -1221,7 +1221,7 @@ section+section {
 .work-grid.sticky-stack {
   display: block;
   position: relative;
-  padding-bottom: 50vh;
+  /* padding-bottom: 50vh; */
   min-height: 100vh;
 }
 
