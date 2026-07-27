@@ -454,150 +454,34 @@
 
   // ---- 15. Sticky Stack Cards ----
   (function() {
-    let stickyGrids = [];
-    let ticking = false;
-
-    function getStickyTop() {
-      var w = window.innerWidth;
-      if (w < 700) return 70;
-      if (w < 1100) return 100;
-      return 120;
-    }
-
-    function easeOutCubic(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
-
-    function updateAll() {
-      if (ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(function() {
-        var stickyTop = getStickyTop();
-        var scrollY = window.scrollY;
-
-        for (var g = 0; g < stickyGrids.length; g++) {
-          var grid = stickyGrids[g];
-          var cards = grid._stickyCards;
-          if (!cards || !cards.length) continue;
-
-          var gridRect = grid.getBoundingClientRect();
-          var gridTop = gridRect.top + scrollY;
-          var total = cards.length;
-
-          // Read card positions once (transforms don't affect offsetTop)
-          var cardTops = [];
-          for (var i = 0; i < total; i++) {
-            cardTops[i] = gridTop + cards[i].offsetTop;
-          }
-
-          // Find active card (last card with progress < 1 or not yet reached)
-          var activeIdx = 0;
-          for (var i = total - 1; i >= 0; i--) {
-            var st = cardTops[i] - stickyTop;
-            if (scrollY >= st) { activeIdx = i; break; }
-          }
-
-          // Compute active card's eased progress (drives entire stack animation)
-          var activeEased = 0;
-          if (activeIdx < total - 1) {
-            var aStart = cardTops[activeIdx] - stickyTop;
-            var aEnd = cardTops[activeIdx + 1] - stickyTop;
-            var aRange = aEnd - aStart;
-            var aProgress = aRange > 0
-              ? Math.max(0, Math.min(1, (scrollY - aStart) / aRange))
-              : 0;
-            activeEased = easeOutCubic(aProgress);
-          }
-
-          // Update transforms, opacity, and z-indices
-          for (var i = 0; i < total; i++) {
-            var card = cards[i];
-            var opacity, scale, translateY, zIndex;
-
-            if (i === activeIdx) {
-              // Outgoing card — sweeps upward, shrinks, and fades as it recedes
-              opacity = 1 - activeEased;
-              scale = 1 - activeEased * 0.2;
-              translateY = activeEased * -30;
-              zIndex = activeEased < 0.5 ? total + 2 : total;
-            } else if (i > activeIdx) {
-              // Cards below the active one — form a rising stack
-              // As activeEased progresses, every card smoothly moves one slot up
-              var dist = i - activeIdx;
-              var eff = dist - activeEased;
-              opacity = Math.max(0, 1 - eff * 0.25);
-              scale = Math.max(0.4, Math.min(1, 1 - eff * 0.12));
-              translateY = Math.max(0, eff * 32);
-              zIndex = Math.max(1, total - i);
-            } else {
-              // Already passed
-              opacity = 0;
-              scale = 1;
-              translateY = 0;
-              zIndex = Math.max(1, total - i);
-            }
-
-            card.style.transform = 'translateY(' + translateY.toFixed(1) + 'px) scale(' + scale.toFixed(4) + ')';
-            card.style.opacity = opacity.toFixed(3);
-            card.style.zIndex = zIndex;
-          }
-        }
-
-        ticking = false;
-      });
-    }
-
     function initStack(grid) {
       if (grid._stickyInit) return;
       var cards = grid.querySelectorAll('.work-card');
       if (cards.length < 2) return;
-
       grid._stickyInit = true;
       grid.classList.add('sticky-stack');
-
-      grid._stickyCards = Array.from(cards);
-
-      // Initial z-index
-      grid._stickyCards.forEach(function(card, i) {
-        card.style.zIndex = cards.length - i;
-      });
-
-      stickyGrids.push(grid);
-      updateAll();
     }
 
     function initAll() {
       document.querySelectorAll('.work-grid').forEach(initStack);
     }
 
-    // Expose for SPA router re-init
     window.__stickyStackReInit = function() {
       document.querySelectorAll('.work-grid:not(._stickyInit)').forEach(initStack);
-      updateAll();
     };
 
-    // Bind global events once
-    window.addEventListener('scroll', updateAll, { passive: true });
-    window.addEventListener('resize', updateAll, { passive: true });
-
-    // Re-init on tab changes (About_Us.html has grid inside hidden tabs)
     document.addEventListener('click', function(e) {
       if (e.target.closest('.tab-btn')) {
         setTimeout(function() {
-          // Grids inside hidden tabs get zero dimensions; force re-measure
           document.querySelectorAll('.work-grid.sticky-stack').forEach(function(grid) {
             grid._stickyInit = false;
-            grid._stickyCards = null;
             grid.classList.remove('sticky-stack');
           });
-          stickyGrids = [];
           initAll();
         }, 200);
       }
     });
 
-    // Initial init
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initAll);
     } else {
