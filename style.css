@@ -46,6 +46,13 @@
   --glass-blur: blur(16px) saturate(1.2);
   --glass-blur-strong: blur(24px) saturate(1.2);
   --glass-blur-max: blur(32px) saturate(1.3);
+
+  /* Fanned Deck Tokens */
+  --deck-bg: #0A0E1A;
+  --deck-violet: #7C3AED;
+  --deck-amber: #D4A24C;
+  --deck-font-display: 'Cormorant Garamond', serif;
+  --deck-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,
@@ -117,7 +124,7 @@ ol {
 
 .container {
   width: 100%;
-  max-width: 1180px;
+  /* max-width: 1180px; */
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -970,35 +977,23 @@ section+section {
 
 /* ============================================= */
 /*  WORK / DEPLOYMENTS — Glass Cards             */
+/*  (< 1025px: grid + sticky stack)              */
+/*  (>= 1025px: 3D fanned deck)                  */
 /* ============================================= */
 
 .work {
   background: transparent;
+  position: relative;
 }
 
+/* ===================== */
+/*  ORIGINAL GRID LAYOUT */
+/*  (default, < 1025px)  */
+/* ===================== */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg);
-}
-
-.work-card-body h3 {
-  margin-bottom: var(--space-sm);
-}
-
-.work-card-body p {
-  font-size: 14px;
-  color: var(--dark-muted);
-  line-height: 1.65;
-  margin-bottom: var(--space-md);
-}
-
-.work-card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: var(--space-md);
-  border-top: 1px solid rgba(108, 99, 255, 0.1);
 }
 
 .work-card {
@@ -1014,10 +1009,16 @@ section+section {
   flex-direction: column;
 }
 
+.work-card-inner {
+  display: contents;
+}
+
+.work-card-glow {
+  display: none;
+}
+
 .work-card-visual {
   position: relative;
-  /* width: 100%; */
-  /* aspect-ratio: 4 / 3; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1039,7 +1040,6 @@ section+section {
   height: 100%;
   border-radius: 10px;
   object-fit: contain;
-  /* padding: 16px; */
 }
 
 .work-card-tag {
@@ -1060,7 +1060,24 @@ section+section {
   padding: 20px 24px 24px;
 }
 
+.work-card-body h3 {
+  margin-bottom: var(--space-sm);
+}
 
+.work-card-body p {
+  font-size: 14px;
+  color: var(--dark-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-md);
+}
+
+.work-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(108, 99, 255, 0.1);
+}
 
 .meta-stack {
   font-size: 12px;
@@ -1078,6 +1095,7 @@ section+section {
   border-radius: 6px;
 }
 
+/* ---- wca decorative overlays ---- */
 .wca-grid {
   position: absolute;
   inset: 0;
@@ -1155,15 +1173,23 @@ section+section {
   stroke: var(--primary);
 }
 
+/* ---- Responsive Grid (original) ---- */
+@media(max-width:1100px) {
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width:700px) {
+  .work-grid { grid-template-columns: 1fr; }
+}
+
 /* ============================================= */
 /*  STICKY STACKED SCROLLING CARDS               */
-/*  Applied via JS to .work-grid                 */
+/*  (< 1025px, applied via JS)                  */
 /* ============================================= */
 
 .work-grid.sticky-stack {
   display: block;
   position: relative;
-  /* padding-bottom: 50vh; */
   min-height: 100vh;
 }
 
@@ -1224,6 +1250,208 @@ section+section {
 
   .work-grid.sticky-stack .work-card+.work-card {
     margin-top: 12px;
+  }
+}
+
+/* ============================================= */
+/*  3D FANNED CARD DECK                          */
+/*  (>= 1025px, overrides grid layout)           */
+/* ============================================= */
+@media(min-width:1025px) {
+  .work-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    perspective: 1200px;
+    padding: 80px 20px;
+    min-height: 520px;
+    /* overflow: hidden; */
+  }
+
+  .work-card {
+    --fan-angle: 0deg;
+    --fan-lift: 0px;
+    flex: 0 0 auto;
+    width: 260px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transform-style: preserve-3d;
+    -webkit-tap-highlight-color: transparent;
+    transform-origin: 50% 100%;
+    opacity: 0;
+    transform: rotateZ(var(--fan-angle)) translateY(40px) scale(0.85);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .work-card:nth-child(1) { z-index: 1; }
+  .work-card:nth-child(2) { z-index: 2; }
+  .work-card:nth-child(3) { z-index: 3; }
+  .work-card:nth-child(4) { z-index: 4; }
+  .work-card:nth-child(5) { z-index: 5; }
+
+  .work-card:not(:last-child) { margin-right: -45px; }
+  .work-card:last-child { margin-right: 0; }
+
+  .work-card.entered {
+    opacity: 1;
+    transform: rotateZ(var(--fan-angle)) translateY(var(--fan-lift)) scale(1);
+  }
+
+  .work-card.entered.spotlight {
+    transform: rotateZ(0deg) translateY(-12px) scale(1.05);
+  }
+
+  .work-card.entered.dimmed {
+    opacity: 0.65;
+    transform: rotateZ(var(--fan-angle)) translateY(var(--fan-lift)) scale(0.92);
+  }
+
+  .work-card-inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    overflow: hidden;
+    isolation: isolate;
+    background: rgba(10, 14, 26, 0.9);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(124, 58, 237, 0.05) inset;
+    transition: box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .work-card-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(10, 14, 26, 0.45);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    z-index: 0;
+    pointer-events: none;
+    will-change: backdrop-filter;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .work-card-glow {
+    display: block;
+    position: absolute;
+    inset: -4px;
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .work-card-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: conic-gradient(from 180deg at 50% 50%, transparent, var(--glow-color, rgba(124, 58, 237, 0.5)), transparent, var(--glow-color, rgba(124, 58, 237, 0.5)), transparent);
+    filter: blur(24px);
+    opacity: 0.7;
+  }
+
+  .work-card-visual,
+  .work-card-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .work-card-visual {
+    min-height: 140px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(10, 14, 26, 0.4));
+  }
+
+  .work-card-body {
+    padding: 18px 20px 22px;
+  }
+
+  .work-card-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: var(--space-sm);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+  }
+
+  .work-card-body p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+
+  .work-card-meta {
+    border-top-color: rgba(124, 58, 237, 0.1);
+  }
+
+  .meta-stack {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .meta-perf {
+    font-size: 11px;
+    color: #7C3AED;
+    background: rgba(124, 58, 237, 0.1);
+  }
+
+  .work-card.spotlight {
+    z-index: 100;
+    transform: rotateZ(0deg) translateY(-12px) scale(1.05);
+  }
+
+  .work-card.spotlight .work-card-inner {
+    border-color: rgba(124, 58, 237, 0.35);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(124, 58, 237, 0.15) inset,
+      0 0 40px rgba(124, 58, 237, 0.15);
+  }
+
+  .work-card.spotlight .work-card-glow {
+    opacity: 1;
+  }
+
+  .work-card.dimmed {
+    opacity: 0.65;
+    transform: rotateZ(var(--fan-angle)) translateY(var(--fan-lift)) scale(0.92);
+  }
+
+  .work-card.dimmed .work-card-inner {
+    border-color: rgba(124, 58, 237, 0.06);
+  }
+
+  .work-card-art img {
+    border-radius: 10px;
+    object-fit: contain;
+  }
+
+  /* ---- Fan scaling on narrower desktop ---- */
+  @media(max-width:1300px) {
+    .work-card { width: 235px; }
+    .work-card:not(:last-child) { margin-right: -40px; }
+  }
+
+  @media(max-width:1150px) {
+    .work-card { width: 210px; }
+    .work-card:not(:last-child) { margin-right: -30px; }
   }
 }
 
@@ -2289,10 +2517,6 @@ section+section {
     max-width: 580px;
   }
 
-  .work-card-visual {
-    /* height: 220px; */
-  }
-
   .section-head {
     margin-bottom: var(--space-3xl);
   }
@@ -2333,10 +2557,6 @@ section+section {
 
 /* --- Desktop / Tablet Landscape (max 1100px) --- */
 @media(max-width:1100px) {
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .fail-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2574,10 +2794,6 @@ section+section {
     font-size: 16px;
   }
 
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-
   .fail-grid {
     grid-template-columns: 1fr;
   }
@@ -2757,24 +2973,6 @@ section+section {
 
   .section-desc {
     font-size: 15px;
-  }
-
-  .work-card-visual {
-    /* height: 170px; */
-  }
-
-  .work-card-body {
-    padding: var(--space-md) var(--space-md) var(--space-lg);
-  }
-
-  .work-card-body p {
-    font-size: 13px;
-  }
-
-  .work-card-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
   }
 
   .fail-card {
@@ -3017,25 +3215,6 @@ section+section {
     font-size: 14px;
   }
 
-  .work-card-visual {
-    /* height: 140px; */
-  }
-
-  .work-card-tag {
-    font-size: 10px;
-    padding: 3px 10px;
-    top: 8px;
-    left: 8px;
-  }
-
-  .work-card-body {
-    padding: 14px 12px 16px;
-  }
-
-  .work-card-body h3 {
-    font-size: 15px;
-  }
-
   .meta-stack,
   .meta-perf {
     font-size: 11px;
@@ -3242,10 +3421,6 @@ section+section {
   .nav-links {
     padding: 80px 20px 24px;
     overflow-y: auto;
-  }
-
-  .work-card-visual {
-    /* height: 140px; */
   }
 
   section {

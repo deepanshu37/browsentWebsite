@@ -452,8 +452,25 @@
     }, 200);
   })();
 
-  // ---- 15. Sticky Stack Cards ----
+  // ---- 15. Work-grid: Sticky Stack / 3D Fanned Deck ----
   (function() {
+    var FAN_CONFIG = {
+      FAN_ANGLE_STEP: 13,
+      STAGGER_DELAY: 100,
+      HOVER_SCALE: 1.05,
+      DIM_OPACITY: 0.65,
+      DIM_SCALE: 0.92,
+      ENTER_DURATION: 700,
+      PERSPECTIVE: 1200
+    };
+
+    var FAN_BREAKPOINT = 1025;
+
+    function isFanLayout() {
+      return window.innerWidth >= FAN_BREAKPOINT;
+    }
+
+    // ---- Sticky Stack (< 1025px) ----
     function initStack(grid) {
       if (grid._stickyInit) return;
       var cards = grid.querySelectorAll('.work-card');
@@ -462,23 +479,122 @@
       grid.classList.add('sticky-stack');
     }
 
-    function initAll() {
-      document.querySelectorAll('.work-grid').forEach(initStack);
+    // ---- 3D Fanned Deck (>= 1025px) ----
+    function initFanDeck(grid) {
+      if (grid._fanInit) return;
+      var cards = grid.querySelectorAll('.work-card');
+      if (!cards.length) return;
+      grid._fanInit = true;
+      var count = cards.length;
+      var mid = (count - 1) / 2;
+
+      cards.forEach(function(card, i) {
+        var offset = i - mid;
+        var angle = offset * FAN_CONFIG.FAN_ANGLE_STEP;
+        var lift = -Math.abs(offset) * 6;
+        card.style.setProperty('--fan-angle', angle + 'deg');
+        card.style.setProperty('--fan-lift', lift + 'px');
+        card.style.setProperty('--glow-color', card.getAttribute('data-accent') || '#7C3AED');
+      });
+
+      setupSpotlight(grid, cards);
+      setupEntryAnim(grid, cards);
     }
 
-    window.__stickyStackReInit = function() {
-      document.querySelectorAll('.work-grid:not(._stickyInit)').forEach(initStack);
+    // ---- Spotlight (hover / focus) ----
+    function setupSpotlight(grid, cards) {
+      var active = null;
+
+      function setSpotlight(target) {
+        clearSpotlight();
+        if (!target) return;
+        target.classList.add('spotlight');
+        cards.forEach(function(c) {
+          if (c !== target) c.classList.add('dimmed');
+        });
+        active = target;
+      }
+
+      function clearSpotlight() {
+        cards.forEach(function(c) {
+          c.classList.remove('spotlight', 'dimmed');
+        });
+        active = null;
+      }
+
+      cards.forEach(function(card) {
+        card.addEventListener('mouseenter', function() { setSpotlight(card); });
+        card.addEventListener('focus', function() { setSpotlight(card); }, true);
+        card.addEventListener('mouseleave', clearSpotlight);
+        card.addEventListener('blur', function(e) {
+          if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest('.work-grid')) {
+            clearSpotlight();
+          }
+        }, true);
+      });
+
+      document.addEventListener('click', function(e) {
+        var card = e.target.closest('.work-card');
+        if (!card || !grid.contains(card)) {
+          clearSpotlight();
+        }
+      });
+    }
+
+    // ---- Entry / Scroll Animation ----
+    function setupEntryAnim(grid, cards) {
+      var obs = new IntersectionObserver(function(entries) {
+        if (entries.some(function(e) { return e.isIntersecting; })) {
+          cards.forEach(function(c, i) {
+            setTimeout(function() { c.classList.add('entered'); }, i * FAN_CONFIG.STAGGER_DELAY);
+          });
+          obs.disconnect();
+        }
+      }, { threshold: 0.1 });
+      obs.observe(grid);
+    }
+
+    // ---- Init All ----
+    function initAll() {
+      var fan = isFanLayout();
+      document.querySelectorAll('.work-grid').forEach(function(grid) {
+        if (fan) {
+          grid.classList.remove('sticky-stack');
+          grid._stickyInit = false;
+          initFanDeck(grid);
+        } else {
+          grid._fanInit = false;
+          grid.querySelectorAll('.work-card').forEach(function(c) {
+            c.classList.remove('spotlight', 'dimmed', 'entered');
+          });
+          initStack(grid);
+        }
+      });
+    }
+
+    window.__workGridReInit = function() {
+      document.querySelectorAll('.work-grid').forEach(function(grid) {
+        grid._stickyInit = false;
+        grid._fanInit = false;
+        grid.classList.remove('sticky-stack');
+        grid.querySelectorAll('.work-card').forEach(function(c) {
+          c.classList.remove('spotlight', 'dimmed', 'entered');
+        });
+      });
+      initAll();
     };
+
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        window.__workGridReInit();
+      }, 250);
+    });
 
     document.addEventListener('click', function(e) {
       if (e.target.closest('.tab-btn')) {
-        setTimeout(function() {
-          document.querySelectorAll('.work-grid.sticky-stack').forEach(function(grid) {
-            grid._stickyInit = false;
-            grid.classList.remove('sticky-stack');
-          });
-          initAll();
-        }, 200);
+        setTimeout(function() { window.__workGridReInit(); }, 300);
       }
     });
 
@@ -602,7 +718,7 @@
 
       initTabs();
       initContactForm();
-      if (window.__stickyStackReInit) window.__stickyStackReInit();
+      if (window.__workGridReInit) window.__workGridReInit();
 
       metrics = $$('[data-count]');
       if (metrics.length) {

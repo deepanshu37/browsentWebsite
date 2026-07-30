@@ -6,7 +6,7 @@
   <title>Browsent — Design-First Engineering Consultancy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="page.css">
 </head>
@@ -289,88 +289,98 @@
         <p class="section-desc">Case studies where design-first engineering delivered measurable business outcomes.</p>
       </header>
 
-      <div class="work-grid" id="workGrid">
+      <div class="work-grid" id="workGrid" role="list">
         <article class="work-card" data-reveal="up" data-delay="0">
-          <div class="work-card-visual" style="--accent:#6c63ff">
-            <div class="work-card-art">
-              <img src="assets/images/neo.png" alt="Fintech deployment" loading="lazy">
+          <div class="work-card-glow"></div>
+          <div class="work-card-inner">
+            <div class="work-card-visual" style="--accent:#6c63ff">
+              <div class="work-card-art">
+                <img src="assets/images/neo.png" alt="Fintech deployment" loading="lazy">
+              </div>
             </div>
-            <!-- <span class="work-card-tag">Fintech</span> -->
-          </div>
-          <div class="work-card-body">
-            <h3>Neobank Consumer Ecosystem</h3>
-            <p>End-to-end digital banking experience architected from user journey mapping through backend systems. 40% increase in retention across 200K active users.</p>
-            <div class="work-card-meta">
-              <span class="meta-stack">Go · Kafka · React</span>
-              <span class="meta-perf">40% increase in retention</span>
+            <div class="work-card-body">
+              <h3>Neobank Consumer Ecosystem</h3>
+              <p>End-to-end digital banking experience architected from user journey mapping through backend systems. 40% increase in retention across 200K active users.</p>
+              <div class="work-card-meta">
+                <span class="meta-stack">Go · Kafka · React</span>
+                <span class="meta-perf">40% increase in retention</span>
+              </div>
             </div>
           </div>
         </article>
 
         <article class="work-card" data-reveal="up" data-delay="150">
-          <div class="work-card-visual" style="--accent:#5b54e3">
-            <div class="work-card-art">
-              <img src="assets/images/iot.png" alt="Industrial SaaS platform" loading="lazy">
+          <div class="work-card-glow"></div>
+          <div class="work-card-inner">
+            <div class="work-card-visual" style="--accent:#5b54e3">
+              <div class="work-card-art">
+                <img src="assets/images/iot.png" alt="Industrial SaaS platform" loading="lazy">
+              </div>
             </div>
-            <!-- <span class="work-card-tag">Industrial</span> -->
-          </div>
-          <div class="work-card-body">
-            <h3>IoT Predictive Analytics</h3>
-            <p>Real-time sensor data platform processing 2M events/second with millisecond-level precision for predictive maintenance across 12 manufacturing facilities.</p>
-            <div class="work-card-meta">
-              <span class="meta-stack">Rust · gRPC · InfluxDB</span>
-              <span class="meta-perf">Millisecond-level precision</span>
+            <div class="work-card-body">
+              <h3>IoT Predictive Analytics</h3>
+              <p>Real-time sensor data platform processing 2M events/second with millisecond-level precision for predictive maintenance across 12 manufacturing facilities.</p>
+              <div class="work-card-meta">
+                <span class="meta-stack">Rust · gRPC · InfluxDB</span>
+                <span class="meta-perf">Millisecond-level precision</span>
+              </div>
             </div>
           </div>
         </article>
 
         <article class="work-card" data-reveal="up" data-delay="300">
-          <div class="work-card-visual" style="--accent:#8b83ff">
-            <div class="work-card-art">
-              <img src="assets/images/enterprise.png" alt="Retail healthcare platform" loading="lazy">
+          <div class="work-card-glow"></div>
+          <div class="work-card-inner">
+            <div class="work-card-visual" style="--accent:#8b83ff">
+              <div class="work-card-art">
+                <img src="assets/images/enterprise.png" alt="Retail healthcare platform" loading="lazy">
+              </div>
             </div>
-            <!-- <span class="work-card-tag">Retail</span> -->
-          </div>
-          <div class="work-card-body">
-            <h3>Enterprise Commerce Platform</h3>
-            <p>Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy across 50+ microservices driving 3x conversion uplift.</p>
-            <div class="work-card-meta">
-              <span class="meta-stack">Node · GraphQL · K8s</span>
-              <span class="meta-perf">3x conversion uplift</span>
+            <div class="work-card-body">
+              <h3>Enterprise Commerce Platform</h3>
+              <p>Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy across 50+ microservices driving 3x conversion uplift.</p>
+              <div class="work-card-meta">
+                <span class="meta-stack">Node · GraphQL · K8s</span>
+                <span class="meta-perf">3x conversion uplift</span>
+              </div>
             </div>
           </div>
         </article>
 
         <article class="work-card" data-reveal="up" data-delay="450">
-          <div class="work-card-visual" style="--accent:#7c75ff">
-            <div class="work-card-art">
-              <img src="assets/images/Supply%20Chain.png" alt="Logistics deployment" loading="lazy">
+          <div class="work-card-glow"></div>
+          <div class="work-card-inner">
+            <div class="work-card-visual" style="--accent:#7c75ff">
+              <div class="work-card-art">
+                <img src="assets/images/Supply%20Chain.png" alt="Logistics deployment" loading="lazy">
+              </div>
             </div>
-            <!-- <span class="work-card-tag">Logistics</span> -->
-          </div>
-          <div class="work-card-body">
-            <h3>Supply Chain Intelligence</h3>
-            <p>Integrated logistics platform unifying 200+ partner APIs with real-time inventory intelligence and predictive routing, reducing operational costs by 25%.</p>
-            <div class="work-card-meta">
-              <span class="meta-stack">TypeScript · Terraform · AWS</span>
-              <span class="meta-perf">25% cost reduction</span>
+            <div class="work-card-body">
+              <h3>Supply Chain Intelligence</h3>
+              <p>Integrated logistics platform unifying 200+ partner APIs with real-time inventory intelligence and predictive routing, reducing operational costs by 25%.</p>
+              <div class="work-card-meta">
+                <span class="meta-stack">TypeScript · Terraform · AWS</span>
+                <span class="meta-perf">25% cost reduction</span>
+              </div>
             </div>
           </div>
         </article>
 
         <article class="work-card" data-reveal="up" data-delay="600">
-          <div class="work-card-visual" style="--accent:#a855f7">
-            <div class="work-card-art">
-              <img src="assets/images/Portfolio.png" alt="Portfolio platform" loading="lazy">
+          <div class="work-card-glow"></div>
+          <div class="work-card-inner">
+            <div class="work-card-visual" style="--accent:#a855f7">
+              <div class="work-card-art">
+                <img src="assets/images/Portfolio.png" alt="Portfolio platform" loading="lazy">
+              </div>
             </div>
-            <!-- <span class="work-card-tag">Portfolio</span> -->
-          </div>
-          <div class="work-card-body">
-            <h3>Digital Portfolio Platform</h3>
-            <p>Modern portfolio &amp; agency showcase website featuring interactive project galleries, dynamic filtering, and seamless content management for creative professionals.</p>
-            <div class="work-card-meta">
-              <span class="meta-stack">HTML · CSS · JavaScript</span>
-              <span class="meta-perf">Full responsive design</span>
+            <div class="work-card-body">
+              <h3>Digital Portfolio Platform</h3>
+              <p>Modern portfolio &amp; agency showcase website featuring interactive project galleries, dynamic filtering, and seamless content management for creative professionals.</p>
+              <div class="work-card-meta">
+                <span class="meta-stack">HTML · CSS · JavaScript</span>
+                <span class="meta-perf">Full responsive design</span>
+              </div>
             </div>
           </div>
         </article>
@@ -381,16 +391,18 @@
   <!-- SECTION 3: THE PROBLEM -->
   <section class="problem" id="problem">
     <div class="container">
-      <header class="section-head section-head-left" data-reveal="fade">
-        <span class="eyebrow">The Problem</span>
-        <h2>Most agencies design for aesthetics. Rarely do they engineer for <em>business outcomes</em>.</h2>
-      </header>
+      <div class="problem-layout flex">
 
-      <figure class="section-figure" aria-hidden="true">
-        <svg viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
-          <g class="sf-network" stroke="rgba(108,99,255,0.25)" stroke-width="0.8">
-            <line x1="30" y1="30" x2="80" y2="20"/>
-            <line x1="80" y1="20" x2="110" y2="50"/>
+        <header class="section-head section-head-left" data-reveal="fade">
+          <span class="eyebrow">The Problem</span>
+          <h2>Most agencies design for aesthetics. Rarely do they engineer for <em>business outcomes</em>.</h2>
+        </header>
+        
+        <figure class="section-figure" aria-hidden="true">
+          <svg viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+            <g class="sf-network" stroke="rgba(108,99,255,0.25)" stroke-width="0.8">
+              <line x1="30" y1="30" x2="80" y2="20"/>
+              <line x1="80" y1="20" x2="110" y2="50"/>
             <line x1="30" y1="30" x2="60" y2="60"/>
             <line x1="60" y1="60" x2="110" y2="50"/>
             <line x1="80" y1="20" x2="100" y2="80"/>
@@ -427,6 +439,7 @@
           </g>
         </svg>
       </figure>
+    </div>
 
       <div class="problem-layout">
         <div class="problem-copy" data-reveal="slide-left">
@@ -781,7 +794,8 @@
       </div>
       <form class="contact-form" id="contactForm" novalidate data-reveal="slide-right">
         <div class="cf-header">
-           <img src="../browsentWebsite/assets/svgs/send message.svg" alt="Send Message Icon" class="cf-icon">
+           <!-- <img src="../browsentWebsite/assets/svgs/send message.svg" alt="Send Message Icon" class="cf-icon"> -->
+           <img src="assets/svgs/send message.svg" alt="Send Message Icon" class="cf-icon">
           <span class="cf-title">Send a message</span>
         </div>
         <div class="cf-field">
