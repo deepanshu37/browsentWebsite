@@ -256,11 +256,6 @@ ol {
 }
 
 .nav.scrolled {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
-  border-bottom: var(--glass-border);
-  box-shadow: var(--shadow-glass);
   padding: 10px 0;
 }
 
@@ -298,6 +293,18 @@ ol {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: rgba(10, 14, 26, 0);
+  backdrop-filter: blur(8px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border-radius: 9999px;
+  border: 1px solid rgba(108, 99, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .nav-link {
@@ -2588,6 +2595,16 @@ section+section {
 
 /* --- Tablet (max 900px) --- */
 @media(max-width:900px) {
+  .nav-pill {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
