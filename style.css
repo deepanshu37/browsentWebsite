@@ -267,10 +267,14 @@ ol {
 }
 
 .brand {
+  /* background: #6352c6b8; */
   display: flex;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  border-radius: 9px;
+  padding: 2px 10px;
+  backdrop-filter: blur(12px) saturate(1.2);
 }
 
 .brand-mark svg {
@@ -299,7 +303,7 @@ ol {
   display: flex;
   align-items: center;
   padding: 4px 24px;
-  background: rgba(10, 14, 26, 0.65);
+  background: rgb(10 14 26 / 0%);
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
   will-change: transform;
@@ -1189,11 +1193,15 @@ section+section {
 
 /* ---- Responsive Grid (original) ---- */
 @media(max-width:1100px) {
-  .work-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media(max-width:700px) {
-  .work-grid { grid-template-columns: 1fr; }
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================= */
@@ -1214,7 +1222,7 @@ section+section {
   margin: 0 auto;
 }
 
-.work-grid.sticky-stack .work-card + .work-card {
+.work-grid.sticky-stack .work-card+.work-card {
   margin-top: 24px;
 }
 
@@ -1223,7 +1231,8 @@ section+section {
     max-width: 640px;
     top: 100px;
   }
-  .work-grid.sticky-stack .work-card + .work-card {
+
+  .work-grid.sticky-stack .work-card+.work-card {
     margin-top: 20px;
   }
 }
@@ -1238,11 +1247,13 @@ section+section {
   .work-grid.sticky-stack {
     padding-bottom: 30vh;
   }
+
   .work-grid.sticky-stack .work-card {
     max-width: 100%;
     top: 80px;
   }
-  .work-grid.sticky-stack .work-card + .work-card {
+
+  .work-grid.sticky-stack .work-card+.work-card {
     margin-top: 16px;
   }
 }
@@ -1251,7 +1262,8 @@ section+section {
   .work-grid.sticky-stack .work-card {
     top: 70px;
   }
-  .work-grid.sticky-stack .work-card + .work-card {
+
+  .work-grid.sticky-stack .work-card+.work-card {
     margin-top: 12px;
   }
 }
@@ -2426,7 +2438,7 @@ section+section {
     background: var(--glass-bg-strong);
     backdrop-filter: var(--glass-blur-max);
     -webkit-backdrop-filter: var(--glass-blur-max);
-  will-change: transform;
+    will-change: transform;
     border-left: var(--glass-border);
     box-shadow: var(--shadow-glass-lg);
     gap: var(--space-xs);
@@ -2487,6 +2499,7 @@ section+section {
   }
 
   .nav-dropdown:hover .dropdown-menu {
+    display: block;
     opacity: 1;
     visibility: visible;
     transform: none;
@@ -2521,6 +2534,7 @@ section+section {
   }
 
   .nav-dropdown-sub:hover .dropdown-menu-sub {
+    display: block;
     opacity: 1;
     visibility: visible;
     transform: none;
