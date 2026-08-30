@@ -12,8 +12,7 @@
   // ---- 3. Loader ----
   const loader = $('#loader');
   const loaderBar = loader?.querySelector('.loader-bar i');
-  let frameImagesTotal = 0, frameImagesLoaded = 0;
-  let framesAllLoaded = false, windowLoaded = false, fontsLoaded = false;
+  let windowLoaded = false, fontsLoaded = false;
 
   const setLoaderProgress = (pct) => {
     if (loaderBar) {
@@ -22,16 +21,13 @@
     }
   };
 
-  const updateLoaderFromFrameProgress = () => {
-    if (frameImagesTotal > 0) {
-      const framePct = frameImagesLoaded / frameImagesTotal;
-      const totalPct = framePct * 50 + (windowLoaded ? 25 : 0) + (fontsLoaded ? 25 : 0);
-      setLoaderProgress(totalPct);
-    }
+  const updateLoaderProgress = () => {
+    const totalPct = (windowLoaded ? 50 : 0) + (fontsLoaded ? 50 : 0);
+    setLoaderProgress(totalPct);
   };
 
   const checkLoaderDone = () => {
-    if (framesAllLoaded && windowLoaded && fontsLoaded) {
+    if (windowLoaded && fontsLoaded) {
       setTimeout(() => loader.classList.add('hidden'), 500);
     }
   };
@@ -39,14 +35,14 @@
   if (loader) {
     window.addEventListener('load', () => {
       windowLoaded = true;
-      updateLoaderFromFrameProgress();
+      updateLoaderProgress();
       checkLoaderDone();
     });
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {
         fontsLoaded = true;
-        updateLoaderFromFrameProgress();
+        updateLoaderProgress();
         checkLoaderDone();
       });
     } else {
@@ -163,7 +159,7 @@
       }
     });
   }, { threshold: 0.3 });
-  if (metrics.length) metricObserver.observe($('#hero') || document.body);
+  if (metrics.length) metricObserver.observe($('.hero-pin') || $('#hero') || document.body);
 
   // ---- 7. Reveal animations ----
   const revealEls = $$('[data-reveal]');
@@ -315,63 +311,212 @@
   }
   initTabs();
 
-  // ---- 13. Frame background — scroll-driven canvas ----
-  (function() {
-    const TOTAL = 235;
-    const fb = $('#frameBg');
-    if (!fb) return;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
 
-    const path = (i) => 'frame/frame_' + String(i + 2).padStart(3, '0') + '.jpg';
+  // ---- 15. Sticky stacked work-grid cascade ----
+  function initStickyStack() {
+    $$('.work-grid, .work-list').forEach(grid => {
+      if (grid._stickyInit) return;
+      grid._stickyInit = true;
+      if ($$('.work-card, .work-showcase', grid).length >= 2) {
+        grid.classList.add('sticky-stack');
+      }
+    });
+  }
 
-    const cv = document.createElement('canvas');
-    cv.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none';
-    fb.insertBefore(cv, fb.firstChild);
+  window.__stickyStackReInit = function() {
+    $$('.work-grid, .work-list').forEach(grid => {
+      grid.classList.remove('sticky-stack');
+      grid._stickyInit = false;
+    });
+    initStickyStack();
+  };
 
-    const cx = cv.getContext('2d');
-    let img = new Image(), idx = -1, dpr = 1, cache = [];
+  // ---- 15a. Editorial work showcase list ----
+  const workProjects = [
+    {
+      tag: "FINTECH",
+      title: "Neobank Consumer Ecosystem",
+      desc: "End-to-end digital banking experience architected from user journey mapping through backend systems. 40% increase in retention across 200K active users.",
+      stack: "Go · Kafka · React",
+      perf: "40% increase in retention",
+      img: "assets/images/card content/footmob.jpeg",
+      alt: "Neobank consumer banking interface"
+    },
+    {
+      tag: "INDUSTRIAL",
+      title: "IoT Predictive Analytics",
+      desc: "Real-time sensor data platform processing 2M events/second with millisecond-level precision for predictive maintenance across 12 manufacturing facilities.",
+      stack: "Rust · gRPC · InfluxDB",
+      perf: "Millisecond-level precision",
+      img: "assets/images/card content/Novela Play.png",
+      alt: "IoT predictive analytics dashboard"
+    },
+    {
+      tag: "COMMERCE",
+      title: "Enterprise Commerce Platform",
+      desc: "Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy across 50+ microservices driving 3x conversion uplift.",
+      stack: "Node · GraphQL · K8s",
+      perf: "3x conversion uplift",
+      img: "assets/images/card content/sellbuyplay.png",
+      alt: "Enterprise commerce platform interface"
+    },
+    // {
+    //   tag: "LOGISTICS",
+    //   title: "Supply Chain Intelligence",
+    //   desc: "Integrated logistics platform unifying 200+ partner APIs with real-time inventory intelligence and predictive routing, reducing operational costs by 25%.",
+    //   stack: "TypeScript · Terraform · AWS",
+    //   perf: "25% cost reduction",
+    //   img: "assets/images/Supply%20Chain.png",
+    //   alt: "Supply chain intelligence map"
+    // },
+    // {
+    //   tag: "PORTFOLIO",
+    //   title: "Digital Portfolio Platform",
+    //   desc: "Modern portfolio & agency showcase website featuring interactive project galleries, dynamic filtering, and seamless content management for creative professionals.",
+    //   stack: "HTML · CSS · JavaScript",
+    //   perf: "Full responsive design",
+    //   img: "assets/images/Portfolio.png",
+    //   alt: "Digital portfolio platform showcase"
+    // }
+  ];
 
-    const dims = () => ({ w: cv.clientWidth || window.innerWidth, h: cv.clientHeight || window.innerHeight });
+  function initWorkList() {
+    const list = $('#workList');
+    if (!list || list._workInit) return;
+    list._workInit = true;
+
+    const frag = document.createDocumentFragment();
+
+    workProjects.forEach((project, i) => {
+      const article = document.createElement('article');
+      article.className = 'work-showcase';
+      article.dataset.reveal = 'up';
+      article.dataset.delay = String(i * 90);
+
+      const glow = document.createElement('div');
+      glow.className = 'work-showcase-glow';
+
+      const figure = document.createElement('figure');
+      figure.className = 'work-showcase-media';
+
+      const img = document.createElement('img');
+      img.src = project.img;
+      img.alt = project.alt || project.title;
+      img.loading = 'lazy';
+      figure.appendChild(img);
+
+      const tag = document.createElement('div');
+      tag.className = 'work-showcase-tag';
+
+      const index = document.createElement('span');
+      index.className = 'work-showcase-index';
+      index.textContent = String(i + 1).padStart(2, '0');
+
+      const cat = document.createElement('span');
+      cat.className = 'work-showcase-cat';
+      cat.textContent = project.tag;
+
+      tag.append(index, cat);
+
+      const title = document.createElement('h3');
+      title.className = 'work-showcase-title';
+      title.textContent = project.title;
+
+      const desc = document.createElement('p');
+      desc.className = 'work-showcase-desc';
+      desc.textContent = project.desc;
+
+      const stack = document.createElement('span');
+      stack.className = 'work-showcase-stack';
+      stack.textContent = project.stack;
+
+      const perf = document.createElement('span');
+      perf.className = 'work-showcase-perf';
+      perf.textContent = project.perf;
+
+      const meta = document.createElement('div');
+      meta.className = 'work-showcase-meta';
+      meta.append(stack, perf);
+
+      const info = document.createElement('div');
+      info.className = 'work-showcase-info';
+      info.append(tag, title, desc, meta);
+
+      article.append(glow, figure, info);
+      frag.appendChild(article);
+    });
+
+    list.appendChild(frag);
+
+    $$('[data-reveal]', list).forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 20 && rect.bottom > 0) {
+        revealElement(el);
+      } else {
+        revealObserver.observe(el);
+      }
+    });
+  }
+  initWorkList();
+  initStickyStack();
+
+  // ---- 15b. Hero scroll-driven frame background (index page only) ----
+  function initHeroFrames() {
+    const canvas = $('#heroFrames');
+    const hero = $('#hero');
+    if (!canvas || !hero) return;
+
+    const mainWrap = $('#main-content');
+    if (mainWrap && !mainWrap._heroRevealWired) {
+      mainWrap._heroRevealWired = true;
+      const reveal = () => {
+        if (window.scrollY <= 0) return;
+        const h = $('#hero');
+        if (h) h.classList.add('is-playing');
+        window.removeEventListener('scroll', reveal);
+      };
+      window.addEventListener('scroll', reveal, { passive: true });
+    }
+
+    if (getComputedStyle(canvas).display === 'none') return;
+    if (canvas._heroFramesInit) return;
+    canvas._heroFramesInit = true;
+
+    const FRAMES = [];
+    for (let i = 1; i <= 233; i++) {
+      if (i === 205 || i === 218 || i === 222) continue;
+      FRAMES.push('monitor frames/frame_' + String(i).padStart(3, '0') + '.jpg');
+    }
+    const TOTAL = FRAMES.length;
+
+    const ctx = canvas.getContext('2d');
+    const cache = [];
+    let img = new Image();
+    let idx = -1;
+    let dpr = 1;
+
+    const dims = () => ({ w: canvas.clientWidth || window.innerWidth, h: canvas.clientHeight || window.innerHeight });
 
     const resize = () => {
       const d = dims();
       dpr = window.devicePixelRatio || 1;
-      cv.width = d.w * dpr; cv.height = d.h * dpr;
+      canvas.width = d.w * dpr;
+      canvas.height = d.h * dpr;
       if (img.complete && img.naturalWidth) draw(img, d.w, d.h);
     };
 
     const draw = (im, w, h) => {
       const iw = im.naturalWidth, ih = im.naturalHeight, ir = iw / ih, cr = w / h;
       let sx = 0, sy = 0, sw = iw, sh = ih;
-      if (ir > cr) { sw = ih * cr; sx = (iw - sw) / 2; }
+      if (ir > cr) {
+        sw = ih * cr;
+        const k = Math.min(cr / ir, 1);
+        sx = (iw - sw) * (0.5 + 0.45 * (1 - k));
+      }
       else if (ir < cr) { sh = iw / cr; sy = (ih - sh) / 2; }
-      cx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      cx.drawImage(im, sx, sy, sw, sh, 0, 0, w, h);
-    };
-
-    frameImagesTotal = TOTAL;
-
-    const preload = () => {
-      let pos = 0;
-      const next = () => {
-        const end = Math.min(pos + 10, TOTAL);
-        for (let i = pos; i < end; i++) {
-          const j = i;
-          const im = new Image();
-          im.onload = () => {
-            cache[j] = im;
-            frameImagesLoaded++;
-            updateLoaderFromFrameProgress();
-            if (frameImagesLoaded >= TOTAL) {
-              framesAllLoaded = true;
-              checkLoaderDone();
-            }
-          };
-          im.src = path(j);
-        }
-        pos = end;
-        if (pos < TOTAL) setTimeout(next, 50);
-      };
-      next();
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.drawImage(im, sx, sy, sw, sh, 0, 0, w, h);
     };
 
     const show = (i) => {
@@ -380,77 +525,53 @@
       const d = dims();
       const cached = cache[i];
       if (cached && cached.complete && cached.naturalWidth) { img = cached; draw(img, d.w, d.h); return; }
-      const src = path(i);
+      const src = FRAMES[i];
       if (img.src === src && img.complete && img.naturalWidth) { draw(img, d.w, d.h); return; }
       const ni = new Image();
       ni.onload = () => {
         cache[i] = ni;
         if (idx === i) { img = ni; const nd = dims(); draw(ni, nd.w, nd.h); }
       };
+      ni.onerror = () => { cache[i] = img; };
       ni.src = src;
     };
 
+    const scrollRange = () => Math.max(1, hero.offsetHeight - window.innerHeight);
 
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        const st = window.scrollY;
-        const sh = document.documentElement.scrollHeight - window.innerHeight;
-        const p = sh > 0 ? Math.min(st / sh, 1) : 0;
-        show(Math.round(p * (TOTAL - 1)));
+        const range = scrollRange();
+        const p = Math.min(Math.max(window.scrollY / range, 0), 1);
+        if (hero.classList.contains('is-playing')) show(Math.round(p * (TOTAL - 1)));
         ticking = false;
       });
     };
 
-    const onKey = (e) => {
-      if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown'].includes(e.key)) return;
-      e.preventDefault();
-      const sh = document.documentElement.scrollHeight - window.innerHeight;
-      const cp = window.scrollY / sh;
-      const np = (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp')
-        ? Math.max(0, cp - 0.02) : Math.min(1, cp + 0.02);
-      window.scrollTo({ top: np * sh, behavior: 'auto' });
+    let pos = 0;
+    const preload = () => {
+      const end = Math.min(pos + 8, TOTAL);
+      for (let i = pos; i < end; i++) {
+        const j = i;
+        const im = new Image();
+        im.onload = () => { cache[j] = im; };
+        im.src = FRAMES[j];
+      }
+      pos = end;
+      if (pos < TOTAL) setTimeout(preload, 40);
     };
-
     preload();
+
     resize();
-    show(0);
+    const d = dims();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, d.w, d.h);
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', resize, { passive: true });
-    document.addEventListener('keydown', onKey);
-
-    let rc = 0;
-    const ri = setInterval(() => {
-      rc++;
-      if (img.complete && img.naturalWidth) { clearInterval(ri); const dd = dims(); draw(img, dd.w, dd.h); }
-      if (rc > 25) clearInterval(ri);
-    }, 200);
-  })();
-
-  if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
-
-  // ---- 15. Sticky stacked work-grid cascade ----
-  function initStickyStack() {
-    $$('.work-grid').forEach(grid => {
-      if (grid._stickyInit) return;
-      grid._stickyInit = true;
-      if ($$('.work-card', grid).length >= 2) {
-        grid.classList.add('sticky-stack');
-      }
-    });
   }
-
-  window.__stickyStackReInit = function() {
-    $$('.work-grid').forEach(grid => {
-      grid.classList.remove('sticky-stack');
-      grid._stickyInit = false;
-    });
-    initStickyStack();
-  };
-
-  initStickyStack();
+  initHeroFrames();
 
   // ---- 16. SPA Router ----
   (function() {
@@ -571,12 +692,13 @@
 
       initTabs();
       initContactForm();
+      initHeroFrames();
+      initWorkList();
       initStickyStack();
       metrics = $$('[data-count]');
       if (metrics.length) {
         metricsCounted = false;
-        const hero = $('#hero');
-        metricObserver.observe(hero || document.body);
+        metricObserver.observe($('.hero-pin') || $('#hero') || document.body);
       }
     }
   })();

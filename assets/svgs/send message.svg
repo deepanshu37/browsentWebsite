@@ -1,14 +1,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg fill="#6c63ff" width="103px" height="103px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+<svg fill="#892006" width="197px" height="197px" viewBox="-1.92 -1.92 35.84 35.84" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#892006" stroke-width="0.00032">
 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-<g id="SVGRepo_iconCarrier">
-<defs>
-<style>.cls-1{fill:none;}</style>
-</defs>
-<title>send--alt--filled</title>
-<path d="M27.71,4.29a1,1,0,0,0-1.05-.23l-22,8a1,1,0,0,0,0,1.87l8.59,3.43L19.59,11,21,12.41l-6.37,6.37,3.44,8.59A1,1,0,0,0,19,28h0a1,1,0,0,0,.92-.66l8-22A1,1,0,0,0,27.71,4.29Z"/>
-<rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
-</g>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8320000000000001"/>
+<g id="SVGRepo_iconCarrier"> <title>send</title> <path d="M0 16l12 4 4 12 16-32zM14.016 18.016l12-12-10.016 17.984z"/> </g>
 </svg>
