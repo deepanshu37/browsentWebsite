@@ -2663,7 +2663,7 @@ section+section {
   -webkit-backdrop-filter: blur(1px);
   z-index: 0;
 }
-
+/* 
 .fail-card--bg-1 .fail-card-bg {
   background-image: url("assets/images/system fails card 1.png");
 }
@@ -2678,7 +2678,7 @@ section+section {
 
 .fail-card--bg-4 .fail-card-bg {
   background-image: url("assets/images/system fails card 4.png");
-}
+} */
 
 .fail-card:hover {
   transform: translateY(-4px);
