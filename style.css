@@ -315,6 +315,7 @@ ol {
   display: flex;
   align-items: center;
   gap: 4px;
+  min-width: 0;
 }
 
 .nav-pill {
@@ -329,6 +330,9 @@ ol {
   border-radius: 9999px;
   border: var(--glass-border);
   box-shadow: var(--shadow-glass), var(--glass-gloss);
+  min-width: 0;
+  flex: 0 1 auto;
+  max-width: 100%;
 }
 
 .nav-link {
@@ -1603,11 +1607,14 @@ section+section {
   transition: all 0.4s var(--ease-glass);
 }
 
-.work-showcase:hover {
-  border-color: rgba(118, 26, 2, 0.5);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
+@media (min-width: 1024px) {
+  .work-showcase:hover {
+    border-color: rgba(118, 26, 2, 0.5);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glass-hover);
+  }
 }
+
 
 /* ---- Media area ---- */
 .work-showcase-media {
@@ -1682,8 +1689,10 @@ section+section {
   transition: color 0.35s var(--ease-out);
 }
 
-.work-showcase:hover .work-showcase-cat {
-  color: var(--primary-hover);
+@media(min-width : 1024px) {
+  .work-showcase:hover .work-showcase-cat {
+    color: var(--primary-hover);
+  }
 }
 
 /* Glow effect - similar to success-stories work cards */
@@ -2663,6 +2672,7 @@ section+section {
   -webkit-backdrop-filter: blur(1px);
   z-index: 0;
 }
+
 /* 
 .fail-card--bg-1 .fail-card-bg {
   background-image: url("assets/images/system fails card 1.png");
@@ -3081,11 +3091,17 @@ section+section {
 /* ============================================= */
 
 .testimonials {
-  padding: 0 var(--space-5xl) 200px;
+
   background:
     url("assets/images/partnership.png") center/cover no-repeat,
     radial-gradient(ellipse at 50% 0%, rgba(230, 203, 184, 0.42) 0%, transparent 60%),
     radial-gradient(ellipse at 10% 90%, rgba(118, 26, 2, 0.05) 0%, transparent 50%);
+}
+
+@media (max-width: 700px) {
+  .testimonials {
+    padding: 0 var(--space-xl) 200px;
+  }
 }
 
 .testimonials-header {
@@ -3260,6 +3276,15 @@ section+section {
 
 /* --- Desktop / Tablet Landscape (max 1100px) --- */
 @media(max-width:1100px) {
+  .nav-pill {
+    padding: 4px 16px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
   .fail-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -3322,19 +3347,27 @@ section+section {
   }
 }
 
-/* --- Tablet (max 900px) --- */
-@media(max-width:900px) {
+/* --- Fixed nav-pill size at 950px+ (static, no zoom scaling) --- */
+@media(min-width:950px) {
   .nav-pill {
-    background: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    will-change: auto;
+    flex: 0 0 0 0;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 16px;
   }
 
+  .nav-links {
+    overflow: visible;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+}
+
+@media(max-width:1000px) {
   .nav-links {
     position: fixed;
     top: 0;
@@ -3356,6 +3389,18 @@ section+section {
     transition: right 0.35s var(--ease-glass);
     z-index: 99;
   }
+
+  .nav-pill {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    will-change: auto;
+  }
+
 
   .nav-links.active::before {
     content: '';
@@ -3458,6 +3503,10 @@ section+section {
   .nav-dropdown-sub.active-dropdown>.dropdown-toggle-sub>.sub-ind {
     transform: rotate(-135deg);
   }
+}
+
+/* --- Tablet (max 900px) --- */
+@media(max-width:900px) {
 
   .hero-layout {
     grid-template-columns: 1fr;
@@ -4529,8 +4578,8 @@ section+section {
   }
 
   .nav-links {
-    padding: 70px 20px 24px;
-    overflow-y: auto;
+    /* padding: 70px 20px 24px;
+    overflow-y: auto; */
   }
 
   section {
@@ -4727,5 +4776,115 @@ section+section {
   /* Prevent overscroll bounce on iOS */
   body {
     overscroll-behavior-y: none;
+  }
+}
+
+/* ============================================================
+   DISABLE ALL HOVER EFFECTS BELOW 1024px
+   ============================================================ */
+/* @media (max-width: 1024px) { */
+
+/* 1. Kill transitions on elements that have hover transitions,
+        so no visual flash can occur */
+/* [style*="transition"],
+  .work-showcase,
+  .work-card,
+  .fail-card,
+  .testimonial-card,
+  .p-step,
+  .phil-item,
+  .arch-layer,
+  .contact-channel,
+  .footer-col a,
+  .brand .brand-mark svg,
+  .nav-link,
+  .nav-link .nav-ind,
+  .dropdown-item,
+  .nav-dropdown-sub .sub-ind,
+  .work-card .work-card-body h3,
+  .work-card .work-card-cat,
+  .work-card .wca-arrow,
+  .work-showcase .work-showcase-cat,
+  .work-showcase .work-showcase-glow,
+  .work-showcase .work-showcase-title,
+  .work-showcase .work-showcase-perf,
+  .arch-layer .arch-blocks span,
+  .contact-channel .cc-icon {
+    transition: none !important;
+  } */
+
+/* 2. Reset every hover state to no-op */
+/* .brand:hover .brand-mark svg,
+  .nav-link:hover,
+  .nav-link:hover .nav-ind,
+  .nav-dropdown:hover .dropdown-toggle .nav-label::after,
+  .dropdown-item:hover,
+  .nav-dropdown-sub:hover .sub-ind,
+  .work-card:hover,
+  .work-card:hover .work-card-body h3,
+  .work-card:hover .work-card-cat,
+  .work-card:hover .wca-arrow,
+  .work-showcase:hover,
+  .work-showcase:hover .work-showcase-media img,
+  .work-showcase:hover .work-showcase-cat,
+  .work-showcase:hover .work-showcase-glow,
+  .work-showcase:hover .work-showcase-title,
+  .work-showcase:hover .work-showcase-perf,
+  .p-step:hover,
+  .phil-item:hover,
+  .arch-layer:hover,
+  .arch-layer:hover .arch-blocks span,
+  .fail-card:hover,
+  .contact-channel:hover,
+  .contact-channel:hover .cc-icon,
+  .footer-col a:hover,
+  .testimonial-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+    color: inherit !important;
+    background: inherit !important;
+    background-color: inherit !important;
+    opacity: inherit !important;
+    filter: none !important;
+  } */
+
+/* 3. Reset box-shadow on card groups that use the combined specular rim rule */
+/* .work-card:hover,
+  .fail-card:hover,
+  .feature-card:hover,
+  .testimonial-card:hover,
+  .p-step:hover,
+  .problem-copy:hover,
+  .contact-channel:hover,
+  .contact-info-card:hover,
+  .value-card:hover,
+  .viz-stat:hover {
+    box-shadow: none !important;
+  } */
+
+/* 4. Kill the ::after sheen sweep on all cards */
+/* .work-card:hover::after,
+  .fail-card:hover::after,
+  .feature-card:hover::after,
+  .testimonial-card:hover::after,
+  .p-step:hover::after,
+  .problem-copy:hover::after,
+  .value-card:hover::after,
+  .contact-channel:hover::after,
+  .contact-info-card:hover::after,
+  .viz-stat:hover::after,
+  .hero-metrics:hover::after,
+  .tab-visual:hover::after {
+    opacity: 0 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+} */
+
+/* --- Extra small (max 240px) --- */
+@media(max-width:240px) {
+  .hero-metrics {
+    display: none;
   }
 }

@@ -12,7 +12,8 @@
   // ---- 3. Loader ----
   const loader = $('#loader');
   const loaderBar = loader?.querySelector('.loader-bar i');
-  let windowLoaded = false, fontsLoaded = false;
+  let windowLoaded = false, fontsLoaded = false, imagesLoaded = false;
+  let imageLoadProgress = 0;
 
   const setLoaderProgress = (pct) => {
     if (loaderBar) {
@@ -22,12 +23,12 @@
   };
 
   const updateLoaderProgress = () => {
-    const totalPct = (windowLoaded ? 50 : 0) + (fontsLoaded ? 50 : 0);
+    const totalPct = (windowLoaded ? 34 : 0) + (fontsLoaded ? 33 : 0) + (imagesLoaded ? 33 : Math.round(imageLoadProgress * 33));
     setLoaderProgress(totalPct);
   };
 
   const checkLoaderDone = () => {
-    if (windowLoaded && fontsLoaded) {
+    if (windowLoaded && fontsLoaded && imagesLoaded) {
       setTimeout(() => loader.classList.add('hidden'), 500);
     }
   };
@@ -49,8 +50,53 @@
       fontsLoaded = true;
     }
 
+    const allImages = $$('img');
+    const totalImages = allImages.length;
+    let loadedCount = 0;
+
+    if (totalImages === 0) {
+      imagesLoaded = true;
+      updateLoaderProgress();
+      checkLoaderDone();
+    } else {
+      allImages.forEach(img => {
+        if (img.complete && img.naturalWidth > 0) {
+          loadedCount++;
+        } else {
+          img.addEventListener('load', () => {
+            loadedCount++;
+            imageLoadProgress = loadedCount / totalImages;
+            updateLoaderProgress();
+            if (loadedCount >= totalImages) {
+              imagesLoaded = true;
+              checkLoaderDone();
+            }
+          }, { once: true });
+          img.addEventListener('error', () => {
+            loadedCount++;
+            imageLoadProgress = loadedCount / totalImages;
+            updateLoaderProgress();
+            if (loadedCount >= totalImages) {
+              imagesLoaded = true;
+              checkLoaderDone();
+            }
+          }, { once: true });
+        }
+      });
+      loadedCount = allImages.filter(img => img.complete && img.naturalWidth > 0).length;
+      imageLoadProgress = loadedCount / totalImages;
+      if (loadedCount >= totalImages) {
+        imagesLoaded = true;
+        updateLoaderProgress();
+        checkLoaderDone();
+      } else {
+        updateLoaderProgress();
+      }
+    }
+
     setTimeout(() => {
       if (!loader.classList.contains('hidden')) {
+        imagesLoaded = true;
         loader.classList.add('hidden');
       }
     }, 10000);
@@ -403,7 +449,6 @@
       const img = document.createElement('img');
       img.src = project.img;
       img.alt = project.alt || project.title;
-      img.loading = 'lazy';
       figure.appendChild(img);
 
       const tag = document.createElement('div');
@@ -550,19 +595,12 @@
       });
     };
 
-    let pos = 0;
-    const preload = () => {
-      const end = Math.min(pos + 8, TOTAL);
-      for (let i = pos; i < end; i++) {
-        const j = i;
-        const im = new Image();
-        im.onload = () => { cache[j] = im; };
-        im.src = FRAMES[j];
-      }
-      pos = end;
-      if (pos < TOTAL) setTimeout(preload, 40);
-    };
-    preload();
+    for (let i = 0; i < TOTAL; i++) {
+      const j = i;
+      const im = new Image();
+      im.onload = () => { cache[j] = im; };
+      im.src = FRAMES[j];
+    }
 
     resize();
     const d = dims();

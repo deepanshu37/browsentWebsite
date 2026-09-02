@@ -596,6 +596,9 @@
 }
 
 @media(max-width: 700px) {
+
+  
+
   .features-grid {
     grid-template-columns: 1fr;
   }
@@ -944,3 +947,42 @@
     height: 34px;
   }
 }
+
+/* ============================================================
+   DISABLE ALL HOVER EFFECTS BELOW 1024px
+   ============================================================ */
+/* @media (max-width: 1024px) { */
+
+  /* 1. Kill transitions on hoverable elements */
+  /* .tab-btn,
+  .feature-card,
+  .contact-info-card,
+  .value-card {
+    transition: none !important;
+  } */
+
+  /* 2. Reset every hover state to no-op */
+  /* .tab-btn:hover,
+  .feature-card:hover,
+  .contact-info-card:hover,
+  .value-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+    color: inherit !important;
+    background: inherit !important;
+    background-color: inherit !important;
+    opacity: inherit !important;
+    filter: none !important;
+  } */
+
+  /* 3. Kill the ::after sheen sweep */
+  /* .tab-btn:hover::after,
+  .feature-card:hover::after,
+  .contact-info-card:hover::after,
+  .value-card:hover::after {
+    opacity: 0 !important;
+    transform: none !important;
+    animation: none !important;
+  } */
+/* } */
