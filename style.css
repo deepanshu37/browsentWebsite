@@ -552,6 +552,10 @@ ol {
   border: 1px solid rgba(118, 26, 2, 0.08);
 }
 
+.Why-Systems-Fail{
+  margin-right: auto;
+}
+
 @media (max-width:900px) {
   .The-Problem {
     margin: 5% auto;
@@ -637,11 +641,18 @@ h5 {
   background: url("assets/images/solve.png") center/contain no-repeat;
 }
 
+@media (min-width: 901px) {
+  .fail-head-right {
+
+    align-items: center;
+  }
+  
+}
+
 .fail-head-right {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
   padding-left: var(--space-xl);
 }
@@ -653,10 +664,25 @@ h5 {
   max-width: 580px;
   text-align: left;
 }
+.Selected-Deployments-desc{
+  text-align: center;
+}
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .section-desc {
     text-align: center;
+    padding: 0 4%;
+  }
+
+  .fail-head-right {
+    padding-left: 0;
+    align-self: center;
+    justify-content: center;
+  }
+
+  .failure-desc{
+    text-align: center;
+    padding: 0 4%;
   }
 }
 
@@ -1945,7 +1971,7 @@ section+section {
     order: 1;
   }
 
-  
+
 }
 
 @media (max-width: 700px) {
@@ -2628,7 +2654,7 @@ section+section {
   display: flex;
   align-items: center;
   text-align: left;
-  padding: var(--space-3xl) 0 var(--space-3xl);
+  padding: 0 var(--space-xl);
 }
 
 
@@ -2636,6 +2662,7 @@ section+section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg);
+  padding: 0 4% 4%;
 }
 
 .fail-card h3 {
@@ -3120,6 +3147,7 @@ section+section {
 /* ============================================= */
 
 .testimonials {
+  min-height: 100vh;
 
   background:
     url("assets/images/partnership.png") center/cover no-repeat,
@@ -3695,6 +3723,7 @@ section+section {
   .testimonial-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+    padding: 0 4% 0;
   }
 
   .testimonial-card {
@@ -3862,7 +3891,7 @@ section+section {
   .eyebrow {
     font-size: 11px;
     padding: 5px 12px;
-    margin-bottom: 12px;
+    margin: 4% auto;
   }
 
   .work .container {
