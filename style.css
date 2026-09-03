@@ -557,6 +557,7 @@ ol {
     margin: 5% auto;
   }
 }
+
 @media (min-width:700px) {
   h2 {
     max-width: 60vw;
@@ -1905,7 +1906,21 @@ section+section {
   margin: 0px 0px 50px clamp(0px, 2.5vw, 50px);
 }
 
-@media (min-width: 701px) {
+@media (min-width: 900px) {
+  .problem-layout-bg::before {
+    content: '';
+    background-image: url("assets/images/marketplacev.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    order: 1;
+    width: 40%;
+    flex-shrink: 0;
+    min-height: 450px;
+  }
+}
+
+@media (min-width: 900px) {
   .problem-layout-bg {
     display: flex;
     align-items: center;
@@ -1929,6 +1944,8 @@ section+section {
     flex: 1;
     order: 1;
   }
+
+  
 }
 
 @media (max-width: 700px) {
@@ -1945,6 +1962,13 @@ section+section {
     grid-column: auto;
     justify-self: stretch;
     align-self: center;
+    padding: 4%;
+  }
+}
+
+@media (min-width: 700px) {
+  .problem-copy {
+    padding: 4%;
   }
 }
 
@@ -1957,8 +1981,7 @@ section+section {
   border: var(--glass-border);
   transition: all 0.3s var(--ease-out);
   border-radius: var(--radius);
-  padding: 3%;
-  margin-left: 5%;
+  /* margin-left: 5%; */
 }
 
 .problem-copy p {
@@ -3362,6 +3385,7 @@ section+section {
     padding: 4px 16px;
   }
 
+
   .nav-links {
     overflow: visible;
   }
@@ -3806,9 +3830,7 @@ section+section {
     background-image: none;
   }
 
-  .problem-layout-bg::before {
-    display: none;
-  }
+
 
   .problem-layout-bg .problem-copy {
     grid-column: auto;
