@@ -552,6 +552,11 @@ ol {
   border: 1px solid rgba(118, 26, 2, 0.08);
 }
 
+@media (max-width:900px) {
+  .The-Problem {
+    margin: 5% auto;
+  }
+}
 @media (min-width:700px) {
   h2 {
     max-width: 60vw;
@@ -1498,8 +1503,9 @@ section+section {
 
 .work-list.sticky-stack {
   display: block;
+  padding-bottom: 10vh;
   min-height: 100vh;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
 
 .work-list.sticky-stack .work-showcase {
@@ -1553,7 +1559,7 @@ section+section {
 
 @media(max-width:780px) {
   .work-list.sticky-stack {
-    padding-bottom: 30vh;
+    padding-bottom: 10vh;
   }
 
   .work-list.sticky-stack .work-showcase {
@@ -3613,6 +3619,7 @@ section+section {
 
   .section-head-left {
     max-width: 100%;
+    margin: 5% auto;
   }
 
   .phil-layout {
