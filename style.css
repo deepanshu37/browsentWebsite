@@ -382,6 +382,8 @@ ol {
 
 .nav-toggle {
   display: none;
+  background: #eee0d740;
+  backdrop-filter: blur(2px);
   justify-content: center;
   align-items: center;
   width: 40px;
@@ -552,9 +554,12 @@ ol {
   border: 1px solid rgba(118, 26, 2, 0.08);
 }
 
-.Why-Systems-Fail{
+.Why-Systems-Fail {
   margin-right: auto;
 }
+
+
+.Engineered-for-Growth {}
 
 @media (max-width:900px) {
   .The-Problem {
@@ -646,7 +651,7 @@ h5 {
 
     align-items: center;
   }
-  
+
 }
 
 .fail-head-right {
@@ -664,7 +669,8 @@ h5 {
   max-width: 580px;
   text-align: left;
 }
-.Selected-Deployments-desc{
+
+.Selected-Deployments-desc {
   text-align: center;
 }
 
@@ -680,7 +686,7 @@ h5 {
     justify-content: center;
   }
 
-  .failure-desc{
+  .failure-desc {
     text-align: center;
     padding: 0 4%;
   }
@@ -1160,6 +1166,12 @@ section+section {
   padding-bottom: 0;
 }
 
+@media (max-width: 700px) {
+  section {
+    padding: var(--space-xl) 0 0 0;
+  }
+}
+
 /* ============================================= */
 /*  WORK / DEPLOYMENTS — Glass Cards             */
 /*  (< 1025px: grid + sticky stack)              */
@@ -1225,7 +1237,7 @@ section+section {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .work-card-tag {
@@ -2827,6 +2839,18 @@ section+section {
   align-items: start;
 }
 
+
+
+@media (max-width: 1100px) {
+  .contact-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .contact-copy h2 {
   margin-bottom: 20px;
 }
@@ -2841,6 +2865,8 @@ section+section {
 .contact-channels {
   display: flex;
   flex-direction: column;
+  min-width: 90%;
+  max-width: 90%;
   gap: var(--space-sm);
 }
 
@@ -2890,6 +2916,7 @@ section+section {
 
 .cc-text {
   display: flex;
+  text-align: left;
   flex-direction: column;
   gap: 2px;
 }
@@ -3053,7 +3080,7 @@ section+section {
   border-top: 1px solid rgba(118, 26, 2, 0.14);
   /* box-shadow: 0 -8px 32px rgba(118, 26, 2, 0.06); */
   box-shadow: 0 -8px 32px rgb(118 26 2 / 28%);
-  padding-top: var(--space-2xl);
+  padding: var(--space-2xl) var(--space-xl) var(--space-xl);
   overflow: hidden;
 }
 
@@ -3147,6 +3174,7 @@ section+section {
 /* ============================================= */
 
 .testimonials {
+  padding: 0 4%;
   min-height: 100vh;
 
   background:
@@ -3396,6 +3424,7 @@ section+section {
   }
 
   .contact-form {
+    margin: 0 4%;
     padding: var(--space-2xl) clamp(24px, 3vw, 40px);
   }
 
@@ -3585,10 +3614,7 @@ section+section {
     display: none;
   }
 
-  .contact-layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
+  
 
   .problem-layout {
     grid-template-columns: 1fr;
