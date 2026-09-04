@@ -45,6 +45,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 .hero-image-section {
@@ -62,6 +63,7 @@
   position: relative;
   z-index: 2;
   max-width: 720px;
+  min-width: 0;
 }
 
 .page-hero-content h1 {
@@ -490,6 +492,10 @@
   align-items: center;
 }
 
+.about-mission-text {
+  min-width: 0;
+}
+
 .about-mission-text h2 {
   margin-bottom: 20px;
 }
@@ -548,7 +554,7 @@
   .contact-layout {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
-    padding: 0 4%;
+    /* padding: 0 4%; */
   }
 }
 
@@ -662,7 +668,11 @@
     font-size: 12px;
   }
 
-  .tab-text h2 {
+.tab-text {
+  min-width: 0;
+}
+
+.tab-text h2 {
     font-size: clamp(20px, 4.5vw, 26px);
   }
 
