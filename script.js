@@ -517,6 +517,10 @@
       mainWrap._heroRevealWired = true;
       const reveal = () => {
         if (window.scrollY <= 0) return;
+        if (getComputedStyle(canvas).display === 'none') {
+          window.removeEventListener('scroll', reveal);
+          return;
+        }
         const h = $('#hero');
         if (h) h.classList.add('is-playing');
         window.removeEventListener('scroll', reveal);
@@ -610,6 +614,18 @@
     window.addEventListener('resize', resize, { passive: true });
   }
   initHeroFrames();
+
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      const heroCanvas = $('#heroFrames');
+      if (heroCanvas) {
+        heroCanvas._heroFramesInit = false;
+        const heroEl = $('#hero');
+        if (heroEl) heroEl.classList.add('is-playing');
+        initHeroFrames();
+      }
+    }
+  });
 
   // ---- 16. SPA Router ----
   (function() {
@@ -713,6 +729,16 @@
     });
 
     function reInit() {
+      const mainWrap = $('#main-content');
+      if (mainWrap) mainWrap._heroRevealWired = false;
+
+      const heroCanvas = $('#heroFrames');
+      if (heroCanvas) {
+        heroCanvas._heroFramesInit = false;
+        const heroEl = $('#hero');
+        if (heroEl) heroEl.classList.add('is-playing');
+      }
+
       const newRevealEls = $$('[data-reveal]');
       newRevealEls.forEach(el => {
         const rect = el.getBoundingClientRect();
