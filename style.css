@@ -1540,6 +1540,7 @@ section+section {
   display: block;
   padding-bottom: 10vh;
   min-height: 100vh;
+  margin: 4% 0;
   /* margin-bottom: 100px; */
 }
 
@@ -1863,6 +1864,7 @@ section+section {
 .problem {
   background: radial-gradient(at 8% 50%, rgb(220 146 126 / 66%) 0%, #f5c4c45e 55%), radial-gradient(at 95% 70%, rgb(254 228 211 / 67%) 0%, #d58e8e14 55%);
 }
+
 .section-figure {
   display: flex;
   /* padding: 60px 0px 0px 0px; */
@@ -2356,8 +2358,7 @@ section+section {
 
 .philosophy {
   padding: 4% 0;
-  background: radial-gradient(at 8% 20%, rgb(255 166 143 / 35%) 0%, #00000004 55%),
-    radial-gradient(at 95% 70%, rgb(255 192 149 / 23%) 0%, #ff9e9e1a 55%);
+  background: radial-gradient(at 8% 20%, rgb(222 144 124 / 55%) 0%, #00000004 55%), radial-gradient(at 95% 70%, rgb(242 192 157 / 52%) 0%, #f99c9c30 55%);
 }
 
 
@@ -3627,7 +3628,7 @@ section+section {
     display: none;
   }
 
-  
+
 
   .problem-layout {
     grid-template-columns: 1fr;
