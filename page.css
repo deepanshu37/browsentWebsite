@@ -136,9 +136,11 @@
   white-space: nowrap;
 }
 
-.tab-btn:hover {
-  color: var(--primary-text);
-  background: var(--primary-subtle);
+@media (min-width: 1281px) {
+  .tab-btn:hover {
+    color: var(--primary-text);
+    background: var(--primary-subtle);
+  }
 }
 
 .tab-btn.active {
@@ -333,11 +335,12 @@
   box-shadow: var(--shadow-glass);
   transition: transform 0.4s var(--ease-glass), box-shadow 0.4s var(--ease-glass), border-color 0.4s var(--ease-glass);
 }
-
-.feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: rgba(118, 26, 2, 0.15);
+@media (min-width: 1281px) {
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glass-hover);
+    border-color: rgba(118, 26, 2, 0.15);
+  }
 }
 
 .feature-card-icon {
@@ -455,13 +458,14 @@
   border: var(--glass-border);
   transition: all 0.3s var(--ease-out);
 }
-
-.contact-info-card:hover {
-  border-color: rgba(118, 26, 2, 0.15);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glass);
+@media (min-width: 1281px) {
+  .contact-info-card:hover {
+    border-color: rgba(118, 26, 2, 0.15);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glass);
+  }
 }
-
+  
 .contact-info-card .cc-icon {
   margin-bottom: 12px;
 }
@@ -524,11 +528,12 @@
   border: var(--glass-border);
   transition: all 0.3s var(--ease-out);
 }
-
-.value-card:hover {
-  border-color: rgba(118, 26, 2, 0.15);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glass);
+@media (min-width: 1281px) {
+  .value-card:hover {
+    border-color: rgba(118, 26, 2, 0.15);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glass);
+  }
 }
 
 .value-card h4 {

@@ -300,8 +300,10 @@ ol {
   transition: transform 0.3s var(--ease-out);
 }
 
-.brand:hover .brand-mark svg {
-  transform: scale(1.05) rotate(-3deg);
+@media (min-width: 1281px) {
+  .brand:hover .brand-mark svg {
+    transform: scale(1.05) rotate(-3deg);
+  }
 }
 
 .brand-name {
@@ -346,9 +348,11 @@ ol {
   transition: all 0.3s var(--ease-out);
 }
 
-.nav-link:hover {
-  color: var(--primary-text);
-  background: var(--primary-subtle);
+@media (min-width: 1281px) {
+  .nav-link:hover {
+    color: var(--primary-text);
+    background: var(--primary-subtle);
+  }
 }
 
 .nav-link.active {
@@ -372,9 +376,12 @@ ol {
   transition: width 0.3s var(--ease-out);
 }
 
-.nav-link:hover .nav-ind,
-.nav-link.active .nav-ind {
-  width: 20px;
+@media (min-width: 1281px) {
+
+  .nav-link:hover .nav-ind,
+  .nav-link.active .nav-ind {
+    width: 20px;
+  }
 }
 
 .nav-cta {
@@ -426,8 +433,10 @@ ol {
   margin-bottom: 2px;
 }
 
-.nav-dropdown:hover .dropdown-toggle .nav-label::after {
-  transform: rotate(-135deg);
+@media (min-width: 1281px) {
+  .nav-dropdown:hover .dropdown-toggle .nav-label::after {
+    transform: rotate(-135deg);
+  }
 }
 
 .dropdown-menu {
@@ -452,13 +461,16 @@ ol {
   pointer-events: none;
 }
 
-.nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(4px);
-  pointer-events: auto;
-  transition-delay: 0s, 0s, 0s;
+@media (min-width: 1281px) {
+
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(4px);
+    pointer-events: auto;
+    transition-delay: 0s, 0s, 0s;
+  }
 }
 
 .dropdown-item {
@@ -501,8 +513,10 @@ ol {
   flex-shrink: 0;
 }
 
-.nav-dropdown-sub:hover .sub-ind {
-  transform: rotate(45deg);
+@media (min-width: 1281px) {
+  .nav-dropdown-sub:hover .sub-ind {
+    transform: rotate(45deg);
+  }
 }
 
 .dropdown-menu-sub {
@@ -527,13 +541,16 @@ ol {
   pointer-events: none;
 }
 
-.nav-dropdown-sub:hover .dropdown-menu-sub,
-.nav-dropdown-sub:focus-within .dropdown-menu-sub {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(6px) translateY(-4px);
-  pointer-events: auto;
-  transition-delay: 0s, 0s, 0s;
+@media (min-width: 1281px) {
+
+  .nav-dropdown-sub:hover .dropdown-menu-sub,
+  .nav-dropdown-sub:focus-within .dropdown-menu-sub {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(6px) translateY(-4px);
+    pointer-events: auto;
+    transition-delay: 0s, 0s, 0s;
+  }
 }
 
 /* ============================================= */
@@ -1266,8 +1283,10 @@ section+section {
   transition: color 0.4s var(--ease-out);
 }
 
-.work-card:hover .work-card-body h3 {
-  color: var(--primary);
+@media (min-width: 1281px) {
+  .work-card:hover .work-card-body h3 {
+    color: var(--primary);
+  }
 }
 
 .work-card-body p {
@@ -1331,8 +1350,10 @@ section+section {
   transition: color 0.35s var(--ease-out);
 }
 
-.work-card:hover .work-card-cat {
-  color: var(--primary-hover);
+@media (min-width: 1281px) {
+  .work-card:hover .work-card-cat {
+    color: var(--primary-hover);
+  }
 }
 
 /* ---- wca decorative overlays ---- */
@@ -1359,8 +1380,10 @@ section+section {
   transition: opacity 0.3s var(--ease-out);
 }
 
-.work-card:hover .wca-arrow {
-  opacity: 0.8;
+@media (min-width: 1281px) {
+  .work-card:hover .wca-arrow {
+    opacity: 0.8;
+  }
 }
 
 .wca-lines {
@@ -1691,9 +1714,11 @@ section+section {
   transition: transform 0.6s var(--ease-glass), filter 0.6s var(--ease-glass);
 }
 
-.work-showcase:hover .work-showcase-media img {
-  /* transform: scale(1.045); */
-  /* filter: saturate(1) contrast(1.04); */
+@media (min-width: 1281px) {
+  .work-showcase:hover .work-showcase-media img {
+    /* transform: scale(1.045); */
+    /* filter: saturate(1) contrast(1.04); */
+  }
 }
 
 /* ---- Info area ---- */
@@ -1756,9 +1781,11 @@ section+section {
   z-index: 1;
 }
 
-.work-showcase:hover .work-showcase-glow {
-  opacity: 1;
-  transform: scale(1);
+@media (min-width: 1281px) {
+  .work-showcase:hover .work-showcase-glow {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Title block */
@@ -1774,8 +1801,10 @@ section+section {
   transition: color 0.4s var(--ease-out);
 }
 
-.work-showcase:hover .work-showcase-title {
-  color: var(--primary);
+@media (min-width: 1281px) {
+  .work-showcase:hover .work-showcase-title {
+    color: var(--primary);
+  }
 }
 
 /* Description block */
@@ -1816,9 +1845,11 @@ section+section {
   transition: border-color 0.35s var(--ease-out), background 0.35s var(--ease-out), color 0.35s var(--ease-out);
 }
 
-.work-showcase:hover .work-showcase-perf {
-  border-color: var(--primary);
-  background: var(--soft-peach);
+@media (min-width: 1281px) {
+  .work-showcase:hover .work-showcase-perf {
+    border-color: var(--primary);
+    background: var(--soft-peach);
+  }
 }
 
 /* ---- Tablet: rebalance ratio, keep two columns ---- */
@@ -2135,10 +2166,12 @@ section+section {
   margin-top: var(--space-2xl);
 }
 
-.p-step:hover {
-  border-color: rgba(118, 26, 2, 0.15);
-  box-shadow: var(--shadow-glass);
-  transform: translateX(4px);
+@media (min-width: 1281px) {
+  .p-step:hover {
+    border-color: rgba(118, 26, 2, 0.15);
+    box-shadow: var(--shadow-glass);
+    transform: translateX(4px);
+  }
 }
 
 .p-step-num {
@@ -2424,10 +2457,12 @@ section+section {
   transition: all 0.5s var(--ease-glass);
 }
 
-.phil-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: rgba(118, 26, 2, 0.15);
+@media (min-width: 1281px) {
+  .phil-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glass-hover);
+    border-color: rgba(118, 26, 2, 0.15);
+  }
 }
 
 .phil-item+.phil-item {
@@ -2541,8 +2576,10 @@ section+section {
   transition: all 0.3s var(--ease-out);
 }
 
-.arch-layer:hover {
-  background: var(--primary-subtle);
+@media (min-width: 1281px) {
+  .arch-layer:hover {
+    background: var(--primary-subtle);
+  }
 }
 
 .arch-label {
@@ -2643,8 +2680,10 @@ section+section {
   max-width: 50px
 }
 
-.arch-layer:hover .arch-blocks span {
-  opacity: 0.5;
+@media (min-width: 1281px) {
+  .arch-layer:hover .arch-blocks span {
+    opacity: 0.5;
+  }
 }
 
 .arch-arrow {
@@ -2760,11 +2799,12 @@ section+section {
 .fail-card--bg-4 .fail-card-bg {
   background-image: url("assets/images/system fails card 4.png");
 } */
-
-.fail-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: rgba(118, 26, 2, 0.15);
+@media (min-width: 1281px) {
+  .fail-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glass-hover);
+    border-color: rgba(118, 26, 2, 0.15);
+  }
 }
 
 .fail-card-head {
@@ -2895,10 +2935,12 @@ section+section {
   transition: all 0.3s var(--ease-out);
 }
 
-.contact-channel:hover {
-  border-color: rgba(118, 26, 2, 0.15);
-  box-shadow: var(--shadow-glass);
-  transform: translateX(4px);
+@media (min-width: 1281px) {
+  .contact-channel:hover {
+    border-color: rgba(118, 26, 2, 0.15);
+    box-shadow: var(--shadow-glass);
+    transform: translateX(4px);
+  }
 }
 
 .cc-icon {
@@ -2920,9 +2962,11 @@ section+section {
   height: 100%;
 }
 
-.contact-channel:hover .cc-icon {
-  background: var(--primary-subtle);
-  color: var(--primary);
+@media (min-width: 1281px) {
+  .contact-channel:hover .cc-icon {
+    background: var(--primary-subtle);
+    color: var(--primary);
+  }
 }
 
 .cc-text {
@@ -3155,9 +3199,11 @@ section+section {
   width: fit-content;
 }
 
-.footer-col a:hover {
-  color: var(--primary-text);
-  transform: translateX(4px);
+@media (min-width: 1281px) {
+  .footer-col a:hover {
+    color: var(--primary-text);
+    transform: translateX(4px);
+  }
 }
 
 .footer-bar {
@@ -3241,10 +3287,12 @@ section+section {
   pointer-events: none;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-glass-hover);
-  border-color: rgba(118, 26, 2, 0.15);
+@media (min-width: 1281px) {
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glass-hover);
+    border-color: rgba(118, 26, 2, 0.15);
+  }
 }
 
 .testimonial-card p {
@@ -3555,11 +3603,13 @@ section+section {
     display: block;
   }
 
-  .nav-dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
+  @media (min-width: 1281px) {
+    .nav-dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
   }
 
   .dropdown-item {
@@ -3590,11 +3640,13 @@ section+section {
     display: block;
   }
 
-  .nav-dropdown-sub:hover .dropdown-menu-sub {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
+  @media (min-width: 1281px) {
+    .nav-dropdown-sub:hover .dropdown-menu-sub {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
   }
 
   .sub-ind {
@@ -4750,19 +4802,22 @@ section+section {
 }
 
 /* --- Brighter specular rim on interaction --- */
-.work-card:hover,
-.fail-card:hover,
-.feature-card:hover,
-.testimonial-card:hover,
-.p-step:hover,
-.problem-copy:hover,
-.contact-channel:hover,
-.contact-info-card:hover,
-.value-card:hover,
-.viz-stat:hover {
-  box-shadow: var(--shadow-glass-hover),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+@media (min-width: 1281px) {
+
+  .work-card:hover,
+  .fail-card:hover,
+  .feature-card:hover,
+  .testimonial-card:hover,
+  .p-step:hover,
+  .problem-copy:hover,
+  .contact-channel:hover,
+  .contact-info-card:hover,
+  .value-card:hover,
+  .viz-stat:hover {
+    box-shadow: var(--shadow-glass-hover),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+  }
 }
 
 /* --- Soft sheen sweep over glossy cards --- */
@@ -4808,20 +4863,23 @@ section+section {
   z-index: 3;
 }
 
-.work-card:hover::after,
-.fail-card:hover::after,
-.feature-card:hover::after,
-.testimonial-card:hover::after,
-.p-step:hover::after,
-.problem-copy:hover::after,
-.value-card:hover::after,
-.contact-channel:hover::after,
-.contact-info-card:hover::after,
-.viz-stat:hover::after,
-.hero-metrics:hover::after,
-.tab-visual:hover::after {
-  opacity: 1;
-  left: 120%;
+@media (min-width: 1281px) {
+
+  .work-card:hover::after,
+  .fail-card:hover::after,
+  .feature-card:hover::after,
+  .testimonial-card:hover::after,
+  .p-step:hover::after,
+  .problem-copy:hover::after,
+  .value-card:hover::after,
+  .contact-channel:hover::after,
+  .contact-info-card:hover::after,
+  .viz-stat:hover::after,
+  .hero-metrics:hover::after,
+  .tab-visual:hover::after {
+    opacity: 1;
+    left: 120%;
+  }
 }
 
 /* ============================================= */
@@ -4915,7 +4973,8 @@ section+section {
   } */
 
 /* 2. Reset every hover state to no-op */
-/* .brand:hover .brand-mark svg,
+/* @media (min-width: 1281px) {
+  .brand:hover .brand-mark svg,
   .nav-link:hover,
   .nav-link:hover .nav-ind,
   .nav-dropdown:hover .dropdown-toggle .nav-label::after,
@@ -4948,10 +5007,12 @@ section+section {
     background-color: inherit !important;
     opacity: inherit !important;
     filter: none !important;
-  } */
+  } 
+}*/
 
 /* 3. Reset box-shadow on card groups that use the combined specular rim rule */
-/* .work-card:hover,
+/* @media (min-width: 1281px) {
+  .work-card:hover,
   .fail-card:hover,
   .feature-card:hover,
   .testimonial-card:hover,
@@ -4962,10 +5023,12 @@ section+section {
   .value-card:hover,
   .viz-stat:hover {
     box-shadow: none !important;
-  } */
+  } 
+}*/
 
 /* 4. Kill the ::after sheen sweep on all cards */
-/* .work-card:hover::after,
+/* @media (min-width: 1281px) { 
+  .work-card:hover::after,
   .fail-card:hover::after,
   .feature-card:hover::after,
   .testimonial-card:hover::after,
@@ -4981,8 +5044,8 @@ section+section {
     transform: none !important;
     animation: none !important;
   }
-} */
-
+} 
+*/
 /* --- Extra small (max 240px) --- */
 @media(max-width:240px) {
   .hero-metrics {
