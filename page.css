@@ -63,6 +63,7 @@
   position: relative;
   z-index: 2;
   max-width: 720px;
+  margin: 0 4%;
   min-width: 0;
 }
 
@@ -89,7 +90,7 @@
   line-height: 1.7;
   max-width: 560px;
   margin-bottom: 32px;
-  margin: 0 4%;
+  /* margin: 0 4%; */
 }
 
 /* ============================================= */
@@ -99,7 +100,7 @@
 .service-tabs {
   position: relative;
   z-index: 1;
-  padding: 0 0 80px;
+  padding: 4% 4%;
   background:
     radial-gradient(ellipse at 85% 15%, rgba(230, 203, 184, 0.32) 0%, transparent 55%),
     radial-gradient(ellipse at 10% 80%, rgba(118, 26, 2, 0.05) 0%, transparent 50%),
@@ -604,7 +605,7 @@
   }
 
   .service-tabs {
-    padding: 0 0 60px;
+    padding: 4% 4%;
   }
 
   .cta-box {

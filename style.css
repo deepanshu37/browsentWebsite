@@ -629,9 +629,9 @@ h5 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 25px;
+  padding-top: 0;
   /* max-width: 700px; */
-  margin: var(--space-2xl) 0 var(--space-3xl);
+  margin: 0;
 }
 
 .section-head-left {
@@ -1624,7 +1624,7 @@ section+section {
    ========================================================== */
 
 .work .container {
-  padding: 0 clamp(16px, 4vw, 48px);
+  padding: 4% clamp(16px, 4vw, 48px);
 }
 
 .work-list {
@@ -2355,6 +2355,7 @@ section+section {
 /* ============================================= */
 
 .philosophy {
+  padding: 4% 0;
   background: radial-gradient(at 8% 20%, rgb(255 166 143 / 35%) 0%, #00000004 55%),
     radial-gradient(at 95% 70%, rgb(255 192 149 / 23%) 0%, #ff9e9e1a 55%);
 }
@@ -2659,6 +2660,7 @@ section+section {
 /* ============================================= */
 
 .failures {
+  padding: 4% 0;
   background: radial-gradient(ellipse at 50% 100%, rgb(239 180 140 / 44%) 0%, #00000003 60%), linear-gradient(183deg, #f7e7f0 0%, #ffd4d0 100%);
 }
 
@@ -2819,9 +2821,11 @@ section+section {
 /* ============================================= */
 
 .contact {
+  margin: -2% 0;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  padding: 0 4%;
   /* padding: var(--space-4xl) var(--space-xl); */
   background: url("assets/images/bg.png") center/contain no-repeat;
 }
@@ -3183,7 +3187,7 @@ section+section {
 /* ============================================= */
 
 .testimonials {
-  padding: 0 4%;
+  padding: 4% 4%;
   min-height: 100vh;
 
   background:
@@ -3930,7 +3934,7 @@ section+section {
   }
 
   .work .container {
-    padding: 0 clamp(12px, 3vw, 24px);
+    padding: 4% clamp(12px, 3vw, 24px);
   }
 
   .work-list {
