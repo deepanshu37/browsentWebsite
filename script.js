@@ -9,6 +9,12 @@
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // ---- 2b. Reset hero state on bfcache restore ----
+  window.addEventListener('pageshow', () => {
+    const heroEl = $('#hero');
+    if (heroEl && window.scrollY <= 0) heroEl.classList.remove('is-playing');
+  });
+
   // ---- 3. Loader ----
   const loader = $('#loader');
   const loaderBar = loader?.querySelector('.loader-bar i');
@@ -736,7 +742,7 @@
       if (heroCanvas) {
         heroCanvas._heroFramesInit = false;
         const heroEl = $('#hero');
-        if (heroEl) heroEl.classList.add('is-playing');
+        if (heroEl && window.scrollY > 0) heroEl.classList.add('is-playing');
       }
 
       const newRevealEls = $$('[data-reveal]');
