@@ -188,7 +188,6 @@ ol {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
   animation: loaderPulse 1.2s var(--ease-out) infinite;
 }
 
@@ -283,8 +282,8 @@ ol {
 .brand {
   /* background: #6352c6b8; */
   display: flex;
-  align-items: center;
-  gap: 10px;
+  /* align-items: center; */
+  gap: 0px;
   flex-shrink: 0;
   border-radius: 9px;
   padding: 2px 10px;
@@ -640,6 +639,10 @@ h5 {
   margin-bottom: 16px;
 }
 
+.mb-4 {
+  margin-bottom: 4%;
+}
+
 .section-head {
   display: flex;
   /* flex-direction: column; */
@@ -649,6 +652,7 @@ h5 {
   padding-top: 0;
   /* max-width: 700px; */
   margin: 0;
+  margin-bottom: 4%;
 }
 
 .section-head-left {
@@ -1571,7 +1575,7 @@ section+section {
   position: sticky;
   top: 120px;
   width: 92%;
-  max-width: 1100px;
+  /* max-width: 1100px; */
   margin: 0 auto;
 }
 
@@ -1601,7 +1605,7 @@ section+section {
 
 @media(max-width:1100px) {
   .work-list.sticky-stack .work-showcase {
-    max-width: 640px;
+    /* max-width: 640px; */
     top: 100px;
   }
 
@@ -3486,7 +3490,7 @@ section+section {
   }
 
   .contact-form {
-    margin: 0 4%;
+    /* margin: 0 4%; */
     padding: var(--space-2xl) clamp(24px, 3vw, 40px);
   }
 

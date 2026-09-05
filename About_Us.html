@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us — Browsent</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="page.css">
   <link rel="preload" as="image" href="assets/images/we.png">
@@ -14,322 +17,407 @@
   <link rel="preload" as="image" href="assets/images/card content/Novela Play.png">
   <link rel="preload" as="image" href="assets/images/card content/sellbuyplay.png">
 </head>
+
 <body>
 
   <header class="nav" id="nav" role="banner">
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="Browsent home">
         <span class="brand-mark">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
-            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
-            <defs>
-              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
-                <stop stop-color="#761a02"/>
-                <stop offset="1" stop-color="#5d1401"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="assets/svgs/logo_80x80_brown.svg" alt="Browsent logo" width="26" height="26">
         </span>
         <span class="brand-name">Browsent</span>
       </a>
       <div class="nav-pill">
-      <nav class="nav-links" role="navigation" aria-label="Main navigation">
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <div class="nav-dropdown-sub">
-              <a href="AI_Strategy.html" class="dropdown-item dropdown-toggle-sub">AI Strategy<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="AI_Strategy.html#ai-consulting" class="dropdown-item">AI Consulting</a>
-                <a href="AI_Strategy.html#ai-readiness" class="dropdown-item">AI Readiness</a>
-                <a href="AI_Strategy.html#ai-roadmap" class="dropdown-item">AI Roadmap</a>
+        <nav class="nav-links" role="navigation" aria-label="Main navigation">
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <div class="nav-dropdown-sub">
+                <a href="AI_Strategy.html" class="dropdown-item dropdown-toggle-sub">AI Strategy<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="AI_Strategy.html#ai-consulting" class="dropdown-item">AI Consulting</a>
+                  <a href="AI_Strategy.html#ai-readiness" class="dropdown-item">AI Readiness</a>
+                  <a href="AI_Strategy.html#ai-roadmap" class="dropdown-item">AI Roadmap</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="AI_Solutions.html" class="dropdown-item dropdown-toggle-sub">AI Solutions<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="AI_Solutions.html#ai-agent" class="dropdown-item">AI Agent</a>
-                <a href="AI_Solutions.html#ai-chatbots" class="dropdown-item">AI Chatbots</a>
-                <a href="AI_Solutions.html#workflow" class="dropdown-item">Workflow</a>
-                <a href="AI_Solutions.html#automation" class="dropdown-item">Automation</a>
-                <a href="AI_Solutions.html#voice-ai" class="dropdown-item">Voice AI</a>
+              <div class="nav-dropdown-sub">
+                <a href="AI_Solutions.html" class="dropdown-item dropdown-toggle-sub">AI Solutions<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="AI_Solutions.html#ai-agent" class="dropdown-item">AI Agent</a>
+                  <a href="AI_Solutions.html#ai-chatbots" class="dropdown-item">AI Chatbots</a>
+                  <a href="AI_Solutions.html#workflow" class="dropdown-item">Workflow</a>
+                  <a href="AI_Solutions.html#automation" class="dropdown-item">Automation</a>
+                  <a href="AI_Solutions.html#voice-ai" class="dropdown-item">Voice AI</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Custom_AI.html" class="dropdown-item dropdown-toggle-sub">Custom AI<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Custom_AI.html#llm-integration" class="dropdown-item">LLM Integration</a>
-                <a href="Custom_AI.html#rag-systems" class="dropdown-item">RAG Systems</a>
-                <a href="Custom_AI.html#enterprise" class="dropdown-item">Enterprise</a>
-                <a href="Custom_AI.html#solutions" class="dropdown-item">Solutions</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <div class="nav-dropdown-sub">
-              <a href="Product_Strategy.html" class="dropdown-item dropdown-toggle-sub">Product Strategy<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Product_Strategy.html#business-analysis" class="dropdown-item">Business Analysis</a>
-                <a href="Product_Strategy.html#product-discovery" class="dropdown-item">Product Discovery</a>
-                <a href="Product_Strategy.html#technical-consulting" class="dropdown-item">Technical Consulting</a>
-                <a href="Product_Strategy.html#digital-transformation" class="dropdown-item">Digital Transformation</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Product_Design.html" class="dropdown-item dropdown-toggle-sub">Product Design<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Product_Design.html#ux-research" class="dropdown-item">UX Research</a>
-                <a href="Product_Design.html#ux-strategy" class="dropdown-item">UX Strategy</a>
-                <a href="Product_Design.html#ui-design" class="dropdown-item">UI Design</a>
-                <a href="Product_Design.html#wireframing" class="dropdown-item">Wireframing</a>
-                <a href="Product_Design.html#prototyping" class="dropdown-item">Prototyping</a>
-                <a href="Product_Design.html#uat" class="dropdown-item">UAT</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Software_Engineering.html" class="dropdown-item dropdown-toggle-sub">Software Engineering<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Software_Engineering.html#custom-software" class="dropdown-item">Custom Software</a>
-                <a href="Software_Engineering.html#web-apps" class="dropdown-item">Web Applications</a>
-                <a href="Software_Engineering.html#mobile-apps" class="dropdown-item">Mobile Applications</a>
-                <a href="Software_Engineering.html#pos-software" class="dropdown-item">POS Software</a>
-                <a href="Software_Engineering.html#wearable" class="dropdown-item">Wearable</a>
-                <a href="Software_Engineering.html#enterprise-software" class="dropdown-item">Enterprise Software</a>
-                <a href="Software_Engineering.html#saas" class="dropdown-item">SaaS Platforms</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Architecture.html" class="dropdown-item dropdown-toggle-sub">Architecture<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Architecture.html#system-architecture" class="dropdown-item">System Architecture</a>
-                <a href="Architecture.html#api-development" class="dropdown-item">API Development</a>
-                <a href="Architecture.html#backend" class="dropdown-item">Backend Development</a>
-                <a href="Architecture.html#cloud" class="dropdown-item">Cloud Infrastructure</a>
-                <a href="Architecture.html#devops" class="dropdown-item">DevOps</a>
-                <a href="Architecture.html#database" class="dropdown-item">Database Engineering</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Quality_Engineering.html" class="dropdown-item dropdown-toggle-sub">Quality Engineering<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Quality_Engineering.html#functional-testing" class="dropdown-item">Functional Testing</a>
-                <a href="Quality_Engineering.html#test-automation" class="dropdown-item">Test Automation</a>
-                <a href="Quality_Engineering.html#api-testing" class="dropdown-item">API Testing</a>
-                <a href="Quality_Engineering.html#performance-testing" class="dropdown-item">Performance Testing</a>
-                <a href="Quality_Engineering.html#uat" class="dropdown-item">UAT</a>
-                <a href="Quality_Engineering.html#mobile-testing" class="dropdown-item">Mobile App Testing</a>
-                <a href="Quality_Engineering.html#security-testing" class="dropdown-item">Security Testing</a>
+              <div class="nav-dropdown-sub">
+                <a href="Custom_AI.html" class="dropdown-item dropdown-toggle-sub">Custom AI<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Custom_AI.html#llm-integration" class="dropdown-item">LLM Integration</a>
+                  <a href="Custom_AI.html#rag-systems" class="dropdown-item">RAG Systems</a>
+                  <a href="Custom_AI.html#enterprise" class="dropdown-item">Enterprise</a>
+                  <a href="Custom_AI.html#solutions" class="dropdown-item">Solutions</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <div class="nav-dropdown-sub">
-              <a href="Business_Products.html" class="dropdown-item dropdown-toggle-sub">Business Products<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Business_Products.html#crm" class="dropdown-item">CRM</a>
-                <a href="Business_Products.html#pos" class="dropdown-item">POS</a>
-                <a href="Business_Products.html#mail-saviour" class="dropdown-item">Mail Saviour</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <div class="nav-dropdown-sub">
+                <a href="Product_Strategy.html" class="dropdown-item dropdown-toggle-sub">Product Strategy<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Product_Strategy.html#business-analysis" class="dropdown-item">Business Analysis</a>
+                  <a href="Product_Strategy.html#product-discovery" class="dropdown-item">Product Discovery</a>
+                  <a href="Product_Strategy.html#technical-consulting" class="dropdown-item">Technical Consulting</a>
+                  <a href="Product_Strategy.html#digital-transformation" class="dropdown-item">Digital
+                    Transformation</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="AI_Products.html" class="dropdown-item dropdown-toggle-sub">AI Products<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="AI_Products.html#ai-search" class="dropdown-item">AI Search</a>
-                <a href="AI_Products.html#ai-customer-support" class="dropdown-item">AI Customer Support</a>
+              <div class="nav-dropdown-sub">
+                <a href="Product_Design.html" class="dropdown-item dropdown-toggle-sub">Product Design<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Product_Design.html#ux-research" class="dropdown-item">UX Research</a>
+                  <a href="Product_Design.html#ux-strategy" class="dropdown-item">UX Strategy</a>
+                  <a href="Product_Design.html#ui-design" class="dropdown-item">UI Design</a>
+                  <a href="Product_Design.html#wireframing" class="dropdown-item">Wireframing</a>
+                  <a href="Product_Design.html#prototyping" class="dropdown-item">Prototyping</a>
+                  <a href="Product_Design.html#uat" class="dropdown-item">UAT</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Our_Ventures.html" class="dropdown-item dropdown-toggle-sub">Our Ventures<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Our_Ventures.html#english-phrases" class="dropdown-item">English Phrases</a>
-                <a href="Our_Ventures.html#mailing-engine" class="dropdown-item">Mailing Engine</a>
-                <a href="Our_Ventures.html#dice-game" class="dropdown-item">Dice Game</a>
+              <div class="nav-dropdown-sub">
+                <a href="Software_Engineering.html" class="dropdown-item dropdown-toggle-sub">Software Engineering<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Software_Engineering.html#custom-software" class="dropdown-item">Custom Software</a>
+                  <a href="Software_Engineering.html#web-apps" class="dropdown-item">Web Applications</a>
+                  <a href="Software_Engineering.html#mobile-apps" class="dropdown-item">Mobile Applications</a>
+                  <a href="Software_Engineering.html#pos-software" class="dropdown-item">POS Software</a>
+                  <a href="Software_Engineering.html#wearable" class="dropdown-item">Wearable</a>
+                  <a href="Software_Engineering.html#enterprise-software" class="dropdown-item">Enterprise Software</a>
+                  <a href="Software_Engineering.html#saas" class="dropdown-item">SaaS Platforms</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="Architecture.html" class="dropdown-item dropdown-toggle-sub">Architecture<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Architecture.html#system-architecture" class="dropdown-item">System Architecture</a>
+                  <a href="Architecture.html#api-development" class="dropdown-item">API Development</a>
+                  <a href="Architecture.html#backend" class="dropdown-item">Backend Development</a>
+                  <a href="Architecture.html#cloud" class="dropdown-item">Cloud Infrastructure</a>
+                  <a href="Architecture.html#devops" class="dropdown-item">DevOps</a>
+                  <a href="Architecture.html#database" class="dropdown-item">Database Engineering</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="Quality_Engineering.html" class="dropdown-item dropdown-toggle-sub">Quality Engineering<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Quality_Engineering.html#functional-testing" class="dropdown-item">Functional Testing</a>
+                  <a href="Quality_Engineering.html#test-automation" class="dropdown-item">Test Automation</a>
+                  <a href="Quality_Engineering.html#api-testing" class="dropdown-item">API Testing</a>
+                  <a href="Quality_Engineering.html#performance-testing" class="dropdown-item">Performance Testing</a>
+                  <a href="Quality_Engineering.html#uat" class="dropdown-item">UAT</a>
+                  <a href="Quality_Engineering.html#mobile-testing" class="dropdown-item">Mobile App Testing</a>
+                  <a href="Quality_Engineering.html#security-testing" class="dropdown-item">Security Testing</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
-            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <div class="nav-dropdown-sub">
+                <a href="Business_Products.html" class="dropdown-item dropdown-toggle-sub">Business Products<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Business_Products.html#crm" class="dropdown-item">CRM</a>
+                  <a href="Business_Products.html#pos" class="dropdown-item">POS</a>
+                  <a href="Business_Products.html#mail-saviour" class="dropdown-item">Mail Saviour</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="AI_Products.html" class="dropdown-item dropdown-toggle-sub">AI Products<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="AI_Products.html#ai-search" class="dropdown-item">AI Search</a>
+                  <a href="AI_Products.html#ai-customer-support" class="dropdown-item">AI Customer Support</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="Our_Ventures.html" class="dropdown-item dropdown-toggle-sub">Our Ventures<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Our_Ventures.html#english-phrases" class="dropdown-item">English Phrases</a>
+                  <a href="Our_Ventures.html#mailing-engine" class="dropdown-item">Mailing Engine</a>
+                  <a href="Our_Ventures.html#dice-game" class="dropdown-item">Dice Game</a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+              <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+            </div>
+          </div>
+          <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span
+              class="nav-ind"></span></a>
       </div>
       <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24"><linearGradient id="a" x1="33.414" x2="14.586" y1="1.586" y2="20.414" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d1401"/><stop offset=".033" stop-color="#6b1c05"/><stop offset=".197" stop-color="#9a3b1c"/><stop offset=".362" stop-color="#c98a6a"/><stop offset=".525" stop-color="#e6cbb8"/><stop offset=".687" stop-color="#f5e3e6"/><stop offset=".846" stop-color="#fbf0f6"/><stop offset="1" stop-color="#fff"/></linearGradient><path fill="url(#a)" d="M38.5,7.5h-29c-1.105,0-2,0.895-2,2v3c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3 C40.5,8.395,39.605,7.5,38.5,7.5z"/><linearGradient id="b" x1="33.414" x2="14.586" y1="14.586" y2="33.414" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d1401"/><stop offset=".033" stop-color="#6b1c05"/><stop offset=".197" stop-color="#9a3b1c"/><stop offset=".362" stop-color="#c98a6a"/><stop offset=".525" stop-color="#e6cbb8"/><stop offset=".687" stop-color="#f5e3e6"/><stop offset=".846" stop-color="#fbf0f6"/><stop offset="1" stop-color="#fff"/></linearGradient><path fill="url(#b)" d="M38.5,20.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,21.395,39.605,20.5,38.5,20.5z"/><linearGradient id="c" x1="33.414" x2="14.586" y1="27.586" y2="46.414" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d1401"/><stop offset=".033" stop-color="#6b1c05"/><stop offset=".197" stop-color="#9a3b1c"/><stop offset=".362" stop-color="#c98a6a"/><stop offset=".525" stop-color="#e6cbb8"/><stop offset=".687" stop-color="#f5e3e6"/><stop offset=".846" stop-color="#fbf0f6"/><stop offset="1" stop-color="#fff"/></linearGradient><path fill="url(#c)" d="M38.5,33.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,34.395,39.605,33.5,38.5,33.5z"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M36.149,7.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H17.979"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M12.957,14.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h21.33"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M13.34,27.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.995"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M35,20.5h3.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.489"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M13.468,40.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.585"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M34.191,33.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.497"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24">
+          <linearGradient id="a" x1="33.414" x2="14.586" y1="1.586" y2="20.414" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5d1401" />
+            <stop offset=".033" stop-color="#6b1c05" />
+            <stop offset=".197" stop-color="#9a3b1c" />
+            <stop offset=".362" stop-color="#c98a6a" />
+            <stop offset=".525" stop-color="#e6cbb8" />
+            <stop offset=".687" stop-color="#f5e3e6" />
+            <stop offset=".846" stop-color="#fbf0f6" />
+            <stop offset="1" stop-color="#fff" />
+          </linearGradient>
+          <path fill="url(#a)"
+            d="M38.5,7.5h-29c-1.105,0-2,0.895-2,2v3c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3 C40.5,8.395,39.605,7.5,38.5,7.5z" />
+          <linearGradient id="b" x1="33.414" x2="14.586" y1="14.586" y2="33.414" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5d1401" />
+            <stop offset=".033" stop-color="#6b1c05" />
+            <stop offset=".197" stop-color="#9a3b1c" />
+            <stop offset=".362" stop-color="#c98a6a" />
+            <stop offset=".525" stop-color="#e6cbb8" />
+            <stop offset=".687" stop-color="#f5e3e6" />
+            <stop offset=".846" stop-color="#fbf0f6" />
+            <stop offset="1" stop-color="#fff" />
+          </linearGradient>
+          <path fill="url(#b)"
+            d="M38.5,20.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,21.395,39.605,20.5,38.5,20.5z" />
+          <linearGradient id="c" x1="33.414" x2="14.586" y1="27.586" y2="46.414" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5d1401" />
+            <stop offset=".033" stop-color="#6b1c05" />
+            <stop offset=".197" stop-color="#9a3b1c" />
+            <stop offset=".362" stop-color="#c98a6a" />
+            <stop offset=".525" stop-color="#e6cbb8" />
+            <stop offset=".687" stop-color="#f5e3e6" />
+            <stop offset=".846" stop-color="#fbf0f6" />
+            <stop offset="1" stop-color="#fff" />
+          </linearGradient>
+          <path fill="url(#c)"
+            d="M38.5,33.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,34.395,39.605,33.5,38.5,33.5z" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M36.149,7.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H17.979" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M12.957,14.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h21.33" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M13.34,27.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.995" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M35,20.5h3.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.489" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M13.468,40.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.585" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M34.191,33.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.497" />
+        </svg>
       </button>
     </div>
   </header>
 
   <main id="main-content">
 
-  <section class="page-hero">
-    <div class="page-hero-bg" ></div>
-    <div class="container service-hero-layout" id="about-hero-bg">
-      <div class="page-hero-content" data-reveal="up">
-        <span class="eyebrow">About Us</span>
-        <h1>Who <em>We Are</em></h1>
-        <p>We are a design-first engineering consultancy that architects systems where business strategy meets structural integrity. Every engagement starts with understanding your business — then building systems that scale, perform, and endure.</p>
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="container service-hero-layout" id="about-hero-bg">
+        <div class="page-hero-content" data-reveal="up">
+          <span class="eyebrow">About Us</span>
+          <h1>Who <em>We Are</em></h1>
+          <p>We are a design-first engineering consultancy that architects systems where business strategy meets
+            structural integrity. Every engagement starts with understanding your business — then building systems that
+            scale, perform, and endure.</p>
+        </div>
+        <div class="hero-image-section">
+          <img src="assets/images/we.png" alt="About Us" />
+        </div>
       </div>
-      <div class="hero-image-section">
-        <img src="assets/images/we.png" alt="About Us" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="service-tabs" id="service-content">
-    <div class="container">
-      <nav class="tabs-nav" role="tablist">
-        <button class="tab-btn active" role="tab" data-tab="who-we-are">Who We Are</button>
-        <button class="tab-btn" role="tab" data-tab="success-stories">Success Stories</button>
-      </nav>
+    <section class="service-tabs" id="service-content">
+      <div class="container">
+        <nav class="tabs-nav" role="tablist">
+          <button class="tab-btn active" role="tab" data-tab="who-we-are">Who We Are</button>
+          <button class="tab-btn" role="tab" data-tab="success-stories">Success Stories</button>
+        </nav>
 
-      <div class="tab-panel active" id="who-we-are" role="tabpanel">
-        <div class="about-mission">
-          <div class="about-mission-layout">
-            <div class="about-mission-text">
-              <h2>Design-First Engineering</h2>
-              <p>Browsent was founded on a simple belief: great software doesn't come from writing code — it comes from understanding people, processes, and purpose. We call this approach design-first engineering.</p>
-              <p>Our team of strategists, designers, and engineers work together to map user journeys, design system architectures, and build software that delivers measurable business outcomes. We don't just build features — we engineer growth.</p>
-              <p>With expertise spanning AI, product strategy, software engineering, and quality assurance, we partner with businesses of all sizes to turn ambitious ideas into production-ready systems.</p>
+        <div class="tab-panel active" id="who-we-are" role="tabpanel">
+          <div class="about-mission">
+            <div class="about-mission-layout">
+              <div class="about-mission-text">
+                <h2>Design-First Engineering</h2>
+                <p>Browsent was founded on a simple belief: great software doesn't come from writing code — it comes
+                  from understanding people, processes, and purpose. We call this approach design-first engineering.</p>
+                <p>Our team of strategists, designers, and engineers work together to map user journeys, design system
+                  architectures, and build software that delivers measurable business outcomes. We don't just build
+                  features — we engineer growth.</p>
+                <p>With expertise spanning AI, product strategy, software engineering, and quality assurance, we partner
+                  with businesses of all sizes to turn ambitious ideas into production-ready systems.</p>
+              </div>
+              <div class="about-values">
+                <div class="value-card">
+                  <h4>Design-First</h4>
+                  <p>Every system starts with understanding the user, the business, and the desired outcome — code comes
+                    after clarity.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Engineering Excellence</h4>
+                  <p>We build for production from day one — with reliability, scalability, and maintainability built
+                    into every layer.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Business Outcomes</h4>
+                  <p>We measure success by the impact we create — revenue growth, cost reduction, and competitive
+                    advantage.</p>
+                </div>
+                <div class="value-card">
+                  <h4>Long-Term Partnership</h4>
+                  <p>We don't hand off and disappear. We build lasting relationships and continue to evolve systems as
+                    businesses grow.</p>
+                </div>
+              </div>
             </div>
-            <div class="about-values">
-              <div class="value-card">
-                <h4>Design-First</h4>
-                <p>Every system starts with understanding the user, the business, and the desired outcome — code comes after clarity.</p>
-              </div>
-              <div class="value-card">
-                <h4>Engineering Excellence</h4>
-                <p>We build for production from day one — with reliability, scalability, and maintainability built into every layer.</p>
-              </div>
-              <div class="value-card">
-                <h4>Business Outcomes</h4>
-                <p>We measure success by the impact we create — revenue growth, cost reduction, and competitive advantage.</p>
-              </div>
-              <div class="value-card">
-                <h4>Long-Term Partnership</h4>
-                <p>We don't hand off and disappear. We build lasting relationships and continue to evolve systems as businesses grow.</p>
+          </div>
+
+          <div class="features-section" data-reveal="fade">
+            <div class="container">
+              <header class="section-head "
+                style="flex-direction: column; justify-content: center; align-items: center;">
+                <span class="eyebrow">Our Impact</span>
+                <h2>By the numbers.</h2>
+              </header>
+              <div class="features-grid">
+                <div class="feature-card" data-reveal="up" data-delay="0">
+                  <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                  </div>
+                  <h3>200+ Systems Shipped</h3>
+                  <p>From startups to enterprises, we've delivered production systems that power businesses every day.
+                  </p>
+                </div>
+                <div class="feature-card" data-reveal="up" data-delay="100">
+                  <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <h3>99.98% Uptime</h3>
+                  <p>Our systems are engineered for reliability — measured by the uptime we maintain, not the features
+                    we ship.</p>
+                </div>
+                <div class="feature-card" data-reveal="up" data-delay="200">
+                  <div class="feature-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 6v6l4 2" />
+                    </svg>
+                  </div>
+                  <h3>14 Industries Served</h3>
+                  <p>Fintech, healthcare, logistics, retail, and more — our expertise spans the full spectrum of modern
+                    business.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="features-section" data-reveal="fade">
-          <div class="container">
-            <header class="section-head" style="flex-direction: column; justify-content: center; align-items: center;" >
-              <span class="eyebrow">Our Impact</span>
-              <h2>By the numbers.</h2>
-            </header>
-            <div class="features-grid">
-              <div class="feature-card" data-reveal="up" data-delay="0">
-                <div class="feature-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="tab-panel" id="success-stories" role="tabpanel">
+          <div class="work" style="padding:0">
+            <div class="work-grid" id="workGridAbout">
+              <article class="work-card" data-reveal="up" data-delay="0">
+                <div class="work-card-glow"></div>
+                <div class="work-card-inner">
+                  <div class="work-card-visual" style="--accent:#761a02">
+                    <div class="work-card-art">
+                      <img src="assets/images/card content/footmob.jpeg" alt="Fintech deployment">
+                    </div>
+                  </div>
+                  <div class="work-card-body">
+                    <div class="work-card-tag">
+                      <span class="work-card-index">01</span>
+                      <span class="work-card-cat">Fintech</span>
+                    </div>
+                    <h3>Neobank Consumer Ecosystem</h3>
+                    <p>End-to-end digital banking experience architected from user journey mapping through backend
+                      systems. 40% increase in retention across 200K active users.</p>
+                    <div class="work-card-meta">
+                      <span class="meta-stack">Go · Kafka · React</span>
+                      <span class="meta-perf">40% increase in retention</span>
+                    </div>
+                  </div>
                 </div>
-                <h3>200+ Systems Shipped</h3>
-                <p>From startups to enterprises, we've delivered production systems that power businesses every day.</p>
-              </div>
-              <div class="feature-card" data-reveal="up" data-delay="100">
-                <div class="feature-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <h3>99.98% Uptime</h3>
-                <p>Our systems are engineered for reliability — measured by the uptime we maintain, not the features we ship.</p>
-              </div>
-              <div class="feature-card" data-reveal="up" data-delay="200">
-                <div class="feature-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                </div>
-                <h3>14 Industries Served</h3>
-                <p>Fintech, healthcare, logistics, retail, and more — our expertise spans the full spectrum of modern business.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </article>
 
-      <div class="tab-panel" id="success-stories" role="tabpanel">
-        <div class="work" style="padding:0">
-          <div class="work-grid" id="workGridAbout">
-            <article class="work-card" data-reveal="up" data-delay="0">
-              <div class="work-card-glow"></div>
-              <div class="work-card-inner">
-                <div class="work-card-visual" style="--accent:#761a02">
-                  <div class="work-card-art">
-                    <img src="assets/images/card content/footmob.jpeg" alt="Fintech deployment">
+              <article class="work-card" data-reveal="up" data-delay="150">
+                <div class="work-card-glow"></div>
+                <div class="work-card-inner">
+                  <div class="work-card-visual" style="--accent:#5d1401">
+                    <div class="work-card-art">
+                      <img src="assets/images/card content/Novela Play.png" alt="Industrial SaaS platform">
+                    </div>
+                  </div>
+                  <div class="work-card-body">
+                    <div class="work-card-tag">
+                      <span class="work-card-index">02</span>
+                      <span class="work-card-cat">IoT</span>
+                    </div>
+                    <h3>IoT Predictive Analytics</h3>
+                    <p>Real-time sensor data platform processing 2M events/second with millisecond-level precision for
+                      predictive maintenance across 12 manufacturing facilities.</p>
+                    <div class="work-card-meta">
+                      <span class="meta-stack">Rust · gRPC · InfluxDB</span>
+                      <span class="meta-perf">Millisecond-level precision</span>
+                    </div>
                   </div>
                 </div>
-                <div class="work-card-body">
-                  <div class="work-card-tag">
-                    <span class="work-card-index">01</span>
-                    <span class="work-card-cat">Fintech</span>
-                  </div>
-                  <h3>Neobank Consumer Ecosystem</h3>
-                  <p>End-to-end digital banking experience architected from user journey mapping through backend systems. 40% increase in retention across 200K active users.</p>
-                  <div class="work-card-meta">
-                    <span class="meta-stack">Go · Kafka · React</span>
-                    <span class="meta-perf">40% increase in retention</span>
-                  </div>
-                </div>
-              </div>
-            </article>
+              </article>
 
-            <article class="work-card" data-reveal="up" data-delay="150">
-              <div class="work-card-glow"></div>
-              <div class="work-card-inner">
-                <div class="work-card-visual" style="--accent:#5d1401">
-                  <div class="work-card-art">
-                    <img src="assets/images/card content/Novela Play.png" alt="Industrial SaaS platform">
+              <article class="work-card" data-reveal="up" data-delay="300">
+                <div class="work-card-glow"></div>
+                <div class="work-card-inner">
+                  <div class="work-card-visual" style="--accent:#a03f20">
+                    <div class="work-card-art">
+                      <img src="assets/images/card content/sellbuyplay.png" alt="Retail healthcare platform">
+                    </div>
+                  </div>
+                  <div class="work-card-body">
+                    <div class="work-card-tag">
+                      <span class="work-card-index">03</span>
+                      <span class="work-card-cat">Commerce</span>
+                    </div>
+                    <h3>Enterprise Commerce Platform</h3>
+                    <p>Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy
+                      across 50+ microservices driving 3x conversion uplift.</p>
+                    <div class="work-card-meta">
+                      <span class="meta-stack">Node · GraphQL · K8s</span>
+                      <span class="meta-perf">3x conversion uplift</span>
+                    </div>
                   </div>
                 </div>
-                <div class="work-card-body">
-                  <div class="work-card-tag">
-                    <span class="work-card-index">02</span>
-                    <span class="work-card-cat">IoT</span>
-                  </div>
-                  <h3>IoT Predictive Analytics</h3>
-                  <p>Real-time sensor data platform processing 2M events/second with millisecond-level precision for predictive maintenance across 12 manufacturing facilities.</p>
-                  <div class="work-card-meta">
-                    <span class="meta-stack">Rust · gRPC · InfluxDB</span>
-                    <span class="meta-perf">Millisecond-level precision</span>
-                  </div>
-                </div>
-              </div>
-            </article>
+              </article>
 
-            <article class="work-card" data-reveal="up" data-delay="300">
-              <div class="work-card-glow"></div>
-              <div class="work-card-inner">
-                <div class="work-card-visual" style="--accent:#a03f20">
-                  <div class="work-card-art">
-                    <img src="assets/images/card content/sellbuyplay.png" alt="Retail healthcare platform">
-                  </div>
-                </div>
-                <div class="work-card-body">
-                  <div class="work-card-tag">
-                    <span class="work-card-index">03</span>
-                    <span class="work-card-cat">Commerce</span>
-                  </div>
-                  <h3>Enterprise Commerce Platform</h3>
-                  <p>Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy across 50+ microservices driving 3x conversion uplift.</p>
-                  <div class="work-card-meta">
-                    <span class="meta-stack">Node · GraphQL · K8s</span>
-                    <span class="meta-perf">3x conversion uplift</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- <article class="work-card" data-reveal="up" data-delay="450">
+              <!-- <article class="work-card" data-reveal="up" data-delay="450">
               <div class="work-card-glow"></div>
               <div class="work-card-inner">
                 <div class="work-card-visual" style="--accent:#8a2e12">
@@ -348,7 +436,7 @@
               </div>
             </article> -->
 
-            <!-- <article class="work-card" data-reveal="up" data-delay="600">
+              <!-- <article class="work-card" data-reveal="up" data-delay="600">
               <div class="work-card-glow"></div>
               <div class="work-card-inner">
                 <div class="work-card-visual" style="--accent:#b04a2a">
@@ -366,24 +454,24 @@
                 </div>
               </div>
             </article> -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="cta-banner" data-reveal="fade">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Ready to work with us?</h2>
-        <p>Let's discuss how we can help architect your next system for growth.</p>
-        <div class="cta-actions">
-          <a href="Contact_Us.html" class="btn btn-primary">Start a project</a>
-          <a href="index.html" class="btn btn-ghost">Back to home</a>
+    <section class="cta-banner" data-reveal="fade">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready to work with us?</h2>
+          <p>Let's discuss how we can help architect your next system for growth.</p>
+          <div class="cta-actions">
+            <a href="Contact_Us.html" class="btn btn-primary">Start a project</a>
+            <a href="index.html" class="btn btn-ghost">Back to home</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
@@ -393,22 +481,14 @@
         <div class="footer-brand">
           <a href="index.html" class="brand" aria-label="Browsent home">
             <span class="brand-mark">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
-                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
-                <defs>
-                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
-                    <stop stop-color="#761a02"/>
-                    <stop offset="1" stop-color="#5d1401"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <img src="assets/svgs/logo_80x80_brown.svg" alt="Browsent logo" width="26" height="26">
             </span>
             <span class="brand-name">Browsent</span>
           </a>
-          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural
+            integrity.</p>
         </div>
-        
+
       </div>
       <div class="footer-nav">
         <div class="footer-col">
@@ -441,4 +521,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

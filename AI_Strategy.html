@@ -1,375 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Strategy — Browsent</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="page.css">
   <link rel="preload" as="image" href="assets/images/AI Consulting.png">
 </head>
+
 <body>
 
   <header class="nav" id="nav" role="banner">
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="Browsent home">
         <span class="brand-mark">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <rect width="26" height="26" rx="6" fill="url(#bgrad)"/>
-            <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
-            <defs>
-              <linearGradient id="bgrad" x1="0" y1="0" x2="26" y2="26">
-                <stop stop-color="#761a02"/>
-                <stop offset="1" stop-color="#5d1401"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="assets/svgs/logo_80x80_brown.svg" alt="Browsent logo" width="26" height="26">
         </span>
         <span class="brand-name">Browsent</span>
       </a>
       <div class="nav-pill">
-      <nav class="nav-links" role="navigation" aria-label="Main navigation">
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <div class="nav-dropdown-sub">
-              <a href="AI_Strategy.html" class="dropdown-item dropdown-toggle-sub">AI Strategy<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="AI_Strategy.html#ai-consulting" class="dropdown-item">AI Consulting</a>
-                <a href="AI_Strategy.html#ai-readiness" class="dropdown-item">AI Readiness</a>
-                <a href="AI_Strategy.html#ai-roadmap" class="dropdown-item">AI Roadmap</a>
+        <nav class="nav-links" role="navigation" aria-label="Main navigation">
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">AI Lab</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <div class="nav-dropdown-sub">
+                <a href="AI_Strategy.html" class="dropdown-item dropdown-toggle-sub">AI Strategy<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="AI_Strategy.html#ai-consulting" class="dropdown-item">AI Consulting</a>
+                  <a href="AI_Strategy.html#ai-readiness" class="dropdown-item">AI Readiness</a>
+                  <a href="AI_Strategy.html#ai-roadmap" class="dropdown-item">AI Roadmap</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="AI_Solutions.html" class="dropdown-item dropdown-toggle-sub">AI Solutions<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="AI_Solutions.html#ai-agent" class="dropdown-item">AI Agent</a>
-                <a href="AI_Solutions.html#ai-chatbots" class="dropdown-item">AI Chatbots</a>
-                <a href="AI_Solutions.html#workflow" class="dropdown-item">Workflow</a>
-                <a href="AI_Solutions.html#automation" class="dropdown-item">Automation</a>
-                <a href="AI_Solutions.html#voice-ai" class="dropdown-item">Voice AI</a>
+              <div class="nav-dropdown-sub">
+                <a href="AI_Solutions.html" class="dropdown-item dropdown-toggle-sub">AI Solutions<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="AI_Solutions.html#ai-agent" class="dropdown-item">AI Agent</a>
+                  <a href="AI_Solutions.html#ai-chatbots" class="dropdown-item">AI Chatbots</a>
+                  <a href="AI_Solutions.html#workflow" class="dropdown-item">Workflow</a>
+                  <a href="AI_Solutions.html#automation" class="dropdown-item">Automation</a>
+                  <a href="AI_Solutions.html#voice-ai" class="dropdown-item">Voice AI</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Custom_AI.html" class="dropdown-item dropdown-toggle-sub">Custom AI<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Custom_AI.html#llm-integration" class="dropdown-item">LLM Integration</a>
-                <a href="Custom_AI.html#rag-systems" class="dropdown-item">RAG Systems</a>
-                <a href="Custom_AI.html#enterprise" class="dropdown-item">Enterprise</a>
-                <a href="Custom_AI.html#solutions" class="dropdown-item">Solutions</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <div class="nav-dropdown-sub">
-              <a href="Product_Strategy.html" class="dropdown-item dropdown-toggle-sub">Product Strategy<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Product_Strategy.html#business-analysis" class="dropdown-item">Business Analysis</a>
-                <a href="Product_Strategy.html#product-discovery" class="dropdown-item">Product Discovery</a>
-                <a href="Product_Strategy.html#technical-consulting" class="dropdown-item">Technical Consulting</a>
-                <a href="Product_Strategy.html#digital-transformation" class="dropdown-item">Digital Transformation</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Product_Design.html" class="dropdown-item dropdown-toggle-sub">Product Design<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Product_Design.html#ux-research" class="dropdown-item">UX Research</a>
-                <a href="Product_Design.html#ux-strategy" class="dropdown-item">UX Strategy</a>
-                <a href="Product_Design.html#ui-design" class="dropdown-item">UI Design</a>
-                <a href="Product_Design.html#wireframing" class="dropdown-item">Wireframing</a>
-                <a href="Product_Design.html#prototyping" class="dropdown-item">Prototyping</a>
-                <a href="Product_Design.html#uat" class="dropdown-item">UAT</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Software_Engineering.html" class="dropdown-item dropdown-toggle-sub">Software Engineering<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Software_Engineering.html#custom-software" class="dropdown-item">Custom Software</a>
-                <a href="Software_Engineering.html#web-apps" class="dropdown-item">Web Applications</a>
-                <a href="Software_Engineering.html#mobile-apps" class="dropdown-item">Mobile Applications</a>
-                <a href="Software_Engineering.html#pos-software" class="dropdown-item">POS Software</a>
-                <a href="Software_Engineering.html#wearable" class="dropdown-item">Wearable</a>
-                <a href="Software_Engineering.html#enterprise-software" class="dropdown-item">Enterprise Software</a>
-                <a href="Software_Engineering.html#saas" class="dropdown-item">SaaS Platforms</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Architecture.html" class="dropdown-item dropdown-toggle-sub">Architecture<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Architecture.html#system-architecture" class="dropdown-item">System Architecture</a>
-                <a href="Architecture.html#api-development" class="dropdown-item">API Development</a>
-                <a href="Architecture.html#backend" class="dropdown-item">Backend Development</a>
-                <a href="Architecture.html#cloud" class="dropdown-item">Cloud Infrastructure</a>
-                <a href="Architecture.html#devops" class="dropdown-item">DevOps</a>
-                <a href="Architecture.html#database" class="dropdown-item">Database Engineering</a>
-              </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Quality_Engineering.html" class="dropdown-item dropdown-toggle-sub">Quality Engineering<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Quality_Engineering.html#functional-testing" class="dropdown-item">Functional Testing</a>
-                <a href="Quality_Engineering.html#test-automation" class="dropdown-item">Test Automation</a>
-                <a href="Quality_Engineering.html#api-testing" class="dropdown-item">API Testing</a>
-                <a href="Quality_Engineering.html#performance-testing" class="dropdown-item">Performance Testing</a>
-                <a href="Quality_Engineering.html#uat" class="dropdown-item">UAT</a>
-                <a href="Quality_Engineering.html#mobile-testing" class="dropdown-item">Mobile App Testing</a>
-                <a href="Quality_Engineering.html#security-testing" class="dropdown-item">Security Testing</a>
+              <div class="nav-dropdown-sub">
+                <a href="Custom_AI.html" class="dropdown-item dropdown-toggle-sub">Custom AI<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Custom_AI.html#llm-integration" class="dropdown-item">LLM Integration</a>
+                  <a href="Custom_AI.html#rag-systems" class="dropdown-item">RAG Systems</a>
+                  <a href="Custom_AI.html#enterprise" class="dropdown-item">Enterprise</a>
+                  <a href="Custom_AI.html#solutions" class="dropdown-item">Solutions</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <div class="nav-dropdown-sub">
-              <a href="Business_Products.html" class="dropdown-item dropdown-toggle-sub">Business Products<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Business_Products.html#crm" class="dropdown-item">CRM</a>
-                <a href="Business_Products.html#pos" class="dropdown-item">POS</a>
-                <a href="Business_Products.html#mail-saviour" class="dropdown-item">Mail Saviour</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Engineering</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <div class="nav-dropdown-sub">
+                <a href="Product_Strategy.html" class="dropdown-item dropdown-toggle-sub">Product Strategy<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Product_Strategy.html#business-analysis" class="dropdown-item">Business Analysis</a>
+                  <a href="Product_Strategy.html#product-discovery" class="dropdown-item">Product Discovery</a>
+                  <a href="Product_Strategy.html#technical-consulting" class="dropdown-item">Technical Consulting</a>
+                  <a href="Product_Strategy.html#digital-transformation" class="dropdown-item">Digital
+                    Transformation</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="AI_Products.html" class="dropdown-item dropdown-toggle-sub">AI Products<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="AI_Products.html#ai-search" class="dropdown-item">AI Search</a>
-                <a href="AI_Products.html#ai-customer-support" class="dropdown-item">AI Customer Support</a>
+              <div class="nav-dropdown-sub">
+                <a href="Product_Design.html" class="dropdown-item dropdown-toggle-sub">Product Design<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Product_Design.html#ux-research" class="dropdown-item">UX Research</a>
+                  <a href="Product_Design.html#ux-strategy" class="dropdown-item">UX Strategy</a>
+                  <a href="Product_Design.html#ui-design" class="dropdown-item">UI Design</a>
+                  <a href="Product_Design.html#wireframing" class="dropdown-item">Wireframing</a>
+                  <a href="Product_Design.html#prototyping" class="dropdown-item">Prototyping</a>
+                  <a href="Product_Design.html#uat" class="dropdown-item">UAT</a>
+                </div>
               </div>
-            </div>
-            <div class="nav-dropdown-sub">
-              <a href="Our_Ventures.html" class="dropdown-item dropdown-toggle-sub">Our Ventures<span class="sub-ind"></span></a>
-              <div class="dropdown-menu-sub">
-                <a href="Our_Ventures.html#english-phrases" class="dropdown-item">English Phrases</a>
-                <a href="Our_Ventures.html#mailing-engine" class="dropdown-item">Mailing Engine</a>
-                <a href="Our_Ventures.html#dice-game" class="dropdown-item">Dice Game</a>
+              <div class="nav-dropdown-sub">
+                <a href="Software_Engineering.html" class="dropdown-item dropdown-toggle-sub">Software Engineering<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Software_Engineering.html#custom-software" class="dropdown-item">Custom Software</a>
+                  <a href="Software_Engineering.html#web-apps" class="dropdown-item">Web Applications</a>
+                  <a href="Software_Engineering.html#mobile-apps" class="dropdown-item">Mobile Applications</a>
+                  <a href="Software_Engineering.html#pos-software" class="dropdown-item">POS Software</a>
+                  <a href="Software_Engineering.html#wearable" class="dropdown-item">Wearable</a>
+                  <a href="Software_Engineering.html#enterprise-software" class="dropdown-item">Enterprise Software</a>
+                  <a href="Software_Engineering.html#saas" class="dropdown-item">SaaS Platforms</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="Architecture.html" class="dropdown-item dropdown-toggle-sub">Architecture<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Architecture.html#system-architecture" class="dropdown-item">System Architecture</a>
+                  <a href="Architecture.html#api-development" class="dropdown-item">API Development</a>
+                  <a href="Architecture.html#backend" class="dropdown-item">Backend Development</a>
+                  <a href="Architecture.html#cloud" class="dropdown-item">Cloud Infrastructure</a>
+                  <a href="Architecture.html#devops" class="dropdown-item">DevOps</a>
+                  <a href="Architecture.html#database" class="dropdown-item">Database Engineering</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="Quality_Engineering.html" class="dropdown-item dropdown-toggle-sub">Quality Engineering<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Quality_Engineering.html#functional-testing" class="dropdown-item">Functional Testing</a>
+                  <a href="Quality_Engineering.html#test-automation" class="dropdown-item">Test Automation</a>
+                  <a href="Quality_Engineering.html#api-testing" class="dropdown-item">API Testing</a>
+                  <a href="Quality_Engineering.html#performance-testing" class="dropdown-item">Performance Testing</a>
+                  <a href="Quality_Engineering.html#uat" class="dropdown-item">UAT</a>
+                  <a href="Quality_Engineering.html#mobile-testing" class="dropdown-item">Mobile App Testing</a>
+                  <a href="Quality_Engineering.html#security-testing" class="dropdown-item">Security Testing</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span class="nav-ind"></span></a>
-          <div class="dropdown-menu">
-            <a href="About_Us.html" class="dropdown-item">Who We Are</a>
-            <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">Products</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <div class="nav-dropdown-sub">
+                <a href="Business_Products.html" class="dropdown-item dropdown-toggle-sub">Business Products<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Business_Products.html#crm" class="dropdown-item">CRM</a>
+                  <a href="Business_Products.html#pos" class="dropdown-item">POS</a>
+                  <a href="Business_Products.html#mail-saviour" class="dropdown-item">Mail Saviour</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="AI_Products.html" class="dropdown-item dropdown-toggle-sub">AI Products<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="AI_Products.html#ai-search" class="dropdown-item">AI Search</a>
+                  <a href="AI_Products.html#ai-customer-support" class="dropdown-item">AI Customer Support</a>
+                </div>
+              </div>
+              <div class="nav-dropdown-sub">
+                <a href="Our_Ventures.html" class="dropdown-item dropdown-toggle-sub">Our Ventures<span
+                    class="sub-ind"></span></a>
+                <div class="dropdown-menu-sub">
+                  <a href="Our_Ventures.html#english-phrases" class="dropdown-item">English Phrases</a>
+                  <a href="Our_Ventures.html#mailing-engine" class="dropdown-item">Mailing Engine</a>
+                  <a href="Our_Ventures.html#dice-game" class="dropdown-item">Dice Game</a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span class="nav-ind"></span></a>
-      </nav>
+          <div class="nav-dropdown">
+            <a href="#" class="nav-link dropdown-toggle"><span class="nav-label">About Us</span><span
+                class="nav-ind"></span></a>
+            <div class="dropdown-menu">
+              <a href="About_Us.html" class="dropdown-item">Who We Are</a>
+              <a href="About_Us.html#success-stories" class="dropdown-item">Success Stories</a>
+            </div>
+          </div>
+          <a href="Contact_Us.html" class="nav-link"><span class="nav-label">Contact Us</span><span
+              class="nav-ind"></span></a>
+        </nav>
       </div>
       <a href="Contact_Us.html" class="btn btn-primary nav-cta">Start a project</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24"><linearGradient id="a" x1="33.414" x2="14.586" y1="1.586" y2="20.414" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d1401"/><stop offset=".033" stop-color="#6b1c05"/><stop offset=".197" stop-color="#9a3b1c"/><stop offset=".362" stop-color="#c98a6a"/><stop offset=".525" stop-color="#e6cbb8"/><stop offset=".687" stop-color="#f5e3e6"/><stop offset=".846" stop-color="#fbf0f6"/><stop offset="1" stop-color="#fff"/></linearGradient><path fill="url(#a)" d="M38.5,7.5h-29c-1.105,0-2,0.895-2,2v3c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3 C40.5,8.395,39.605,7.5,38.5,7.5z"/><linearGradient id="b" x1="33.414" x2="14.586" y1="14.586" y2="33.414" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d1401"/><stop offset=".033" stop-color="#6b1c05"/><stop offset=".197" stop-color="#9a3b1c"/><stop offset=".362" stop-color="#c98a6a"/><stop offset=".525" stop-color="#e6cbb8"/><stop offset=".687" stop-color="#f5e3e6"/><stop offset=".846" stop-color="#fbf0f6"/><stop offset="1" stop-color="#fff"/></linearGradient><path fill="url(#b)" d="M38.5,20.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,21.395,39.605,20.5,38.5,20.5z"/><linearGradient id="c" x1="33.414" x2="14.586" y1="27.586" y2="46.414" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5d1401"/><stop offset=".033" stop-color="#6b1c05"/><stop offset=".197" stop-color="#9a3b1c"/><stop offset=".362" stop-color="#c98a6a"/><stop offset=".525" stop-color="#e6cbb8"/><stop offset=".687" stop-color="#f5e3e6"/><stop offset=".846" stop-color="#fbf0f6"/><stop offset="1" stop-color="#fff"/></linearGradient><path fill="url(#c)" d="M38.5,33.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,34.395,39.605,33.5,38.5,33.5z"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M36.149,7.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H17.979"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M12.957,14.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h21.33"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M13.34,27.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.995"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M35,20.5h3.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.489"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M13.468,40.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.585"/><path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M34.191,33.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.497"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24">
+          <linearGradient id="a" x1="33.414" x2="14.586" y1="1.586" y2="20.414" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5d1401" />
+            <stop offset=".033" stop-color="#6b1c05" />
+            <stop offset=".197" stop-color="#9a3b1c" />
+            <stop offset=".362" stop-color="#c98a6a" />
+            <stop offset=".525" stop-color="#e6cbb8" />
+            <stop offset=".687" stop-color="#f5e3e6" />
+            <stop offset=".846" stop-color="#fbf0f6" />
+            <stop offset="1" stop-color="#fff" />
+          </linearGradient>
+          <path fill="url(#a)"
+            d="M38.5,7.5h-29c-1.105,0-2,0.895-2,2v3c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3 C40.5,8.395,39.605,7.5,38.5,7.5z" />
+          <linearGradient id="b" x1="33.414" x2="14.586" y1="14.586" y2="33.414" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5d1401" />
+            <stop offset=".033" stop-color="#6b1c05" />
+            <stop offset=".197" stop-color="#9a3b1c" />
+            <stop offset=".362" stop-color="#c98a6a" />
+            <stop offset=".525" stop-color="#e6cbb8" />
+            <stop offset=".687" stop-color="#f5e3e6" />
+            <stop offset=".846" stop-color="#fbf0f6" />
+            <stop offset="1" stop-color="#fff" />
+          </linearGradient>
+          <path fill="url(#b)"
+            d="M38.5,20.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,21.395,39.605,20.5,38.5,20.5z" />
+          <linearGradient id="c" x1="33.414" x2="14.586" y1="27.586" y2="46.414" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5d1401" />
+            <stop offset=".033" stop-color="#6b1c05" />
+            <stop offset=".197" stop-color="#9a3b1c" />
+            <stop offset=".362" stop-color="#c98a6a" />
+            <stop offset=".525" stop-color="#e6cbb8" />
+            <stop offset=".687" stop-color="#f5e3e6" />
+            <stop offset=".846" stop-color="#fbf0f6" />
+            <stop offset="1" stop-color="#fff" />
+          </linearGradient>
+          <path fill="url(#c)"
+            d="M38.5,33.5h-29c-1.105,0-2,0.895-2,2v3 c0,1.105,0.895,2,2,2h29c1.105,0,2-0.895,2-2v-3C40.5,34.395,39.605,33.5,38.5,33.5z" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M36.149,7.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H17.979" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M12.957,14.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h21.33" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M13.34,27.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.995" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M35,20.5h3.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.489" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M13.468,40.5H9.5c-1.105,0-2-0.895-2-2v-3c0-1.105,0.895-2,2-2h19.585" />
+          <path fill="none" stroke="#761a02" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+            stroke-width="3" d="M34.191,33.5H38.5c1.105,0,2,0.895,2,2v3c0,1.105-0.895,2-2,2H18.497" />
+        </svg>
       </button>
     </div>
   </header>
 
   <main id="main-content">
 
-  <section class="page-hero">
-    <div class="page-hero-bg"></div>
-    <div class="container service-hero-layout"  id="ai-strategy-hero-bg">
-      <div class="page-hero-content" data-reveal="up">
-        <span class="eyebrow">AI Lab — Strategy</span>
-        <h1>Strategic AI <em>Consulting</em></h1>
-        <p>We help businesses identify, evaluate, and implement AI opportunities that drive measurable outcomes. From readiness assessment to full-scale deployment — our AI strategy framework ensures every investment in AI delivers real business value.</p>
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="container service-hero-layout" id="ai-strategy-hero-bg">
+        <div class="page-hero-content" data-reveal="up">
+          <span class="eyebrow">AI Lab — Strategy</span>
+          <h1>Strategic AI <em>Consulting</em></h1>
+          <p>We help businesses identify, evaluate, and implement AI opportunities that drive measurable outcomes. From
+            readiness assessment to full-scale deployment — our AI strategy framework ensures every investment in AI
+            delivers real business value.</p>
+        </div>
+        <div class="hero-image-section">
+          <img src="assets/images/AI Consulting.png" alt="AI Consulting" />
+        </div>
       </div>
-      <div class="hero-image-section">
-        <img src="assets/images/AI Consulting.png" alt="AI Consulting" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="service-tabs" id="service-content">
-    <div class="container">
-      <nav class="tabs-nav" role="tablist">
-        <button class="tab-btn active" role="tab" data-tab="ai-consulting">AI Consulting</button>
-        <button class="tab-btn" role="tab" data-tab="ai-readiness">AI Readiness</button>
-        <button class="tab-btn" role="tab" data-tab="ai-roadmap">AI Roadmap</button>
-      </nav>
+    <section class="service-tabs" id="service-content">
+      <div class="container">
+        <nav class="tabs-nav" role="tablist">
+          <button class="tab-btn active" role="tab" data-tab="ai-consulting">AI Consulting</button>
+          <button class="tab-btn" role="tab" data-tab="ai-readiness">AI Readiness</button>
+          <button class="tab-btn" role="tab" data-tab="ai-roadmap">AI Roadmap</button>
+        </nav>
 
-      <div class="tab-panel active" id="ai-consulting" role="tabpanel">
-        <div class="tab-content">
-          <div class="tab-text">
-            <h2>AI Consulting</h2>
-            <p>Our AI consulting practice helps organizations cut through the noise and identify high-impact AI applications tailored to their specific business context. We combine deep technical expertise with strategic business acumen.</p>
-            <p>From opportunity identification to vendor evaluation and proof-of-concept execution, we guide you through every decision point with clarity and confidence.</p>
-            <ul>
-              <li>AI opportunity assessment and use case prioritization</li>
-              <li>Technology stack evaluation and vendor selection</li>
-              <li>Proof-of-concept design and execution</li>
-              <li>Risk assessment and mitigation strategy</li>
-              <li>ROI modeling and business case development</li>
-            </ul>
+        <div class="tab-panel active" id="ai-consulting" role="tabpanel">
+          <div class="tab-content">
+            <div class="tab-text">
+              <h2>AI Consulting</h2>
+              <p>Our AI consulting practice helps organizations cut through the noise and identify high-impact AI
+                applications tailored to their specific business context. We combine deep technical expertise with
+                strategic business acumen.</p>
+              <p>From opportunity identification to vendor evaluation and proof-of-concept execution, we guide you
+                through every decision point with clarity and confidence.</p>
+              <ul>
+                <li>AI opportunity assessment and use case prioritization</li>
+                <li>Technology stack evaluation and vendor selection</li>
+                <li>Proof-of-concept design and execution</li>
+                <li>Risk assessment and mitigation strategy</li>
+                <li>ROI modeling and business case development</li>
+              </ul>
+            </div>
+            <div class="tab-visual">
+              <div class="tab-visual-grid"></div>
+              <div class="viz-content">
+                <div class="viz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                      d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                  </svg>
+                </div>
+                <div class="viz-stats">
+                  <div class="viz-stat">
+                    <span class="viz-stat-value">85%</span>
+                    <span class="viz-stat-label">Faster AI adoption</span>
+                  </div>
+                  <div class="viz-stat">
+                    <span class="viz-stat-value">3x</span>
+                    <span class="viz-stat-label">ROI on AI investments</span>
+                  </div>
+                </div>
+                <div class="viz-tags">
+                  <span class="viz-tag">Use Case ID</span>
+                  <span class="viz-tag">Tech Evaluation</span>
+                  <span class="viz-tag">PoC Design</span>
+                  <span class="viz-tag">Risk Assessment</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="tab-visual">
-            <div class="tab-visual-grid"></div>
-            <div class="viz-content">
-              <div class="viz-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"/>
-                  <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-                </svg>
-              </div>
-              <div class="viz-stats">
-                <div class="viz-stat">
-                  <span class="viz-stat-value">85%</span>
-                  <span class="viz-stat-label">Faster AI adoption</span>
+        </div>
+
+        <div class="tab-panel" id="ai-readiness" role="tabpanel">
+          <div class="tab-content">
+            <div class="tab-text">
+              <h2>AI Readiness</h2>
+              <p>Before implementing AI, you need to know where you stand. Our AI Readiness assessment provides a
+                comprehensive evaluation of your organization's data infrastructure, technical capabilities, and
+                cultural readiness for AI adoption.</p>
+              <p>We identify gaps, risks, and quick wins — giving you a clear picture of what it will take to become
+                AI-ready and where to start.</p>
+              <ul>
+                <li>Data readiness assessment: quality, accessibility, governance</li>
+                <li>Infrastructure audit: compute, storage, networking</li>
+                <li>Team capability evaluation: skills, gaps, training needs</li>
+                <li>Process maturity assessment: workflows, automation potential</li>
+                <li>Compliance and ethics review: regulations, bias, fairness</li>
+              </ul>
+            </div>
+            <div class="tab-visual">
+              <div class="tab-visual-grid"></div>
+              <div class="viz-content">
+                <div class="viz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 20V10M18 20V4M6 20v-4" />
+                  </svg>
                 </div>
-                <div class="viz-stat">
-                  <span class="viz-stat-value">3x</span>
-                  <span class="viz-stat-label">ROI on AI investments</span>
+                <div class="viz-stats">
+                  <div class="viz-stat">
+                    <span class="viz-stat-value">92%</span>
+                    <span class="viz-stat-label">Organizations unprepared</span>
+                  </div>
+                  <div class="viz-stat">
+                    <span class="viz-stat-value">6 mo</span>
+                    <span class="viz-stat-label">Average readiness timeline</span>
+                  </div>
+                </div>
+                <div class="viz-tags">
+                  <span class="viz-tag">Data Audit</span>
+                  <span class="viz-tag">Infrastructure</span>
+                  <span class="viz-tag">Capability Gap</span>
+                  <span class="viz-tag">Compliance</span>
                 </div>
               </div>
-              <div class="viz-tags">
-                <span class="viz-tag">Use Case ID</span>
-                <span class="viz-tag">Tech Evaluation</span>
-                <span class="viz-tag">PoC Design</span>
-                <span class="viz-tag">Risk Assessment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="ai-roadmap" role="tabpanel">
+          <div class="tab-content">
+            <div class="tab-text">
+              <h2>AI Roadmap</h2>
+              <p>Your AI transformation needs a structured path forward. We build comprehensive roadmaps that sequence
+                AI initiatives for maximum impact, balancing quick wins with long-term strategic investments.</p>
+              <p>Our three-phase approach ensures sustainable AI adoption: pilot for learning, scale for impact, and
+                optimize for efficiency.</p>
+              <ul>
+                <li>Three-phase implementation roadmap: pilot, scale, optimize</li>
+                <li>Resource planning: budget, talent, technology</li>
+                <li>Milestone definition and KPI framework</li>
+                <li>Change management and organizational design</li>
+                <li>Governance framework and ongoing evaluation</li>
+              </ul>
+            </div>
+            <div class="tab-visual">
+              <div class="tab-visual-grid"></div>
+              <div class="viz-content">
+                <div class="viz-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+                <div class="viz-stats">
+                  <div class="viz-stat">
+                    <span class="viz-stat-value">3</span>
+                    <span class="viz-stat-label">Phases to full deployment</span>
+                  </div>
+                  <div class="viz-stat">
+                    <span class="viz-stat-value">12-18</span>
+                    <span class="viz-stat-label">Months to enterprise scale</span>
+                  </div>
+                </div>
+                <div class="viz-tags">
+                  <span class="viz-tag">Pilot</span>
+                  <span class="viz-tag">Scale</span>
+                  <span class="viz-tag">Optimize</span>
+                  <span class="viz-tag">Governance</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="tab-panel" id="ai-readiness" role="tabpanel">
-        <div class="tab-content">
-          <div class="tab-text">
-            <h2>AI Readiness</h2>
-            <p>Before implementing AI, you need to know where you stand. Our AI Readiness assessment provides a comprehensive evaluation of your organization's data infrastructure, technical capabilities, and cultural readiness for AI adoption.</p>
-            <p>We identify gaps, risks, and quick wins — giving you a clear picture of what it will take to become AI-ready and where to start.</p>
-            <ul>
-              <li>Data readiness assessment: quality, accessibility, governance</li>
-              <li>Infrastructure audit: compute, storage, networking</li>
-              <li>Team capability evaluation: skills, gaps, training needs</li>
-              <li>Process maturity assessment: workflows, automation potential</li>
-              <li>Compliance and ethics review: regulations, bias, fairness</li>
-            </ul>
-          </div>
-          <div class="tab-visual">
-            <div class="tab-visual-grid"></div>
-            <div class="viz-content">
-              <div class="viz-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 20V10M18 20V4M6 20v-4"/>
-                </svg>
-              </div>
-              <div class="viz-stats">
-                <div class="viz-stat">
-                  <span class="viz-stat-value">92%</span>
-                  <span class="viz-stat-label">Organizations unprepared</span>
-                </div>
-                <div class="viz-stat">
-                  <span class="viz-stat-value">6 mo</span>
-                  <span class="viz-stat-label">Average readiness timeline</span>
-                </div>
-              </div>
-              <div class="viz-tags">
-                <span class="viz-tag">Data Audit</span>
-                <span class="viz-tag">Infrastructure</span>
-                <span class="viz-tag">Capability Gap</span>
-                <span class="viz-tag">Compliance</span>
-              </div>
+    <section class="features-section" data-reveal="fade">
+      <div class="container">
+        <header class="section-head " style="flex-direction: column; align-items: center; text-align: center;">
+          <span class="eyebrow">Why Browsent</span>
+          <h2>AI strategy that delivers.</h2>
+          <p class="section-desc">We combine deep technical expertise with strategic business acumen to deliver AI
+            strategies that create real competitive advantage.</p>
+        </header>
+        <div class="features-grid">
+          <div class="feature-card" data-reveal="up" data-delay="0">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 20V10M18 20V4M6 20v-4" />
+              </svg>
             </div>
+            <h3>Data-First Approach</h3>
+            <p>Every AI strategy begins with a deep understanding of your data landscape — quality, accessibility, and
+              governance.</p>
           </div>
-        </div>
-      </div>
-
-      <div class="tab-panel" id="ai-roadmap" role="tabpanel">
-        <div class="tab-content">
-          <div class="tab-text">
-            <h2>AI Roadmap</h2>
-            <p>Your AI transformation needs a structured path forward. We build comprehensive roadmaps that sequence AI initiatives for maximum impact, balancing quick wins with long-term strategic investments.</p>
-            <p>Our three-phase approach ensures sustainable AI adoption: pilot for learning, scale for impact, and optimize for efficiency.</p>
-            <ul>
-              <li>Three-phase implementation roadmap: pilot, scale, optimize</li>
-              <li>Resource planning: budget, talent, technology</li>
-              <li>Milestone definition and KPI framework</li>
-              <li>Change management and organizational design</li>
-              <li>Governance framework and ongoing evaluation</li>
-            </ul>
-          </div>
-          <div class="tab-visual">
-            <div class="tab-visual-grid"></div>
-            <div class="viz-content">
-              <div class="viz-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                </svg>
-              </div>
-              <div class="viz-stats">
-                <div class="viz-stat">
-                  <span class="viz-stat-value">3</span>
-                  <span class="viz-stat-label">Phases to full deployment</span>
-                </div>
-                <div class="viz-stat">
-                  <span class="viz-stat-value">12-18</span>
-                  <span class="viz-stat-label">Months to enterprise scale</span>
-                </div>
-              </div>
-              <div class="viz-tags">
-                <span class="viz-tag">Pilot</span>
-                <span class="viz-tag">Scale</span>
-                <span class="viz-tag">Optimize</span>
-                <span class="viz-tag">Governance</span>
-              </div>
+          <div class="feature-card" data-reveal="up" data-delay="100">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+              </svg>
             </div>
+            <h3>Business Outcomes</h3>
+            <p>We measure success by business impact — revenue growth, cost reduction, and competitive advantage — not
+              technical milestones.</p>
+          </div>
+          <div class="feature-card" data-reveal="up" data-delay="200">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>End-to-End Delivery</h3>
+            <p>From strategy to execution, we partner with you through every phase of your AI journey — ensuring
+              continuity and accountability.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="features-section" data-reveal="fade">
-    <div class="container">
-      <header class="section-head" style="flex-direction: column; align-items: center; text-align: center;">
-        <span class="eyebrow">Why Browsent</span>
-        <h2>AI strategy that delivers.</h2>
-        <p class="section-desc">We combine deep technical expertise with strategic business acumen to deliver AI strategies that create real competitive advantage.</p>
-      </header>
-      <div class="features-grid">
-        <div class="feature-card" data-reveal="up" data-delay="0">
-          <div class="feature-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+    <section class="cta-banner" data-reveal="fade">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready to define your AI strategy?</h2>
+          <p>Let's assess your AI readiness and build a roadmap that delivers measurable business outcomes.</p>
+          <div class="cta-actions">
+            <a href="Contact_Us.html" class="btn btn-primary">Book a strategy call</a>
+            <a href="AI_Solutions.html" class="btn btn-ghost">Explore AI Solutions</a>
           </div>
-          <h3>Data-First Approach</h3>
-          <p>Every AI strategy begins with a deep understanding of your data landscape — quality, accessibility, and governance.</p>
-        </div>
-        <div class="feature-card" data-reveal="up" data-delay="100">
-          <div class="feature-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          </div>
-          <h3>Business Outcomes</h3>
-          <p>We measure success by business impact — revenue growth, cost reduction, and competitive advantage — not technical milestones.</p>
-        </div>
-        <div class="feature-card" data-reveal="up" data-delay="200">
-          <div class="feature-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <h3>End-to-End Delivery</h3>
-          <p>From strategy to execution, we partner with you through every phase of your AI journey — ensuring continuity and accountability.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="cta-banner" data-reveal="fade">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Ready to define your AI strategy?</h2>
-        <p>Let's assess your AI readiness and build a roadmap that delivers measurable business outcomes.</p>
-        <div class="cta-actions">
-          <a href="Contact_Us.html" class="btn btn-primary">Book a strategy call</a>
-          <a href="AI_Solutions.html" class="btn btn-ghost">Explore AI Solutions</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
@@ -379,22 +469,14 @@
         <div class="footer-brand">
           <a href="index.html" class="brand" aria-label="Browsent home">
             <span class="brand-mark">
-              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-                <rect width="26" height="26" rx="6" fill="url(#bgrad2)"/>
-                <rect x="7" y="7" width="12" height="12" rx="3" fill="#07080a"/>
-                <defs>
-                  <linearGradient id="bgrad2" x1="0" y1="0" x2="26" y2="26">
-                    <stop stop-color="#761a02"/>
-                    <stop offset="1" stop-color="#5d1401"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <img src="assets/svgs/logo_80x80_brown.svg" alt="Browsent logo" width="26" height="26">
             </span>
             <span class="brand-name">Browsent</span>
           </a>
-          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural integrity.</p>
+          <p>Design-first engineering consultancy — architecting systems where business strategy meets structural
+            integrity.</p>
         </div>
-        
+
       </div>
       <div class="footer-nav">
         <div class="footer-col">
@@ -427,4 +509,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
