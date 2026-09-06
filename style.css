@@ -1880,7 +1880,7 @@ section+section {
 /* ============================================= */
 
 .problem {
-  background: radial-gradient(at 8% 50%, rgb(220 146 126 / 66%) 0%, #f5c4c45e 55%), radial-gradient(at 95% 70%, rgb(254 228 211 / 67%) 0%, #d58e8e14 55%);
+  background: radial-gradient(at 8% 50%, rgb(255 180 160 / 66%) 0%, rgb(255 255 255 / 16%) 55%), radial-gradient(at 95% 70%, rgba(254, 228, 211, 0.67) 0%, rgba(213, 142, 142, 0.08) 55%);
 }
 
 .section-figure {
@@ -3591,12 +3591,13 @@ section+section {
   }
 
   /* @media (min-width: 1281px) { */
-    .nav-dropdown:hover .dropdown-menu {
-      display: block;
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-    }
+  .nav-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
   /* } */
 
   .dropdown-item {
@@ -3628,12 +3629,13 @@ section+section {
   }
 
   /* @media (min-width: 1281px) { */
-    .nav-dropdown-sub:hover .dropdown-menu-sub {
-      display: block;
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-    }
+  .nav-dropdown-sub:hover .dropdown-menu-sub {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
   /* } */
 
   .sub-ind {
