@@ -51,6 +51,7 @@
 .hero-image-section {
   flex: 0 0 auto;
   max-width: 45%;
+  padding-right: 4%;
 }
 
 .hero-image-section img {
@@ -335,6 +336,7 @@
   box-shadow: var(--shadow-glass);
   transition: transform 0.4s var(--ease-glass), box-shadow 0.4s var(--ease-glass), border-color 0.4s var(--ease-glass);
 }
+
 @media (min-width: 1281px) {
   .feature-card:hover {
     transform: translateY(-4px);
@@ -458,6 +460,7 @@
   border: var(--glass-border);
   transition: all 0.3s var(--ease-out);
 }
+
 @media (min-width: 1281px) {
   .contact-info-card:hover {
     border-color: rgba(118, 26, 2, 0.15);
@@ -465,7 +468,7 @@
     box-shadow: var(--shadow-glass);
   }
 }
-  
+
 .contact-info-card .cc-icon {
   margin-bottom: 12px;
 }
@@ -528,6 +531,7 @@
   border: var(--glass-border);
   transition: all 0.3s var(--ease-out);
 }
+
 @media (min-width: 1281px) {
   .value-card:hover {
     border-color: rgba(118, 26, 2, 0.15);
@@ -556,7 +560,7 @@
     grid-template-columns: repeat(2, 1fr);
     padding: 0 4%;
   }
-  
+
   .contact-layout {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
@@ -674,11 +678,11 @@
     font-size: 12px;
   }
 
-.tab-text {
-  min-width: 0;
-}
+  .tab-text {
+    min-width: 0;
+  }
 
-.tab-text h2 {
+  .tab-text h2 {
     font-size: clamp(20px, 4.5vw, 26px);
   }
 

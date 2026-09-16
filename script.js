@@ -9,12 +9,6 @@
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---- 2b. Reset hero state on bfcache restore ----
-  window.addEventListener('pageshow', () => {
-    const heroEl = $('#hero');
-    if (heroEl && window.scrollY <= 0) heroEl.classList.remove('is-playing');
-  });
-
   // ---- 3. Loader ----
   const loader = $('#loader');
   const loaderBar = loader?.querySelector('.loader-bar i');
@@ -313,7 +307,6 @@
       animation:rippleEffect 0.6s ease-out forwards;
       pointer-events:none;
     `;
-    btn.style.position = 'relative';
     btn.style.overflow = 'hidden';
     btn.appendChild(ripple);
     setTimeout(() => ripple.remove(), 700);
@@ -512,127 +505,6 @@
   initWorkList();
   initStickyStack();
 
-  // ---- 15b. Hero scroll-driven frame background (index page only) ----
-  function initHeroFrames() {
-    const canvas = $('#heroFrames');
-    const hero = $('#hero');
-    if (!canvas || !hero) return;
-
-    const mainWrap = $('#main-content');
-    if (mainWrap && !mainWrap._heroRevealWired) {
-      mainWrap._heroRevealWired = true;
-      const reveal = () => {
-        if (window.scrollY <= 0) return;
-        if (getComputedStyle(canvas).display === 'none') {
-          window.removeEventListener('scroll', reveal);
-          return;
-        }
-        const h = $('#hero');
-        if (h) h.classList.add('is-playing');
-        window.removeEventListener('scroll', reveal);
-      };
-      window.addEventListener('scroll', reveal, { passive: true });
-    }
-
-    if (getComputedStyle(canvas).display === 'none') return;
-    if (canvas._heroFramesInit) return;
-    canvas._heroFramesInit = true;
-
-    const FRAMES = [];
-    for (let i = 1; i <= 233; i++) {
-      if (i === 205 || i === 218 || i === 222) continue;
-      FRAMES.push('monitor frames/frame_' + String(i).padStart(3, '0') + '.jpg');
-    }
-    const TOTAL = FRAMES.length;
-
-    const ctx = canvas.getContext('2d');
-    const cache = [];
-    let img = new Image();
-    let idx = -1;
-    let dpr = 1;
-
-    const dims = () => ({ w: canvas.clientWidth || window.innerWidth, h: canvas.clientHeight || window.innerHeight });
-
-    const resize = () => {
-      const d = dims();
-      dpr = window.devicePixelRatio || 1;
-      canvas.width = d.w * dpr;
-      canvas.height = d.h * dpr;
-      if (img.complete && img.naturalWidth) draw(img, d.w, d.h);
-    };
-
-    const draw = (im, w, h) => {
-      const iw = im.naturalWidth, ih = im.naturalHeight, ir = iw / ih, cr = w / h;
-      let sx = 0, sy = 0, sw = iw, sh = ih;
-      if (ir > cr) {
-        sw = ih * cr;
-        const k = Math.min(cr / ir, 1);
-        sx = (iw - sw) * (0.5 + 0.45 * (1 - k));
-      }
-      else if (ir < cr) { sh = iw / cr; sy = (ih - sh) / 2; }
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.drawImage(im, sx, sy, sw, sh, 0, 0, w, h);
-    };
-
-    const show = (i) => {
-      if (i === idx) return;
-      idx = i;
-      const d = dims();
-      const cached = cache[i];
-      if (cached && cached.complete && cached.naturalWidth) { img = cached; draw(img, d.w, d.h); return; }
-      const src = FRAMES[i];
-      if (img.src === src && img.complete && img.naturalWidth) { draw(img, d.w, d.h); return; }
-      const ni = new Image();
-      ni.onload = () => {
-        cache[i] = ni;
-        if (idx === i) { img = ni; const nd = dims(); draw(ni, nd.w, nd.h); }
-      };
-      ni.onerror = () => { cache[i] = img; };
-      ni.src = src;
-    };
-
-    const scrollRange = () => Math.max(1, hero.offsetHeight - window.innerHeight);
-
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const range = scrollRange();
-        const p = Math.min(Math.max(window.scrollY / range, 0), 1);
-        if (hero.classList.contains('is-playing')) show(Math.round(p * (TOTAL - 1)));
-        ticking = false;
-      });
-    };
-
-    for (let i = 0; i < TOTAL; i++) {
-      const j = i;
-      const im = new Image();
-      im.onload = () => { cache[j] = im; };
-      im.src = FRAMES[j];
-    }
-
-    resize();
-    const d = dims();
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, d.w, d.h);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', resize, { passive: true });
-  }
-  initHeroFrames();
-
-  window.addEventListener('pageshow', (e) => {
-    if (e.persisted) {
-      const heroCanvas = $('#heroFrames');
-      if (heroCanvas) {
-        heroCanvas._heroFramesInit = false;
-        const heroEl = $('#hero');
-        if (heroEl) heroEl.classList.add('is-playing');
-        initHeroFrames();
-      }
-    }
-  });
-
   // ---- 16. SPA Router ----
   (function() {
     if (!window.history.pushState) return;
@@ -735,16 +607,6 @@
     });
 
     function reInit() {
-      const mainWrap = $('#main-content');
-      if (mainWrap) mainWrap._heroRevealWired = false;
-
-      const heroCanvas = $('#heroFrames');
-      if (heroCanvas) {
-        heroCanvas._heroFramesInit = false;
-        const heroEl = $('#hero');
-        if (heroEl && window.scrollY > 0) heroEl.classList.add('is-playing');
-      }
-
       const newRevealEls = $$('[data-reveal]');
       newRevealEls.forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -762,7 +624,6 @@
 
       initTabs();
       initContactForm();
-      initHeroFrames();
       initWorkList();
       initStickyStack();
       metrics = $$('[data-count]');
