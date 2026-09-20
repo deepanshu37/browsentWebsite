@@ -253,20 +253,6 @@
     }
   });
 
-  // ---- 9. Parallax hero elements ----
-  const heroOrb = $('.hero-orb');
-  if (heroOrb && window.innerWidth > 900) {
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const hero = $('#hero');
-      if (!hero) return;
-      const heroBottom = hero.offsetTop + hero.offsetHeight;
-      if (scrollY > heroBottom) return;
-      const factor = scrollY * 0.15;
-      heroOrb.style.transform = `translateY(calc(-50% + ${factor}px))`;
-    }, { passive: true });
-  }
-
   // ---- 10. Contact form ----
   function initContactForm() {
     const form = $('#contactForm');
