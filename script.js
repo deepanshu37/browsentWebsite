@@ -620,4 +620,89 @@
     }
   })();
 
+  // ---- Hero Image Slider ----
+  (() => {
+    const slides = $$('.hero-fill-image');
+    const cards = $$('.hero-card');
+    if (!slides.length) return;
+
+    let current = 0;
+    let interval = null;
+    let running = false;
+    const INTERVAL_MS = 3000;
+    const BREAKPOINT_MIN = 1000;
+    const BREAKPOINT_MAX = 1240;
+
+    function inThreeColRange() {
+      const w = window.innerWidth;
+      return w >= BREAKPOINT_MIN && w < BREAKPOINT_MAX;
+    }
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      if (cards[current]) cards[current].classList.remove('is-active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      if (cards[current]) cards[current].classList.add('is-active');
+    }
+
+    function showAll() {
+      slides.forEach(img => img.classList.add('active'));
+    }
+
+    function hideAll() {
+      slides.forEach(img => img.classList.remove('active'));
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      hideAll();
+      goTo(current);
+      interval = setInterval(() => goTo(current + 1), INTERVAL_MS);
+      running = true;
+    }
+
+    function stopAutoPlay() {
+      if (interval) clearInterval(interval);
+      interval = null;
+      running = false;
+    }
+
+    function syncState() {
+      if (inThreeColRange()) {
+        if (running) stopAutoPlay();
+        showAll();
+      } else {
+        if (!running) startAutoPlay();
+      }
+    }
+
+    // Card click → switch to that slide (only when slider is active)
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        if (inThreeColRange()) return;
+        stopAutoPlay();
+        goTo(i);
+        startAutoPlay();
+      });
+      card.addEventListener('mouseenter', () => {
+        if (!inThreeColRange()) stopAutoPlay();
+      });
+      card.addEventListener('mouseleave', () => {
+        if (!inThreeColRange()) startAutoPlay();
+      });
+      card.style.cursor = 'pointer';
+    });
+
+    // Sync on resize (debounced)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(syncState, 150);
+    });
+
+    // Initial state
+    syncState();
+  })();
+
 })();
