@@ -286,7 +286,7 @@ ol {
   gap: 0px;
   flex-shrink: 0;
   border-radius: 9px;
-  padding: 2px 10px;
+  /* padding: 2px 10px; */
   background: var(--glass-bg);
   backdrop-filter: blur(12px) saturate(1.5);
   -webkit-backdrop-filter: blur(12px) saturate(1.5);
@@ -330,7 +330,7 @@ ol {
 .nav-pill {
   display: flex;
   align-items: center;
-  padding: 4px 24px;
+  padding: 10px 24px;
   /* background: var(--glass-bg); */
   background: #ffebeb;
   backdrop-filter: blur(12px) saturate(1.5);
@@ -4260,10 +4260,11 @@ section+section {
   }
 
   .hero-pin {
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     align-items: flex-start;
     padding: 100px 0 48px;
-    overflow-y: auto;
+    overflow: visible;
   }
 
   .hero-pin::after {
