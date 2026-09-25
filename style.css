@@ -97,6 +97,7 @@ html {
   background: var(--light);
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
@@ -185,8 +186,9 @@ ol {
 }
 
 .loader-mark {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 35px;
+  overflow: visible;
   border-radius: 10px;
   animation: loaderPulse 1.2s var(--ease-out) infinite;
 }
@@ -253,6 +255,8 @@ ol {
   z-index: 100;
   padding: 16px 0;
   margin: 0 5%;
+  box-sizing: border-box;
+  max-width: calc(100% - 10%);
   transition: all 0.4s var(--ease-glass);
 }
 
@@ -277,6 +281,7 @@ ol {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
+  overflow: visible;
 }
 
 .brand {
@@ -301,7 +306,7 @@ ol {
 
 .nav .brand-mark img {
   display: block;
-  width: 34px;
+  width: 100px;
   height: 34px;
 }
 
@@ -3731,6 +3736,10 @@ section+section {
 }
 
 @media(max-width:1000px) {
+  .nav-inner {
+    gap: 12px;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -4223,7 +4232,7 @@ section+section {
   }
 
   .nav {
-    margin: 0 3%;
+    margin: 0 2%;
   }
 
   .hero-cards {
