@@ -108,17 +108,47 @@
   const navLinks = $('.nav-links');
   const navLinksArr = navLinks ? $$('a:not(.dropdown-toggle):not(.dropdown-toggle-sub)', navLinks) : [];
 
+  // Must match the CSS drawer breakpoint (@media max-width:1000px) — the
+  // drawer exists at 901-1000px too, so a 900px check would leave a dead zone.
+  const drawerMQ = window.matchMedia('(max-width: 1000px)');
+
+  // Every element that carries an open/closed state in the drawer.
+  const BRANCH = '.nav-dropdown, .nav-dropdown-sub, .dropdown-menu, .dropdown-menu-sub';
+  const TOGGLES = '.dropdown-toggle, .dropdown-toggle-sub';
+
+  // Close one branch *and everything nested inside it*, so a collapsed parent
+  // can never leave an orphaned open sub-menu behind.
+  const closeBranch = (branch) => {
+    if (!branch) return;
+    branch.classList.remove('active', 'active-dropdown');
+    $$(BRANCH, branch).forEach(el => el.classList.remove('active', 'active-dropdown'));
+    $$(TOGGLES, branch).forEach(el => el.setAttribute('aria-expanded', 'false'));
+  };
+
+  const closeAllBranches = () => {
+    if (!navLinks) return;
+    $$(BRANCH, navLinks).forEach(el => el.classList.remove('active', 'active-dropdown'));
+    $$(TOGGLES, navLinks).forEach(el => el.setAttribute('aria-expanded', 'false'));
+  };
+
   const closeNav = () => {
     toggle.setAttribute('aria-expanded', 'false');
     navLinks.classList.remove('active');
-    document.body.style.overflow = '';
+    closeAllBranches();
+    // Lock <html>, not <body>: <body>'s overflow no longer propagates to the
+    // viewport, so setting it there is a no-op.
+    document.documentElement.classList.remove('nav-open');
   };
 
   const toggleNav = () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', !expanded);
-    navLinks.classList.toggle('active');
-    document.body.style.overflow = expanded ? '' : 'hidden';
+    navLinks.classList.toggle('active', !expanded);
+    if (!expanded) {
+      closeAllBranches();
+      navLinks.scrollTop = 0;
+    }
+    document.documentElement.classList.toggle('nav-open', !expanded);
   };
 
   const onScroll = () => {
@@ -146,6 +176,47 @@
           }
         }
       });
+    });
+
+    // Mobile dropdowns are hover-driven in CSS, which never fires on touch,
+    // so each branch needs a tap handler. Accordion: one branch per level open
+    // at a time — but closing siblings must never touch an ancestor branch.
+    const bindDropdown = (tgl, menuClass, wrapSelector, siblingSelector) => {
+      tgl.setAttribute('aria-expanded', 'false');
+      tgl.addEventListener('click', (e) => {
+        if (!drawerMQ.matches) {
+          // Desktop opens on hover; just kill the href="#" jump-to-top.
+          if (tgl.getAttribute('href') === '#') e.preventDefault();
+          return;
+        }
+        e.preventDefault();
+        const menu = tgl.nextElementSibling;
+        if (!menu || !menu.classList.contains(menuClass)) return;
+        const wrap = tgl.closest(wrapSelector);
+        if (!wrap) return;
+
+        if (menu.classList.contains('active')) {
+          closeBranch(wrap);
+          return;
+        }
+        // Only same-level siblings collapse: closing a top-level branch also
+        // resets its sub-menus, but opening a sub must keep its parent open.
+        $$(siblingSelector, navLinks).forEach(sib => {
+          if (sib !== wrap) closeBranch(sib);
+        });
+        menu.classList.add('active');
+        // 'active' reveals the panel; 'active-dropdown' is the hook the CSS
+        // uses to flip the sub-menu chevron.
+        wrap.classList.add('active', 'active-dropdown');
+        tgl.setAttribute('aria-expanded', 'true');
+      });
+    };
+
+    $$('.dropdown-toggle', navLinks).forEach(t => bindDropdown(t, 'dropdown-menu', '.nav-dropdown', '.nav-dropdown'));
+    $$('.dropdown-toggle-sub', navLinks).forEach(t => bindDropdown(t, 'dropdown-menu-sub', '.nav-dropdown-sub', '.nav-dropdown-sub'));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('active')) closeNav();
     });
 
     document.addEventListener('click', (e) => {

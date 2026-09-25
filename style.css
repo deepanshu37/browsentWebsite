@@ -112,6 +112,13 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Mobile nav open: lock the page behind the drawer.
+   <html> is the element whose overflow propagates to the viewport, so this has
+   to be set here — locking <body> is a no-op once html has overflow-x: hidden. */
+html.nav-open {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   display: block
@@ -3760,6 +3767,11 @@ section+section {
     gap: var(--space-xs);
     transition: right 0.35s var(--ease-glass);
     z-index: 99;
+    /* Menu content (all dropdown branches) is far taller than 100dvh, so the
+       drawer itself has to scroll. `contain` keeps its scroll from chaining
+       to the page behind it. */
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .nav-pill {
@@ -3793,6 +3805,12 @@ section+section {
     min-height: 48px;
     display: flex;
     align-items: center;
+  }
+
+  /* Keep the indicator lit while a branch is expanded — the only open-state
+     cue on touch, where :hover never fires. */
+  .nav-dropdown.active>.dropdown-toggle .nav-ind {
+    width: 20px;
   }
 
   .nav-toggle {
@@ -4935,11 +4953,6 @@ section+section {
     display: none;
   }
 
-  .nav-links {
-    /* padding: 70px 20px 24px;
-    overflow-y: auto; */
-  }
-
   section {
     padding: 40px 0;
   }
@@ -5136,10 +5149,12 @@ section+section {
     scroll-padding-top: 80px;
   }
 
-  /* Prevent overscroll bounce on iOS */
-  body {
-    overscroll-behavior-y: none;
-  }
+  /* NOTE: never set overscroll-behavior-y: none on <body> here.
+     <html> has overflow-x: hidden, so <body>'s overflow is no longer
+     propagated to the viewport and body itself becomes the scroll
+     container (it can never scroll, height is auto). `none` there kills
+     scroll chaining, so wheel/touch never reaches the viewport and the
+     page becomes unscrollable below 900px. */
 }
 
 /* ============================================================
