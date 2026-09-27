@@ -313,6 +313,7 @@ ol {
 
 .nav .brand-mark img {
   display: block;
+  padding: 5px 10px;
   width: 100px;
   height: 34px;
 }
