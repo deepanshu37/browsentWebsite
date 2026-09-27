@@ -292,6 +292,7 @@ ol {
 }
 
 .brand {
+  max-width: max-content;
   /* background: #6352c6b8; */
   display: flex;
   /* align-items: center; */
@@ -304,6 +305,10 @@ ol {
   -webkit-backdrop-filter: blur(12px) saturate(1.5);
   will-change: transform;
   box-shadow: var(--glass-gloss);
+}
+
+.brand-mark {
+  padding: 3px 0px;
 }
 
 .brand-mark svg {
@@ -331,6 +336,11 @@ ol {
   font-size: 20px;
   color: var(--dark);
   letter-spacing: -0.5px;
+}
+
+.brand span img {
+  width: max-content;
+  min-width: max-content;
 }
 
 .nav-links {
