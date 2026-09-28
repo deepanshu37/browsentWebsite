@@ -715,7 +715,7 @@ h5 {
 .fail-head-left {
   width: 100%;
   min-height: 300px;
-  background: url("assets/images/solve.png") center/contain no-repeat;
+  background: url("assets/images/solve.avif") center/contain no-repeat;
 }
 
 @media (min-width: 901px) {
@@ -2263,7 +2263,7 @@ section+section {
 @media (min-width: 900px) {
   .problem-layout-bg::before {
     content: '';
-    background-image: url("assets/images/marketplacev.png");
+    background-image: url("assets/images/marketplacev.avif");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -2284,7 +2284,7 @@ section+section {
 
   .problem-layout-bg::before {
     content: '';
-    background-image: url("assets/images/marketplacev.png");
+    background-image: url("assets/images/marketplacev.avif");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -2354,7 +2354,7 @@ section+section {
   width: 100%;
   margin: 0;
   padding: var(--space-2xl) clamp(16px, 3vw, 50px) 50px clamp(16px, 3vw, 50px);
-  background-image: url('assets/images/deliberate3.png');
+  background-image: url('assets/images/deliberate3.avif');
   background-repeat: no-repeat;
   background-position: right center;
   background-size: contain;
@@ -2393,7 +2393,7 @@ section+section {
 
 .p-steps-timeline::after {
   content: '';
-  background-image: url('assets/images/deliberate3.png');
+  background-image: url('assets/images/deliberate3.avif');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -3074,19 +3074,19 @@ section+section {
 
 /* 
 .fail-card--bg-1 .fail-card-bg {
-  background-image: url("assets/images/system fails card 1.png");
+  background-image: url("assets/images/system fails card 1.avif");
 }
 
 .fail-card--bg-2 .fail-card-bg {
-  background-image: url("assets/images/system fails card 2.png");
+  background-image: url("assets/images/system fails card 2.avif");
 }
 
 .fail-card--bg-3 .fail-card-bg {
-  background-image: url("assets/images/system fails card 3.png");
+  background-image: url("assets/images/system fails card 3.avif");
 }
 
 .fail-card--bg-4 .fail-card-bg {
-  background-image: url("assets/images/system fails card 4.png");
+  background-image: url("assets/images/system fails card 4.avif");
 } */
 @media (min-width: 1281px) {
   .fail-card:hover {
@@ -3157,7 +3157,7 @@ section+section {
   overflow: hidden;
   padding: 0 4%;
   /* padding: var(--space-4xl) var(--space-xl); */
-  background: url("assets/images/bg.png") center/contain no-repeat;
+  background: url("assets/images/bg.avif") center/contain no-repeat;
 }
 
 .contact-layout {
@@ -3281,7 +3281,7 @@ section+section {
   padding: var(--space-3xl);
   background-color: #f1bcc294;
   background:
-    url("assets/images/border.png") top right / 50% auto no-repeat,
+    url("assets/images/border.avif") top right / 50% auto no-repeat,
     var(--glass-bg-strong);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
@@ -3418,7 +3418,7 @@ section+section {
   background: radial-gradient(ellipse at 50% 0%, rgb(255 207 173 / 60%) 0%, #00000000 60%), linear-gradient(180deg, #efefef 0%, #fffeff 100%);
 
   /* background:
-    url("assets/images/footer-bg.png") right center / auto 100% no-repeat,
+    url("assets/images/footer-bg.avif") right center / auto 100% no-repeat,
     radial-gradient(ellipse at 50% 0%, rgba(230, 203, 184, 0.6) 0%, transparent 60%),
     linear-gradient(180deg, #f6e6ec 0%, #fbf0f6 100%); */
   backdrop-filter: var(--glass-blur-strong);
@@ -3527,7 +3527,7 @@ section+section {
   min-height: 100vh;
 
   background:
-    url("assets/images/partnership.png") center/cover no-repeat,
+    url("assets/images/partnership.avif") center/cover no-repeat,
     radial-gradient(ellipse at 50% 0%, rgba(230, 203, 184, 0.42) 0%, transparent 60%),
     radial-gradient(ellipse at 10% 90%, rgba(118, 26, 2, 0.05) 0%, transparent 50%);
 }

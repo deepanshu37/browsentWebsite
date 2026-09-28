@@ -8,3 +8,13 @@
 /assets/Browsent logo 4.pdf
 
 /hero content
+
+# Original PNG set, superseded by assets/images/*.avif (working copy only).
+/assets/images/pngs
+
+# Use-case set: only three of these are actually referenced by the site, and
+# the folder is ~29MB, so track just those and ignore the rest.
+/assets/images/uc/*
+!/assets/images/uc/Portfolio.png
+!/assets/images/uc/Supply Chain.png
+!/assets/images/uc/time.png

@@ -496,7 +496,7 @@
     //   desc: "Integrated logistics platform unifying 200+ partner APIs with real-time inventory intelligence and predictive routing, reducing operational costs by 25%.",
     //   stack: "TypeScript · Terraform · AWS",
     //   perf: "25% cost reduction",
-    //   img: "assets/images/Supply%20Chain.png",
+    //   img: "assets/images/uc/Supply%20Chain.png",
     //   alt: "Supply chain intelligence map"
     // },
     // {
@@ -505,7 +505,7 @@
     //   desc: "Modern portfolio & agency showcase website featuring interactive project galleries, dynamic filtering, and seamless content management for creative professionals.",
     //   stack: "HTML · CSS · JavaScript",
     //   perf: "Full responsive design",
-    //   img: "assets/images/Portfolio.png",
+    //   img: "assets/images/uc/Portfolio.png",
     //   alt: "Digital portfolio platform showcase"
     // }
   ];
