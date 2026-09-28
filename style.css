@@ -25,7 +25,7 @@
   --shadow-glass: 0 8px 32px rgba(118, 26, 2, 0.14);
   --shadow-glass-hover: 0 16px 48px rgba(118, 26, 2, 0.22);
   --shadow-glass-lg: 0 24px 64px rgba(118, 26, 2, 0.18);
-  --glass-bg: --glass-bg: linear-gradient(145deg, rgba(251, 240, 246, 0.72) 0%, rgba(251, 240, 246, 0.4) 34%, rgb(249 198 161 / 22%) 58%, rgba(251, 240, 246, 0.52) 100%);
+  --glass-bg: linear-gradient(145deg, rgba(251, 240, 246, 0.72) 0%, rgba(251, 240, 246, 0.4) 34%, rgb(249 198 161 / 22%) 58%, rgba(251, 240, 246, 0.52) 100%);
   --glass-bg-strong: linear-gradient(145deg,
       rgba(251, 240, 246, 0.92) 0%,
       rgba(251, 240, 246, 0.62) 34%,
@@ -293,7 +293,7 @@ ol {
 
 .brand {
   max-width: max-content;
-  background: #ffffff;
+  background: #ffebeb;
   display: flex;
   /* align-items: center; */
   gap: 0px;
@@ -577,7 +577,7 @@ ol {
   left: 100%;
   transform: translateX(6px) translateY(0);
   min-width: 180px;
-  background: var(--glass-bg-strong);
+  background: linear-gradient(145deg, rgba(251, 240, 246, 0.92) 0%, rgb(251 240 246) 34%, rgb(230 203 184 / 96%) 58%, rgb(251 240 246 / 95%) 100%);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
   will-change: transform;
@@ -903,7 +903,10 @@ h5 {
 
 [data-reveal] {
   opacity: 0;
-  transition: all 0.7s var(--ease-out);
+  /* Animate only opacity/transform. A blanket `transition: all` on glass
+     surfaces (backdrop-filter) forces the compositor to re-evaluate every
+     property each frame, which can drop the element's paint mid-transition. */
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
 }
 
 [data-reveal="up"] {
@@ -2737,7 +2740,10 @@ section+section {
   display: flex;
   gap: var(--space-lg);
   position: relative;
-  transition: all 0.5s var(--ease-glass);
+  /* Explicit list, not `all` - see the note on [data-reveal]. Covers the
+     reveal (opacity/transform) plus the hover lift on desktop. */
+  transition: opacity 0.5s var(--ease-glass), transform 0.5s var(--ease-glass),
+    box-shadow 0.5s var(--ease-glass), border-color 0.5s var(--ease-glass);
 }
 
 @media (min-width: 1281px) {

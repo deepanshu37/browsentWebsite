@@ -295,6 +295,28 @@
     else { el.classList.add('in'); }
   }
 
+  // Safety net for the case the observer silently misses something that is
+  // already on screen. Deliberately scoped to the viewport: it must never
+  // pre-reveal content the visitor has not scrolled to yet, or the staggered
+  // reveal in every section below the fold becomes a no-op. Stops itself as
+  // soon as nothing on screen is stuck.
+  let revealWatchdog = null;
+  const startRevealWatchdog = () => {
+    if (revealWatchdog) clearInterval(revealWatchdog);
+    revealWatchdog = setInterval(() => {
+      const stuck = $$('[data-reveal]:not(.in)').filter(el => {
+        const r = el.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+      });
+      if (!stuck.length) {
+        clearInterval(revealWatchdog);
+        revealWatchdog = null;
+        return;
+      }
+      stuck.forEach(revealElement);
+    }, 1000);
+  };
+
   revealEls.forEach(el => {
     const rect = el.getBoundingClientRect();
     const inViewport = rect.top < window.innerHeight - 20 && rect.bottom > 0;
@@ -302,9 +324,14 @@
     else { revealObserver.observe(el); }
   });
 
-  setTimeout(() => {
-    $$('[data-reveal]:not(.in)').forEach(el => el.classList.add('in'));
-  }, 2000);
+  // Late-loading images shift layout, so re-check once the page has settled.
+  window.addEventListener('load', () => {
+    $$('[data-reveal]:not(.in)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight - 20 && r.bottom > 0) revealElement(el);
+    });
+    startRevealWatchdog();
+  });
 
   // ---- 8. Smooth anchor scroll ----
   document.addEventListener('click', (e) => {
@@ -675,9 +702,7 @@
           revealObserver.observe(el);
         }
       });
-      setTimeout(() => {
-        $$('[data-reveal]:not(.in)').forEach(el => el.classList.add('in'));
-      }, 2000);
+      startRevealWatchdog();
 
       initTabs();
       initContactForm();
