@@ -318,7 +318,7 @@ ol {
 
 .nav .brand-mark img {
   display: block;
-  padding: 4px 10px;
+  padding: 2px 10px;
   width: 100px;
   height: 34px;
 }
@@ -819,12 +819,20 @@ h5 {
   color: var(--primary);
 }
 
-.btn-primary:hover .icon {
-  width: calc(100% - 0.6em);
-}
+/* Sweep only where a real pointer can move away again. Touch browsers
+   latch :hover on tap and keep it until the next tap, which stretched the
+   white pill across the whole button — white label on a white pill, so the
+   text disappeared. Phones/tablets now keep the resting pill and stay
+   legible; desktop and hybrid devices keep the full sweep. */
+@media (hover: hover) and (pointer: fine) {
 
-.btn-primary:hover .icon svg {
-  transform: translateX(0.1em);
+  .btn-primary:hover .icon {
+    width: calc(100% - 0.6em);
+  }
+
+  .btn-primary:hover .icon svg {
+    transform: translateX(0.1em);
+  }
 }
 
 .btn-primary:focus-visible {
@@ -1509,6 +1517,12 @@ section+section {
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .work-card-art img {
+    object-fit: contain;
+  }
 }
 
 .work-card-tag {
@@ -3738,7 +3752,7 @@ section+section {
     flex: 0 0 0 0;
     align-items: center;
     justify-content: center;
-    padding: 4px 16px;
+    padding: 10px 16px;
   }
 
 
@@ -5141,6 +5155,43 @@ section+section {
   .feature-card-btn {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+/* ============================================================
+   BTN-PRIMARY LABEL / ARROW COLLISION FIX
+   ============================================================ */
+/* .btn-primary reserves 3.3em of right padding for the absolutely
+   positioned arrow pill (0.3em offset + 2.2em pill = 2.5em of clear
+   space needed). The generic mobile padding overrides on .btn
+   (max-width 700 / 500 / 360) and on .hero-actions .btn (landscape
+   phone) share that specificity and are declared later, collapsing the
+   gutter to 16-22px — the pill then paints on top of the label. The
+   gutter is re-asserted here, after every override, at matching
+   specificity so source order wins. Values stay in em so the gutter
+   scales with the 15/14/13px font-size swaps.
+
+   :has() also keeps icon-less buttons ("Send message", "Book a
+   strategy call") symmetric instead of leaving them with a phantom
+   right gutter. */
+.btn-primary:has(> .icon) {
+  padding-right: 3.3em;
+}
+
+/* No arrow to clear, so drop back to the base .btn-primary gutter on BOTH
+   sides. Without the left value here the mobile .btn padding shorthand
+   (e.g. 22px) would still apply and the label would sit off-centre. */
+.btn-primary:not(:has(> .icon)) {
+  padding-right: 1.2em;
+  padding-left: 1.2em;
+}
+
+/* Touch devices no longer get the hover sweep, so give taps a press cue
+   instead. */
+@media (hover: none) {
+
+  .btn-primary:active .icon {
+    transform: scale(0.94);
   }
 }
 
