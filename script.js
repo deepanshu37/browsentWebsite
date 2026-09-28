@@ -520,8 +520,9 @@
     workProjects.forEach((project, i) => {
       const article = document.createElement('article');
       article.className = 'work-showcase';
-      article.dataset.reveal = 'up';
-      article.dataset.delay = String(i * 90);
+      /* No data-reveal here: these cards are position:sticky and pin over one
+         another, so an opacity/transform reveal fights the stacking and can
+         strand the last card at opacity 0. */
 
       const glow = document.createElement('div');
       glow.className = 'work-showcase-glow';
@@ -576,15 +577,7 @@
     });
 
     list.appendChild(frag);
-
-    $$('[data-reveal]', list).forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 20 && rect.bottom > 0) {
-        revealElement(el);
-      } else {
-        revealObserver.observe(el);
-      }
-    });
+    /* No reveal observation for these cards — see the data-reveal note above. */
   }
   initWorkList();
   initStickyStack();

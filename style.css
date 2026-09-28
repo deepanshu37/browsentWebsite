@@ -97,7 +97,7 @@ html {
   background: var(--light);
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
@@ -107,14 +107,14 @@ body {
   background: var(--light);
   color: var(--dark-secondary);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
 
 /* Mobile nav open: lock the page behind the drawer.
    <html> is the element whose overflow propagates to the viewport, so this has
-   to be set here — locking <body> is a no-op once html has overflow-x: hidden. */
+   to be set here — locking <body> is a no-op once html has overflow-x: clip. */
 html.nav-open {
   overflow: hidden;
 }
@@ -1847,7 +1847,10 @@ section+section {
 
 .work-list.sticky-stack {
   display: block;
-  padding-bottom: 10vh;
+  /* Runway below the last card. Each card pins over the one below it, and the
+     final card always gets less travel than the rest (nothing follows it), so
+     this needs to be generous or card 3 barely stacks at all. */
+  padding-bottom: 40vh;
   min-height: 100vh;
   margin: 4% 0;
   /* margin-bottom: 100px; */
@@ -1904,7 +1907,9 @@ section+section {
 
 @media(max-width:780px) {
   .work-list.sticky-stack {
-    padding-bottom: 10vh;
+    /* Scaled down from 40vh, but still needs real runway or the last
+       card never gets to stack. */
+    padding-bottom: 30vh;
   }
 
   .work-list.sticky-stack .work-showcase {
@@ -2151,7 +2156,7 @@ section+section {
 }
 
 /* ---- Mobile: vertical composition, image first ---- */
-@media (max-width: 780px) {
+@media (max-width: 1000px) {
   .work-showcase {
     grid-template-columns: 1fr;
     grid-template-areas: "media" "info";
@@ -5228,7 +5233,7 @@ section+section {
   }
 
   /* NOTE: never set overscroll-behavior-y: none on <body> here.
-     <html> has overflow-x: hidden, so <body>'s overflow is no longer
+     <html> has overflow-x: clip, so <body>'s overflow is no longer
      propagated to the viewport and body itself becomes the scroll
      container (it can never scroll, height is auto). `none` there kills
      scroll chaining, so wheel/touch never reaches the viewport and the
