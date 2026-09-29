@@ -1937,7 +1937,7 @@ section+section {
   .work-list.sticky-stack {
     /* Scaled down from 40vh, but still needs real runway or the last
        card never gets to stack. */
-    padding-bottom: 30vh;
+    /* padding-bottom: 30vh; */
   }
 
   .work-list.sticky-stack .work-showcase {
