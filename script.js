@@ -469,7 +469,7 @@
       desc: "End-to-end digital banking experience architected from user journey mapping through backend systems. 40% increase in retention across 200K active users.",
       stack: "Go · Kafka · React",
       perf: "40% increase in retention",
-      img: "assets/images/card content/footmob.jpeg",
+      img: "assets/images/card content/footmob.avif",
       alt: "Neobank consumer banking interface"
     },
     {
@@ -478,7 +478,7 @@
       desc: "Real-time sensor data platform processing 2M events/second with millisecond-level precision for predictive maintenance across 12 manufacturing facilities.",
       stack: "Rust · gRPC · InfluxDB",
       perf: "Millisecond-level precision",
-      img: "assets/images/card content/Novela Play.png",
+      img: "assets/images/card content/Novela Play.avif",
       alt: "IoT predictive analytics dashboard"
     },
     {
@@ -487,7 +487,7 @@
       desc: "Full-spectrum e-commerce ecosystem with cognitive mapping of user flows and technical synergy across 50+ microservices driving 3x conversion uplift.",
       stack: "Node · GraphQL · K8s",
       perf: "3x conversion uplift",
-      img: "assets/images/card content/sellbuyplay.png",
+      img: "assets/images/card content/sellbuyplay.avif",
       alt: "Enterprise commerce platform interface"
     },
     // {
