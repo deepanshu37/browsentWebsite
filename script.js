@@ -766,22 +766,11 @@
       }
     }
 
-    // Card click → switch to that slide (only when slider is active)
-    cards.forEach((card, i) => {
-      card.addEventListener('click', () => {
-        if (inThreeColRange()) return;
-        stopAutoPlay();
-        goTo(i);
-        startAutoPlay();
-      });
-      card.addEventListener('mouseenter', () => {
-        if (!inThreeColRange()) stopAutoPlay();
-      });
-      card.addEventListener('mouseleave', () => {
-        if (!inThreeColRange()) startAutoPlay();
-      });
-      card.style.cursor = 'pointer';
-    });
+    // The capability cards are non-interactive: no click, no hover-pause.
+    // They only mirror which frame image the autoplay is currently showing,
+    // via the .is-active ring that goTo() sets. (A hover-pause here also
+    // misbehaved on touch, where `mouseenter` latches on tap and
+    // `mouseleave` only fires on some later tap.)
 
     // Sync on resize (debounced)
     let resizeTimer;
