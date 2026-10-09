@@ -5,6 +5,19 @@
   const $ = (s, c) => (c || document).querySelector(s);
   const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
 
+  /* Resolve asset URLs against script.js's own location instead of the page
+     URL. script.js sits at the site root and is loaded from every page (/,
+     /about-us/, /quality-engineering/, ...), so a page-relative path like
+     "assets/images/foo.avif" would resolve to /about-us/assets/images/foo.avif
+     on subpages and 404. document.currentScript.src is already absolute and
+     already collapsed (../script.js -> /script.js), so new URL('.', src) is
+     always the site root, whichever depth the current page lives at. This
+     also keeps the site working when deployed to a subdirectory (e.g. a
+     GitHub Pages project site). Falls back to the page URL if the script is
+     ever loaded in a way that hides currentScript. */
+  const SCRIPT_BASE = new URL('.', (document.currentScript && document.currentScript.src) || window.location.href);
+  const asset = (path) => new URL(path, SCRIPT_BASE).href;
+
   // ---- 2. Footer year ----
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -531,7 +544,7 @@
       figure.className = 'work-showcase-media';
 
       const img = document.createElement('img');
-      img.src = project.img;
+      img.src = asset(project.img);
       img.alt = project.alt || project.title;
       figure.appendChild(img);
 
