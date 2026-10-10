@@ -8,18 +8,30 @@
   <title>Page not found | Browsent</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- display=optional (not swap) on purpose: the 404 must never reflow.
+       With swap, text first renders in the fallback metrics and the card
+       visibly grows ~25px when the webfont arrives (CLS ~0.01-0.02).
+       optional uses a cached font instantly — and 404 visitors almost
+       always come from the site itself, where these fonts are already
+       cached — otherwise it renders in the system font with zero shift. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=optional"
     rel="stylesheet">
+  <!-- 404-only styles: self-contained on purpose — GitHub Pages serves this
+     file for ANY missing path at ANY depth (e.g. /browsentWebsite/foo/bar/),
+     where a relative <link href="style.css"> would 404 again and leave the
+     error page unstyled. It must also render without script.js. The color
+     tokens below mirror style.css; keep the two in sync when rebranding. -->
   <style>
     :root {
-      --ink: #230000;
-      --muted: #65483f;
-      --primary: #761a02;
-      --primary-dark: #5d1401;
-      --surface: rgba(255, 255, 255, 0.72);
-      --line: rgba(118, 26, 2, 0.16);
-      --page: #fbf0f6;
+      /* Mirrored from style.css — same values, shorter names. */
+      --ink: #230000;         /* ≡ style.css --dark-secondary */
+      --muted: #65483f;       /* 404-specific tone (style.css has no exact match) */
+      --primary: #761a02;     /* ≡ style.css --primary */
+      --primary-dark: #5d1401; /* ≡ style.css --primary-hover */
+      --surface: rgba(255, 255, 255, 0.72); /* ≈ style.css glass surfaces */
+      --line: rgba(118, 26, 2, 0.16);       /* ≈ style.css --glass-border (0.2) */
+      --page: #fbf0f6;        /* ≡ style.css --light / --bg-base */
     }
 
     * {
@@ -66,6 +78,10 @@
 
     .brand img {
       width: clamp(76px, 15vh, 130px);
+      /* Intrinsic ratio of browsent_logo_brown.avif (901x277): the width is
+         already definite, so this reserves the height before the file
+         decodes and the header never grows when the logo arrives. */
+      aspect-ratio: 901 / 277;
       height: auto;
     }
 
@@ -92,6 +108,9 @@
       backdrop-filter: blur(18px);
     }
 
+    /* Deliberately NOT style.css's .eyebrow (that one is a pill with
+       background/padding). Same class name, different design — the 404
+       must never be styled from the shared rule. */
     .eyebrow {
       margin: 0 0 clamp(7px, 1.6vh, 18px);
       color: var(--primary);
@@ -177,9 +196,15 @@
 
     .illustration-img {
       display: block;
-      width: auto;
-      max-width: min(100%, 520px);
-      max-height: min(46vh, 420px);
+      /* A definite width — the 520px cap, or the min(46vh, 420px) height cap
+         converted through the artwork's 1451/1084 ratio — plus the explicit
+         aspect-ratio reserves the box before the PNG decodes. The previous
+         width:auto / height:auto + max-* pair resolved to 0 height until the
+         image loaded, so the card grew and the whole page shifted the moment
+         it arrived. The calc() term keeps the rendered height identical to
+         the old max-height clamp. */
+      width: min(100%, 520px, calc(min(46vh, 420px) * 1451 / 1084));
+      aspect-ratio: 1451 / 1084;
       height: auto;
       filter: drop-shadow(0 22px 38px rgba(118, 26, 2, 0.18));
     }
@@ -218,8 +243,7 @@
       }
 
       .illustration-img {
-        max-width: min(100%, 320px);
-        max-height: min(30vh, 240px);
+        width: min(100%, 320px, calc(min(30vh, 240px) * 1451 / 1084));
       }
     }
 
