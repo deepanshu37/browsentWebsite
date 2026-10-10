@@ -602,6 +602,49 @@ ol {
   transition-delay: 0s, 0s, 0s;
 }
 
+/* --- Hover bridges: invisible strips across the dead gaps the open-state
+   transforms leave behind (4px under a nav item, 6px between a submenu
+   row and its flyout). Crossing those strips used to drop :hover on the
+   wrapper, so a slow pointer let the 0.4s close-grace expire: the menu
+   faded to visibility:hidden + pointer-events:none and clicks fell
+   through to the page behind — sub-items looked present but were
+   invisible/unclickable unless you dwelt on the row first.
+
+   Each bridge is a pseudo-element OF the menu itself, and every menu is
+   a child of the wrapper whose :hover keeps it open, so hovering the
+   bridge keeps the wrapper hovered — hover never breaks mid-travel.
+   pointer-events is inherited from the originating menu, so a closed
+   menu's bridge (pointer-events:none) stays completely inert.
+
+   The offsets are sized to exactly match the open transform, so the
+   bridges never overlap the trigger rows and can't steal their clicks.
+
+   Desktop-only: the <=1000px drawer makes these menus position:static
+   and display-toggled, where an absolutely positioned pseudo would
+   float over unrelated drawer content. --- */
+@media (min-width: 1001px) {
+
+  .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* Open state shifts the menu down 4px — bridge exactly that gap. */
+    top: -4px;
+    height: 4px;
+  }
+
+  .dropdown-menu-sub::before {
+    content: '';
+    position: absolute;
+    /* Open state shifts the flyout right 6px — bridge exactly that gap. */
+    left: -6px;
+    width: 6px;
+    top: 0;
+    bottom: 0;
+  }
+}
+
 /* ============================================= */
 /*  TYPOGRAPHY                                   */
 /* ============================================= */
