@@ -5020,7 +5020,7 @@ section+section {
   }
 
   .hero-fill-image {
-    max-width: 240px;
+    /* max-width: 240px; */
   }
 
   .hero-hotspot,
