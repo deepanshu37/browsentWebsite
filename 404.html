@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The page you are looking for could not be found on Browsent.">
+  <title>Page not found | Browsent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #230000;
+      --muted: #65483f;
+      --primary: #761a02;
+      --primary-dark: #5d1401;
+      --surface: rgba(255, 255, 255, 0.72);
+      --line: rgba(118, 26, 2, 0.16);
+      --page: #fbf0f6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* This page is a single screen: no vertical scroll. The document is
+       height-locked and every dimension below is clamped against vh, so the
+       layout shrinks with the window instead of overflowing it. */
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      color: var(--ink);
+      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(230, 203, 184, 0.7), transparent 32rem),
+        radial-gradient(circle at 94% 90%, rgba(118, 26, 2, 0.13), transparent 30rem),
+        var(--page);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      display: flex;
+      height: 100vh;
+      height: 100dvh;
+      flex-direction: column;
+      padding: clamp(14px, 2.6vh, 28px) clamp(16px, 5vw, 80px);
+    }
+
+    .brand {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+    }
+
+    .brand img {
+      width: clamp(76px, 15vh, 130px);
+      height: auto;
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      min-height: 0;
+      place-items: center;
+      padding: clamp(10px, 2.6vh, 56px) 0;
+    }
+
+    .not-found {
+      width: min(100%, 1040px);
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(180px, 0.85fr);
+      align-items: center;
+      gap: clamp(16px, 4vw, 104px);
+      padding: clamp(16px, 4.2vh, 68px) clamp(18px, 4vw, 68px);
+      border: 1px solid var(--line);
+      border-radius: clamp(18px, 3vh, 32px);
+      background: var(--surface);
+      box-shadow: 0 24px 70px rgba(118, 26, 2, 0.14);
+      backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      margin: 0 0 clamp(7px, 1.6vh, 18px);
+      color: var(--primary);
+      font: 600 clamp(0.64rem, 1.5vh, 0.8rem)/1.2 "JetBrains Mono", monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 640px;
+      margin: 0;
+      font-size: clamp(1.7rem, min(5.4vw, 8.4vh), 5.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .message {
+      max-width: 520px;
+      margin: clamp(9px, 2vh, 24px) 0 0;
+      color: var(--muted);
+      font-size: clamp(0.82rem, min(1.5vw, 2.4vh), 1.2rem);
+    }
+
+    .path {
+      display: block;
+      max-width: 100%;
+      margin-top: clamp(7px, 1.6vh, 18px);
+      overflow: hidden;
+      color: var(--primary);
+      font: 500 clamp(0.64rem, 1.4vh, 0.8rem)/1.5 "JetBrains Mono", monospace;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: clamp(12px, 2.8vh, 32px);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: clamp(36px, 5.8vh, 48px);
+      align-items: center;
+      justify-content: center;
+      padding: 8px clamp(15px, 2.4vw, 22px);
+      border: 1px solid var(--primary);
+      border-radius: 999px;
+      font-size: clamp(0.8rem, 1.9vh, 1rem);
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .button-secondary {
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .button-secondary:hover {
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .illustration {
+      display: grid;
+      min-height: 0;
+      place-items: center;
+    }
+
+    .illustration-img {
+      display: block;
+      width: auto;
+      max-width: min(100%, 520px);
+      max-height: min(46vh, 420px);
+      height: auto;
+      filter: drop-shadow(0 22px 38px rgba(118, 26, 2, 0.18));
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: clamp(0.66rem, 1.5vh, 0.85rem);
+    }
+
+    :focus-visible {
+      outline: 3px solid #c45d39;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 14px 16px;
+      }
+
+      main {
+        padding: clamp(8px, 2vh, 24px) 0;
+      }
+
+      .not-found {
+        grid-template-columns: 1fr;
+        gap: clamp(6px, 1.4vh, 12px);
+        padding: clamp(14px, 2.8vh, 28px) clamp(14px, 4.5vw, 22px) clamp(16px, 3vh, 34px);
+      }
+
+        .not-found > div {
+          min-width: 0;
+        }
+
+      .illustration {
+        order: -1;
+      }
+
+      .illustration-img {
+        max-width: min(100%, 320px);
+        max-height: min(30vh, 240px);
+      }
+    }
+
+    /* A window shorter than this cannot hold the layout without shrinking
+       text to unreadable sizes — restore scrolling rather than clipping the
+       buttons out of reach. */
+    @media (max-height: 420px) {
+      html,
+      body {
+        height: auto;
+      }
+
+      body {
+        overflow-y: auto;
+      }
+
+      .page {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="./" aria-label="Browsent home">
+        <img id="brand-logo" src="assets/svgs/browsent_logo_brown.avif" alt="Browsent">
+      </a>
+    </header>
+
+    <main>
+      <section class="not-found" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Error 404 · Route not found</p>
+          <h1 id="page-title">This page took a wrong turn.</h1>
+          <p class="message">The link may be outdated, or the address may have been typed incorrectly. Let’s get you back to something useful.</p>
+          <code class="path" id="requested-path" aria-label="Requested address"></code>
+          <div class="actions">
+            <a class="button button-primary" href="./">Back to home</a>
+            <a class="button button-secondary" id="back-button" href="./">Go back</a>
+          </div>
+        </div>
+
+        <div class="illustration">
+          <img id="not-found-art" class="illustration-img"
+            src="assets/images/404%20Illustration.png"
+            alt="Illustration of a person searching with a magnifying glass in front of a giant 404"
+            width="1451" height="1084" decoding="async">
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Browsent. All rights reserved.</footer>
+  </div>
+
+  <script>
+    (() => {
+      /* This page is served by GitHub Pages for ANY missing path, at any depth
+         (e.g. /browsentWebsite/foo/bar/), so relative URLs ("./", "assets/…")
+         would resolve against that dead path and 404 again. Pin them to the
+         site root instead: on a GitHub Pages project site the site lives under
+         /<repository>/, anywhere else (local server) it is the root itself.
+         UPDATE the repository name below if the site is ever renamed. */
+      const SITE_BASE = window.location.hostname.endsWith('.github.io')
+        ? '/browsentWebsite/'
+        : '/';
+
+      const logo = document.getElementById('brand-logo');
+      if (logo) logo.src = SITE_BASE + 'assets/svgs/browsent_logo_brown.avif';
+      /* The illustration is pinned the same way for the same reason — a space
+         in the filename is written %20 so the URL is valid as-is. */
+      const art = document.getElementById('not-found-art');
+      if (art) art.src = SITE_BASE + 'assets/images/404%20Illustration.png';
+      document.querySelectorAll('a[href="./"]').forEach((a) => { a.href = SITE_BASE; });
+
+      const path = `${window.location.pathname}${window.location.search}`;
+      document.getElementById('requested-path').textContent = path;
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const backButton = document.getElementById('back-button');
+      if (document.referrer && new URL(document.referrer).origin === window.location.origin) {
+        backButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.history.back();
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

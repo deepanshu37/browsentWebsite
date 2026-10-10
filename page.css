@@ -161,6 +161,13 @@
   display: block;
 }
 
+/* Variant for panels that wrap a full-width section (e.g. #success-stories
+   wraps section.work, which already carries its own .container padding) —
+   the default 4% padding would double up and squeeze the section. */
+.tab-panel--flush {
+  padding: 0;
+}
+
 @keyframes tabFadeIn {
   from {
     opacity: 0;

@@ -18,6 +18,31 @@
   const SCRIPT_BASE = new URL('.', (document.currentScript && document.currentScript.src) || window.location.href);
   const asset = (path) => new URL(path, SCRIPT_BASE).href;
 
+  /* Internal links are authored relative to the page that owns them: the
+     homepage writes "about-us/" while every subpage writes "../about-us/".
+     The SPA router swaps only <main>, so <header>/<footer> keep the hrefs of
+     the page the visitor first landed on — and those rot the moment
+     pushState moves the URL to another depth. That is how clicks produced
+     …/ai-solutions/ai-solutions/#ai-agent, …/contact-us/about-us/ and even
+     URLs that escaped the site root (GitHub's "There isn't a GitHub Pages
+     site here"). Rewriting every internal href to an absolute URL — at load
+     time, and against the SOURCE page's URL before a swap — makes links
+     immune to wherever the URL currently points. Idempotent: absolute hrefs
+     and external schemes are left untouched, and href="#" stays "#" so the
+     dropdown toggles keep working. */
+  const EXTERNAL_HREF = /^(?:https?:|mailto:|tel:|javascript:|data:)/i;
+  function absolutizeLinks(scope, base) {
+    $$('a[href]', scope).forEach((a) => {
+      const raw = a.getAttribute('href');
+      if (!raw || raw === '#' || EXTERNAL_HREF.test(raw)) return;
+      if (a.hasAttribute('download') || a.target === '_blank') return;
+      try { a.href = new URL(raw, base).href; } catch { /* keep the raw href */ }
+    });
+  }
+  /* Script sits at the end of <body>, so the DOM (header, footer and all) is
+     already parsed when this runs. */
+  absolutizeLinks(document, document.baseURI);
+
   // ---- 2. Footer year ----
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -600,77 +625,148 @@
     if (!window.history.pushState) return;
 
     let isLoading = false;
+    let queuedNav = null;
+    /* The pathname whose markup is currently in #main-content. navigateTo()
+       pushes the URL BEFORE render() runs, so comparing against
+       location.pathname would always say "same document" and never swap the
+       content — this variable is the real source of truth for that decision. */
+    let renderedPath = window.location.pathname;
+    /* /page and /page/ serve the same document (a server may or may not
+       redirect between them), as do /page/ and /page/index.html. Compare
+       normalised, or a trailing slash would turn a same-page tab switch into
+       a full re-swap of identical content. */
+    function normPath(p) {
+      return p.replace(/index\.html$/, '').replace(/([^/])$/, '$1/');
+    }
 
-    async function navigateTo(path) {
-      if (isLoading) return;
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    /* GitHub Pages answers every miss with a real 404 page, and a deploy or
+       CDN hiccup can make a valid path 404 for a few seconds — retry once
+       before giving up so a transient blip never bounces the visitor onto an
+       error page. */
+    async function fetchPage(pathname) {
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          const res = await fetch(pathname);
+          if (res.ok) return await res.text();
+        } catch { /* network error — retry */ }
+        if (attempt === 0) await delay(400);
+      }
+      return null;
+    }
+
+    /* Renders a route into the page WITHOUT touching history. navigateTo()
+       owns pushState; popstate calls this directly because the browser has
+       already restored the URL — pushing there would duplicate history
+       entries and drop the hash. */
+    async function render(path) {
+      /* A click landing mid-transition used to be swallowed outright (the
+         click handler already ran preventDefault). Remember it and run it the
+         moment the current navigation settles instead of dropping it. */
+      if (isLoading) { queuedNav = path; return; }
       isLoading = true;
 
-      const url = new URL(path, window.location.href);
-
-      if (url.pathname === window.location.pathname) {
-        if (url.hash) {
-          history.pushState({ path: url.pathname }, '', url.pathname + url.hash);
-          initTabs();
-          setTimeout(() => {
-            const target = document.getElementById(url.hash.slice(1));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 50);
-        }
-        isLoading = false;
-        return;
-      }
-
       try {
-        const res = await fetch(url.pathname);
-        if (!res.ok) throw new Error('Fetch failed');
-        const html = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+        const url = new URL(path, window.location.href);
+
+        if (normPath(url.pathname) === normPath(renderedPath)) {
+          /* Same document: initTabs() reads location.hash, so the URL must
+             already carry the hash when this runs (navigateTo pushes first). */
+          initTabs();
+          if (url.hash) {
+            setTimeout(() => {
+              const target = document.getElementById(url.hash.slice(1));
+              if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+          } else {
+            /* Same page, no hash — "Who We Are" on /about-us/, "Contact Us"
+               on /contact-us/: scroll to the top instead of doing nothing. */
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+          return;
+        }
+
+        const html = await fetchPage(url.pathname);
+        if (!html) throw new Error('Page not found: ' + url.pathname);
+
+        const doc = new DOMParser().parseFromString(html, 'text/html');
         const newMain = doc.querySelector('#main-content');
-        const newTitle = doc.title;
         if (!newMain) throw new Error('No main content');
 
         const currentMain = document.querySelector('#main-content');
         if (!currentMain) throw new Error('No current main');
 
+        /* The fetched markup came from ANOTHER page, so its relative hrefs
+           only make sense against that page's URL — absolutise them before
+           they meet the new location. */
+        absolutizeLinks(newMain, new URL(url.pathname, window.location.href));
+
         currentMain.style.opacity = '0';
         currentMain.style.transition = 'opacity 0.25s ease';
+        await delay(250);
 
-        setTimeout(() => {
-          currentMain.innerHTML = newMain.innerHTML;
-          currentMain.className = newMain.className;
+        currentMain.innerHTML = newMain.innerHTML;
+        currentMain.className = newMain.className;
+        renderedPath = url.pathname;
 
-          requestAnimationFrame(() => {
-            currentMain.style.transition = 'opacity 0.35s ease';
-            currentMain.style.opacity = '1';
-          });
+        requestAnimationFrame(() => {
+          currentMain.style.transition = 'opacity 0.35s ease';
+          currentMain.style.opacity = '1';
+        });
 
-          if (newTitle) document.title = newTitle;
+        if (doc.title) document.title = doc.title;
 
-          const newUrl = url.pathname + (url.hash || '');
-          history.pushState({ path: url.pathname }, '', newUrl);
+        await delay(400);
 
+        currentMain.style.opacity = '';
+        currentMain.style.transition = '';
+
+        reInit();
+
+        if (url.hash) {
           setTimeout(() => {
-            currentMain.style.opacity = '';
-            currentMain.style.transition = '';
-
-            reInit();
-
-            if (url.hash) {
-              setTimeout(() => {
-                const target = document.getElementById(url.hash.slice(1));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }, 50);
-            } else {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            isLoading = false;
-          }, 400);
-        }, 250);
+            const target = document.getElementById(url.hash.slice(1));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       } catch {
-        window.location.href = url.pathname + (url.hash || '');
+        /* Last resort: a real page load. A genuinely missing path now lands on
+           the branded 404.html (GitHub Pages serves it for every miss), which
+           offers "Back to home" / "Go back" instead of a dead end. A URL
+           outside the site root is never loaded — that is what produced
+           deepanshu37.github.io/<page> ("There isn't a GitHub Pages site
+           here"). */
+        const url = new URL(path, window.location.href);
+        const inSite = url.origin === window.location.origin
+          && url.pathname.startsWith(SCRIPT_BASE.pathname);
+        window.location.href = inSite
+          ? url.pathname + (url.hash || '')
+          : SCRIPT_BASE.pathname;
+      } finally {
+        /* Always release the lock — an exception anywhere above used to leave
+           every button on the page dead until a manual reload. */
+        isLoading = false;
+        if (queuedNav) {
+          const next = queuedNav;
+          queuedNav = null;
+          render(next);
+        }
       }
+    }
+
+    async function navigateTo(path) {
+      const url = new URL(path, window.location.href);
+      /* Update the URL first: initTabs() reads location.hash, so the URL is
+         the single source of truth for which tab is open. Push only when it
+         actually changes — a duplicate entry breaks the Back button. */
+      const target = url.pathname + (url.hash || '');
+      if (target !== window.location.pathname + window.location.hash) {
+        history.pushState({ path: url.pathname }, '', target);
+      }
+      render(target);
     }
 
     window.__router = { navigate: navigateTo };
@@ -679,24 +775,50 @@
       if (e.defaultPrevented) return;
       const link = e.target.closest('a[href]');
       if (!link) return;
-      let href = link.getAttribute('href');
-      if (!href) return;
-      if (href.startsWith('#')) return;
-      if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      const raw = link.getAttribute('href');
+      /* Dropdown toggles keep href="#" and are handled by their own code. */
+      if (!raw || raw === '#') return;
       if (link.hasAttribute('download') || link.target === '_blank') return;
-      try {
-        const url = new URL(href, window.location.href);
-        if (url.origin !== window.location.origin) return;
-        e.preventDefault();
-        navigateTo(url.pathname + (url.hash || ''));
-      } catch { return; }
+
+      /* Decide by the RESOLVED url, never by string prefix. Internal hrefs
+         are absolutised at load time, so a "startsWith('http')" test rejects
+         every internal link and silently disables the router — hash links
+         then only move the URL while the visible tab stays where it was.
+         mailto:, tel: and javascript: resolve with an opaque "null" origin,
+         so the origin check below filters those out as well. */
+      let url;
+      try { url = new URL(raw, window.location.href); } catch { return; }
+      if (url.origin !== window.location.origin) return;
+      /* Never fetch a URL that lives outside the site root: a relative link
+         that climbs above it is a bug, and fetching it 404s on GitHub
+         Pages. Let the browser handle such links normally. */
+      if (!url.pathname.startsWith(SCRIPT_BASE.pathname)) return;
+
+      e.preventDefault();
+      navigateTo(url.pathname + (url.hash || ''));
     });
 
-    window.addEventListener('popstate', (e) => {
-      if (e.state && e.state.path) navigateTo(e.state.path);
+    window.addEventListener('popstate', () => {
+      /* The browser has already restored the URL — render it as-is. Pushing
+         here would duplicate history entries and drop the hash, which is what
+         made Back/Forward through #ai-consulting → #ai-roadmap mangle the
+         URL and leave the tabs out of sync. */
+      render(window.location.pathname + window.location.hash);
+    });
+
+    /* Safety net: any hash change the router did not cause (Back/Forward, a
+       native click on a link, a manually edited URL) still has to open the
+       matching tab — the URL stays the source of truth for tab state. */
+    window.addEventListener('hashchange', () => {
+      const id = window.location.hash.slice(1);
+      if (id && document.getElementById(id)) initTabs();
     });
 
     function reInit() {
+      /* Safety net: any markup injected after the initial load gets the same
+         absolute-link treatment (already-absolute hrefs are untouched). */
+      absolutizeLinks(document, document.baseURI);
+
       const newRevealEls = $$('[data-reveal]');
       newRevealEls.forEach(el => {
         const rect = el.getBoundingClientRect();
