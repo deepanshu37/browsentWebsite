@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting… | Browsent</title>
+  <link rel="canonical" href="index.html">
+  <!-- The AWS CDN rewrites /page/ to /page/home.html (a leftover from the old
+       site layout). This stub keeps legacy clean URLs working: it forwards to
+       the real page in the same folder and preserves ?query and #hash. -->
+  <script>
+    location.replace('index.html' + location.search + location.hash);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=index.html"></noscript>
+</head>
+
+<body>
+  <p>Redirecting to <a href="index.html">the page</a>…</p>
+</body>
+
+</html>

@@ -639,6 +639,16 @@
       return p.replace(/index\.html$/, '').replace(/([^/])$/, '$1/');
     }
 
+    /* The AWS deployment sits behind a CloudFront function that rewrites a
+       folder URL such as /ai-strategy/ to /ai-strategy/home.html (a leftover
+       from the old home.html-based site). Each page actually lives at
+       index.html, so fetching the clean URL would return a small redirect
+       stub instead of page markup. Fetch the real file explicitly; the
+       address bar and router state keep the clean URL. */
+    function withIndex(pathname) {
+      return pathname.endsWith('/') ? pathname + 'index.html' : pathname;
+    }
+
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     /* GitHub Pages answers every miss with a real 404 page, and a deploy or
@@ -687,7 +697,7 @@
           return;
         }
 
-        const html = await fetchPage(url.pathname);
+        const html = await fetchPage(withIndex(url.pathname));
         if (!html) throw new Error('Page not found: ' + url.pathname);
 
         const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -743,7 +753,7 @@
         const inSite = url.origin === window.location.origin
           && url.pathname.startsWith(SCRIPT_BASE.pathname);
         window.location.href = inSite
-          ? url.pathname + (url.hash || '')
+          ? withIndex(url.pathname) + (url.hash || '')
           : SCRIPT_BASE.pathname;
       } finally {
         /* Always release the lock — an exception anywhere above used to leave
